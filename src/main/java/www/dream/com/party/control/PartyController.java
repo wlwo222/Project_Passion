@@ -81,6 +81,7 @@ public class PartyController implements AuthenticationSuccessHandler, AccessDeni
 	@PostMapping("updateMember")
 	public void updateMember(Member newBie) {
 		System.out.println(newBie);
+		
 		partyService.updateMember(newBie);
 	}
 	

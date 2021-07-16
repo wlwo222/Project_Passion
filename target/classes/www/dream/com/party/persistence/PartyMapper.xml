@@ -84,16 +84,18 @@
 	
 	<!-- public int upDateMember(Member party); -->
 	
-	<update id="upDateMember">
-		merge into s_party p
-		using (select cp.*
-				 from s_contact_point cp  
-				where cp.USER_ID = 'ghost'
-				  and cp.contact_point_type = 'address')
-		   on (p.USER_ID = 'ghost')
-   	     when matched then
-	   update set cp.info = '테스트'
-	</update>
+	<update id="updateMember">
+	
+   	<foreach collection="listContactPoint" item="CP" open="BEGIN"  close="; END;" separator=";">
+		UPDATE s_contact_point cp SET cp.info=#{CP.info}
+         <where>
+        cp.contact_point_type=#{CP.contactPointType}
+         AND cp.user_id=#{userId}
+         </where>	
+    </foreach>
+    </update>
+    
+    
 	<!--            연락처 관련 정의 영역               -->
 	<resultMap type="www.dream.com.party.model.ContactPointTypeVO" id="cpMap">
 		<id property="cpType" column="contact_point_type"></id>

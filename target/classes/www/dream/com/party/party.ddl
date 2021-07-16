@@ -89,13 +89,7 @@ insert into s_contact_point(user_id, contact_point_type, info)
 insert into s_contact_point(user_id, contact_point_type, info)
 	values('lee', 'address', '조선 충청도 아산');
 	
-UPDATE s_party p
-   SET p.user_id = (SELECT 'admin' 
-   				 	  FROM s_contact_point cp
-   				 	 WHERE p.user_id = cp.user_id 
-   				   	   AND cp.mobileNum = '010-2232-2212')
- WHERE p.계급 is null
-   AND EXISTS (SELECT 1 FROM 재산 b WHERE a.사람이름 = b.사람이름 AND b.재산이름 = '자동차');
+
 
 
 

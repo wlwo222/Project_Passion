@@ -1,6 +1,11 @@
 package www.dream.com.party.persistence;
 
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertNotNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -11,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import www.dream.com.party.model.Party;
+import www.dream.com.party.model.ContactPointTypeVO;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -24,7 +29,7 @@ public class PartyMapperTest {
 	@Autowired
 	private PartyMapper partyMapper;
 
-	@Test
+	//@Test
 	public void test100GetList() {
 		assertNotNull(partyMapper);
 		try {
@@ -34,11 +39,15 @@ public class PartyMapperTest {
 		}
 	}
 
-	//@Test
-	public void test200FindPartyByUserId() {
+	@Test
+	public void test200FindContact() {
 		try {
-			Party found = partyMapper.findPartyByUserId("admin");
-			found.getAuthorityList().forEach(auth -> {System.out.println(auth);});
+			List<ContactPointTypeVO> listContact = partyMapper.getCPTypeList();
+			assertNotNull(listContact);
+			System.out.println(listContact);
+			listContact.forEach(cp->{
+				System.out.println(cp);
+			});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -49,6 +58,7 @@ public class PartyMapperTest {
 		try {
 			partyMapper.getList().forEach(p->{
 				p.setUserPwd(pwEncoder.encode("1234"));
+				System.out.println(p.getUserPwd());
 				partyMapper.setPwd(p);
 			});
 		} catch (Exception e) {
