@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="www.dream.com.product.persistence.ProductMapper">
+	<resultMap type="www.dream.com.product.model.ProductVO"
+		id="rmProduct"
+		extends="www.dream.com.common.persistence.CommonMngVOMapper.commonMngVOMap">
+		<id property="productId" column="p_id"></id>
+		<result property="categoryId" column="category_id"></result>
+		<result property="quantity" column="quantity"></result>
+		<result property="productName" column="p_name"></result>
+		<result property="price" column="price"></result>
+		<result property="productSize" column="p_size"></result>
+	</resultMap>
+	
+	<resultMap type="www.dream.com.common.category.Category" id="cateMap">
+		<id property="categoryId" column="category_id"></id>
+		<result property="categoryName" column="category_name"></result>
+		<collection property="productList" columnPrefix="ct_" 
+					resultMap="rmProduct">
+		</collection>
+	</resultMap>
+	
+	<!-- public List<ProductVO> getList(); -->
+	<select id="getList" resultMap="rmProduct">
+	<![CDATA[
+		select * from s_products
+	]]>
+	</select>
+	
+	<!-- public List<Category> getCategories(); -->
+	<select id="getCategories" resultMap="cateMap">
+	<![CDATA[
+		select ct.*,
+			p.p_id ct_p_id, p.category_id ct_category_id, p.quantity ct_quantity,
+			p.p_name ct_p_name, p.price ct_price, p.p_size ct_p_size
+		from  categories ct left outer join s_products p on ct.category_id = p.category_id 
+    		where length(ct.category_id)<= 4
+    ]]>
+	</select>
+	
+	<!-- public List<ProductVO> getDetailCategory(Category cate); -->
+	<select id="getDetailCategory" resultMap="rmProduct">
+	<![CDATA[
+	select p.*
+	  from (
+		select ct.category_id
+		  from categories ct
+		 where ct.category_id like #{categoryId}||'%'
+           and length(category_id)> 5) dt left outer join s_products p 
+     on dt.category_id = p.category_id
+	]]>		
+	</select>
+	
+
+</mapper>

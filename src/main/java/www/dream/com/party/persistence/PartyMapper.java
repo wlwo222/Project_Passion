@@ -2,15 +2,12 @@ package www.dream.com.party.persistence;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
-import www.dream.com.party.model.ContactPoint;
 import www.dream.com.party.model.ContactPointTypeVO;
-import www.dream.com.party.model.Party;
 import www.dream.com.party.model.Member;
+import www.dream.com.party.model.Party;
 
 /**
- * Mybatis를 활용하여 Party 종류의 객체를 관리하는 인터페이스
+ * MYBATIS를 활용하여 Party 종류의 객체를 관리하는 인터페이스
  * @author ivarBae
  */
 public interface PartyMapper {
@@ -25,7 +22,7 @@ public interface PartyMapper {
 	public int setPwd(Party p) ;
 	public int updateMember(Member party);
 	//Delete
-	
+	public int resignMember(String userId);
 	/** 연락처 관련 정의 영역  */
 	public List<ContactPointTypeVO> getCPTypeList();
 }

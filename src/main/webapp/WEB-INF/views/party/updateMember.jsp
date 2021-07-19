@@ -20,12 +20,15 @@
 				</div>
 				
 				<div class="form-group">
-					<label>회원 닉네임</label> <input name="name" placeholder="재미있는 자기이름" class="form-control" readonly>
+					<label>회원 닉네임</label> <input name="name" placeholder="재미있는 자기이름" class="form-control">
 				</div>
 				
 				<div class="form-group">
-					<label>생년월일</label> <input type="date" name="birthDate" class="form-control" readonly>
-				</div>			
+					<label>생년월일</label> <input type="date" name= "birthDate" value= <sec:authentication property="principal.curUser.birthDate"/> class="form-control" readonly>
+				</div>
+				
+				<!-- 성별의 정보 -->			
+				<input name="male" value= <sec:authentication property="principal.curUser.male"/>>
 				
 				<c:forEach items="${listCpType}" var="contactPointType" varStatus="status">
 					<div class="form-group">
