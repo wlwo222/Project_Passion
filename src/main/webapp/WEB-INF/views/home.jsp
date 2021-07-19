@@ -21,7 +21,8 @@
 			<br>
 		</c:forEach>
 		<a href="/party/customLogout">로그아웃</a>
-		<a href="/party/updateMember">회원정보수정관리페이지</a>
+		<a href="/party/updateMember">회원정보수정</a>
+		<a href="/party/resignMember">회원 탈퇴</a>
 	</sec:authorize>
 		
 	<a href="/party/joinMember"> 회원가입</a>

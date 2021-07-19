@@ -35,13 +35,17 @@ public class PartyService implements UserDetailsService {
 	public List<ContactPointTypeVO> getCPTypeList() {
 		return partyMapper.getCPTypeList();
 	}
-	
+	//회원가입
 	public int joinMember(Member party) {
 		return partyMapper.joinMember(party);
 	}
-	
+	//회원정보 수정
 	public int updateMember(Member party) {
 		return partyMapper.updateMember(party);
+	}
+	//회원 탈퇴
+	public int resignMember(String userId) {
+		return partyMapper.resignMember(userId);
 	}
 	
 	@Override

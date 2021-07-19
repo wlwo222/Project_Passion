@@ -85,6 +85,17 @@ public class PartyController implements AuthenticationSuccessHandler, AccessDeni
 		partyService.updateMember(newBie);
 	}
 	
+	
+	@GetMapping("resignMember")
+	public void resignMember() {
+			}
+	
+	@PostMapping("resignMember")
+	public void resignMember(String UserId) {
+		System.out.println(UserId);
+		partyService.resignMember(UserId);
+			}
+	
 	/**
 	 * 로그인 성공 시 각 사용자의 권한 유형에 따라 개인화된 화면을 연동 시켜주기 위한 기능을 이곳에서 개발 합니다.
 	 */

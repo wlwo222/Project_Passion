@@ -40,6 +40,3 @@ create table s_reply(
 	dislike_cnt		number(9)		default 0
 );
 create index idx_reply_board_id on s_reply(board_id, id);
-
-
-

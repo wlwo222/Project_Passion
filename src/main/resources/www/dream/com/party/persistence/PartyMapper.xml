@@ -85,8 +85,12 @@
 	<!-- public int upDateMember(Member party); -->
 	
 	<update id="updateMember">
-	
-   	<foreach collection="listContactPoint" item="CP" open="BEGIN"  close="; END;" separator=";">
+		BEGIN
+		UPDATE s_party p 
+		   SET p.name = #{name}
+         where
+         p.user_id = #{userId};
+   	<foreach collection="listContactPoint" item="CP" open=""  close="; END;" separator=";">
 		UPDATE s_contact_point cp SET cp.info=#{CP.info}
          <where>
         cp.contact_point_type=#{CP.contactPointType}
@@ -95,6 +99,17 @@
     </foreach>
     </update>
     
+    <!-- public int resignMember(String userId); -->
+   	<delete id="resignMember">
+		begin
+		delete from s_contact_point cp
+		   	 where cp.user_id = #{UserId};
+		   	 
+		delete from s_party p
+		   	 where p.user_id = #{UserId};
+		end;
+   	</delete> 
+   
     
 	<!--            연락처 관련 정의 영역               -->
 	<resultMap type="www.dream.com.party.model.ContactPointTypeVO" id="cpMap">

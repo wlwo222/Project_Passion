@@ -25,7 +25,7 @@ public interface PartyMapper {
 	public int setPwd(Party p) ;
 	public int updateMember(Member party);
 	//Delete
-	
+	public int resignMember(String userId);
 	/** 연락처 관련 정의 영역  */
 	public List<ContactPointTypeVO> getCPTypeList();
 }
