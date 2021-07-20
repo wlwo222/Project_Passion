@@ -1,4 +1,4 @@
-package www.dream.com.common.category;
+package www.dream.com.common.category.model;
 
 import java.util.ArrayList;
 import java.util.List;

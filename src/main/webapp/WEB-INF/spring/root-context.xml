@@ -36,6 +36,8 @@
 	<context:component-scan base-package="www.dream.com.bulletinBoard.service"/>
 	<context:component-scan base-package="www.dream.com.common.attachFile.service"/>
 	<context:component-scan base-package="www.dream.com.hashTag.service"/>
+	<context:component-scan base-package="www.dream.com.product.service"/>
+	
 	
 	<mybatis-spring:scan base-package="www.dream.com.common.persistence"/>
 	<mybatis-spring:scan base-package="www.dream.com.common.attachFile.persistence"/>
@@ -43,7 +45,7 @@
 	<mybatis-spring:scan base-package="www.dream.com.bulletinBoard.persistence"/>
 	<mybatis-spring:scan base-package="www.dream.com.hashTag.persistence"/>
 	<mybatis-spring:scan base-package="www.dream.com.product.persistence"/>
-	
+
 	
 	<mybatis-spring:scan base-package="www.dream.com.selectKey.persistence"/>
 	

@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import www.dream.com.common.category.Category;
+import www.dream.com.common.category.model.Category;
 import www.dream.com.product.model.ProductVO;
 
 
@@ -22,7 +22,7 @@ public class ProductMapperTest {
 	private ProductMapper productMapper;
 	
 	
-	//@Test
+	@Test
 	public void test000GetList() {
 		try {
 			productMapper.getList().forEach(p->{

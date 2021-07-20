@@ -25,6 +25,7 @@
 	</sec:authorize>
 		
 	<a href="/party/joinMember"> 회원가입</a>
-
+	<a href="/product/listByProduct"> 상품구경하러가기</a>
+	<a href="/product/registerProduct"> 상품맹글기</a>
 </body>
 </html>
