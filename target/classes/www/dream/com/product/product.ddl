@@ -52,3 +52,30 @@ create table order_list(
 	quantity			number(9),
 	p_id				varchar2(500)
 );
+
+--p_id,product_size_type
+create table s_product_size(
+	p_id				varchar2(20),
+	product_size_type	varchar2(50),
+	primary key (p_id, product_size_type),
+	CONSTRAINT fk_ps_size FOREIGN KEY(p_id) REFERENCES s_products(p_id)
+);
+insert into s_product_size_type(p_id,product_size_type)
+	values('inch', '인치')
+
+--product_size_type, description
+create table s_product_size_type(
+	product_size_type	varchar2(50)		primary key,
+	description			varchar2(100)
+);
+
+insert into s_product_size_type(product_size_type, description)
+	values('inch', '인치')
+insert into s_product_size_type(product_size_type, description)
+	values('mm', '밀리미터')
+insert into s_product_size_type(product_size_type, description)
+	values('cm', '센치미터')
+insert into s_product_size_type(product_size_type, description)
+	values('문', '발사이즈')
+insert into s_product_size_type(product_size_type, description)
+	values('직접입력', '사용자가 직접입력')	

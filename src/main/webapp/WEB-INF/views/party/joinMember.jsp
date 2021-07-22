@@ -63,17 +63,39 @@ $(document).ready(function(){
 	var csrfHN = "${_csrf.headerName}";
 	var csrfTV = "${_csrf.token}";
 	
-	$(document).ajaxSend(
+	/*function isExist(id, list) {
+		for(var i =0; i < list.length; i++){
+			if(list[i] === id)
+				var res = "중복";
+			else
+				var res = '노중복';
+		}
+		alert(res);
+	}*/
+	
+	/*$(document).ajaxSend(
 		function(e, xhr) {
 			xhr.setRequestHeader(csrfHN, csrfTV);
 		}
-	);
+	);*/
 	
 	$("#userId").on("focusout", function(e) {
+		var newBieId = $(this).val();	
 		//회원 ID가 유일한가를 Ajax로 검사하고 그렇지 못할 때는 Focus를 다시 받아야합니다. (우리가 개발해야되는거) -> 중복성 체크를 ajax로 해야됨
+		var UserIdList = new Array();
+		UserIdList = ${UserIdList};
+		//UserIdList.contains(container, contained)
+		if(UserIdList.includes(newBieId)){
+			//중복일경우
+			alert("cool");
+		} else {
+			//중복이 아닌경우
+			alert("cooleeee");
+		}
 		//처음에 alert 넣어서 확인하기
+		
 	});
-	
+});
 	/*
 	var frmPost = $("#frmPost");
 	

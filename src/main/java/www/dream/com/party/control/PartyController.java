@@ -64,7 +64,13 @@ public class PartyController implements AuthenticationSuccessHandler, AccessDeni
 		
 	@GetMapping("joinMember")
 	public void joinMember(Model model) {
+		List<String> UserIdList = new ArrayList<>();
+		partyService.getList().forEach(p->{
+			String pp = p.getUserId();
+			UserIdList.add("'"+ pp +"'");
+		});
 		model.addAttribute("listCpType", partyService.getCPTypeList());
+		model.addAttribute("UserIdList", UserIdList);
 	}
 	
 	@PostMapping("joinMember")
