@@ -1,0 +1,156 @@
+@charset "UTF-8";
+/*************************
+*******Typography******
+**************************/
+@import
+	url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100)
+	;
+
+@import
+	url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700)
+	;
+
+@import url(http://fonts.googleapis.com/css?family=Abel);
+
+@import url(http://fonts.googleapis.com/icon?family=Material+Icons);
+
+@import
+	url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap')
+	;
+@import
+	url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+	@font-face {
+    font-family: 'neon';
+    src: url('/resources/images/404/Sunday&Monday.ttf') format('truetype');
+}
+/*******************header***********************/
+body {
+	overflow-x: hidden;
+	background-image: url(/resources/images/404/111.jpg);
+	min-height: 100vh;
+}
+
+#header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 30px 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 10000;
+}
+
+#header .logo {
+	color: #c7b299;
+	font-weight: 700;
+	font-size: 2em;
+	text-decoration: none;
+}
+
+#header ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#header ul li {
+	list-style: none;
+	margin-left: 20px;
+}
+
+#header ul li a {
+	text-decoration: none;
+	padding: 6px 15px;
+	color: #094b65;
+	border-radius: 20px;
+}
+
+#header ul li a:hover, #header ul li a:active {
+	background: #c7b299;
+	color: #fff;
+}
+
+section .gradation {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+section .gradation::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	background: linear-gradient(to top, #c7b299, transparent);
+	z-index: 10;
+}
+
+section .gradation img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	pointer-events: none;
+}
+
+section .gradation #t-text {
+	position: absolute;
+	color: #fff;
+	font-size: 7vw;
+	text-align: center;
+	line-height: 0.55em;
+	font-family: 'neon';
+	transform: translateY(-50%);
+	@font-face {
+    font-family: 'neon';
+    src: url('/resources/images/404/Sunday&Monday.ttf') format('truetype');
+}
+}
+
+section .gradation #t-text span {
+	font-size: 0.20em;
+	letter-spacing: 2px;
+	font-weight: 400;
+	font-family: 'Poppins', sans-serif;
+}
+
+#g_btn {
+	text-decoration: none;
+	display: inline-block;
+	padding: 8px 30px;
+	background: #c7b299;
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: 500;
+	letter-spacing: 2px;
+	border-radius: 40px;
+	transform: translateY(80px);
+}
+
+.sec {
+	position: relative;
+	padding: 100px;
+	background: #c7b299;
+}
+
+.sec h2 {
+	font-size: 6em;
+	color: #fff;
+	margin-bottom: 10px;
+	font-family: 'Rancho', cursive;
+	
+}
+
+.sec p {
+	font-size: 1em;
+	color: #fff;
+}

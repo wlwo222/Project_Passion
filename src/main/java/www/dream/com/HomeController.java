@@ -39,6 +39,6 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		model.addAttribute("boardList", boardService.getList() );
 		
-		return "home";
+		return "firstMain";
 	}
 }
