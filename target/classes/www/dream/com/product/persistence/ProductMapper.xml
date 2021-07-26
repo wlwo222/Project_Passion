@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="www.dream.com.product.persistence.ProductMapper">
+	<resultMap type="www.dream.com.product.model.ProductVO"	id="rmProduct"
+		extends="www.dream.com.common.persistence.CommonMngVOMapper.commonMngVOMap">
+		<id property="productId" column="p_id"></id>
+		<result property="categoryId" column="category_id"></result>
+		<result property="quantity" column="quantity"></result>
+		<result property="productName" column="p_name"></result>
+		<result property="price" column="price"></result>
+		<result property="productSize" column="p_size"></result>
+	</resultMap>
+		
+	<!-- public List<ProductVO> getList(); -->
+	<select id="getList" resultMap="rmProduct">
+	<![CDATA[
+		select * from s_products
+	]]>
+	</select>
+	
+	<!-- public ProductVO findProductById(String id); -->
+	<select id="findProductById" resultMap="rmProduct">
+	<![CDATA[
+		select * 
+	      from s_products
+		 where p_id = #{id}  
+	]]>
+	</select>
+	
+	<!-- public int registerProduct(ProductVO product); -->
+	<insert id="registerProduct">
+		insert
+			into s_products(p_id, category_id, quantity, p_name, price, p_size)
+		values(seq_product_id.nextval, #{categoryId}, #{quantity}, #{productName}, #{price}, #{productSize})
+	</insert>
+	
+	<!-- public int updateProduct(ProductVO product); -->
+	<update id="updateProduct">
+	update s_products
+	   set quantity = #{quantity},
+	   p_name = #{productName},
+	   price = #{price},
+	   p_size = #{productSize},
+	   upt_dt = sysdate
+	 where p_id = #{productId}
+	</update>
+	
+	<!-- public int deleteProductById(String productId); -->
+    <delete id="deleteProductById">
+        delete from s_products 
+            where p_id = #{productId}
+    </delete>
+	
+	<!-- ###################################################카테고리 영역############################################################# -->
+	
+	<resultMap type="www.dream.com.common.category.model.Category" id="cateMap">
+		<id property="categoryId" column="category_id"></id>
+		<result property="categoryName" column="category_name"></result>
+		<collection property="productList" columnPrefix="ct_" 
+					resultMap="rmProduct">
+		</collection>
+	</resultMap>
+	
+	<!-- public List<Category> getCategories(); -->
+	<select id="getCategories" resultMap="cateMap">
+	<![CDATA[
+		select ct.*,
+			p.p_id ct_p_id, p.category_id ct_category_id, p.quantity ct_quantity,
+			p.p_name ct_p_name, p.price ct_price, p.p_size ct_p_size
+		  from  categories ct left outer join s_products p on ct.category_id = p.category_id 
+    	 where length(ct.category_id)<= 4
+    ]]>
+	</select>
+	
+	<!-- public List<ProductVO> getProductByDetailCat(Category cate); -->
+	<select id="getProductByDetailCat" resultMap="rmProduct">
+	<![CDATA[
+		select p.*
+         from s_products p
+          where p.category_id in (
+              select ct.category_id from categories ct
+                  where length(category_id) > 2 and
+                      category_id like #{categoryId} || '%')
+	]]>		
+	</select>
+	
+	
+</mapper>
