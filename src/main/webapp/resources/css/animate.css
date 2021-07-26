@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	-webkit-backface-visibility: hidden;
 }
+/* webkit이라는 도구 임니당. */
 .animated {
 	-webkit-animation-duration: 1.3s;
 	   -moz-animation-duration: 1.3s;
@@ -84,8 +85,8 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 
 .animated.shake {
 	-webkit-animation-name: shake;
-	-moz-animation-name: shake;
-	-o-animation-name: shake;
+	-moz-animation-name: shake;	/*모질라!*/
+	-o-animation-name: shake;	/*오페라!*/
 	animation-name: shake;
 }
 @-webkit-keyframes bounce {

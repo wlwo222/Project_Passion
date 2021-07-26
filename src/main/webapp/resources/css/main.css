@@ -673,88 +673,10 @@ ul.sub-menu {
 }
 
 
--webkit-keyframes fadeInUp { 0% {
-	opacity: 0;
+-webkit-keyframes fadeInUp { 
+	opacity:0;
 	-webkit-transform: translateY(20px);
 	transform: translateY(20px);
-}
-
-100
-
-
-
-
-%
-{
-opacity
-
-
-
-
-:
-
-
-
-
-1
-
-
-;
--webkit-transform
-
-
-
-
-:
-
-
-
-
-translateY
-
-
-(
-
-
-
-
-0
-
-
-
-
-)
-
-
-;
-transform
-
-
-
-
-:
-
-
-
-
-translateY
-
-
-(
-
-
-
-
-0
-
-
-
-
-)
-
-
-;
-}
 }
 
 /*************************
@@ -1300,7 +1222,7 @@ h2.title {
 	transition: height 500ms ease 0s;
 	width: 100%;
 	display: block;
-	opacity:;
+	opacity:0.5;
 }
 
 .single-products:hover .product-overlay {
