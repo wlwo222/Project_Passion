@@ -42,17 +42,17 @@
 <body>
 
 <div class="membershipCSS">
-<sec:authorize access="isAnonymous()">
-        <a href="/party/customLogin">로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="/party/joinMember"> 회원가입</a>
-    </sec:authorize>
-
-    <sec:authorize access="isAuthenticated()">
-
-        <a href="/party/customLogout">로그아웃</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="/party/updateMember">회원정보수정</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="/party/myPage">마이페이지</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </sec:authorize>
+	<sec:authorize access="isAnonymous()">
+	        <a href="/party/customLogin">로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	        <a href="/party/joinMember"> 회원가입</a>
+	</sec:authorize>
+	
+	<sec:authorize access="isAuthenticated()">
+		<sec:authentication property="principal.username"/>님 안녕하십니까 Welcome to POF
+	    <a href="/party/customLogout">로그아웃</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    <a href="/party/updateMember">회원정보수정</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    <a href="/party/myPage">마이페이지</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</sec:authorize>
 </div>
 <jsp:include page="/resources/header.jsp" flush="false"/>
 	<section id="slider">

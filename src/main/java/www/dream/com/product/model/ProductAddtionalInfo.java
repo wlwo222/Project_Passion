@@ -10,11 +10,10 @@ public class ProductAddtionalInfo extends CommonMngVO{
 	private	String productId;
 	private String productAddInfoType;
 	private String description;
-	
+	//0은 score, 1은 image, 2는 quantity, 3은 reviewcount ,4는 size, 5는 color
 	@Override
 	public String toString() {
 		return "ProductAddtionalInfo [productId=" + productId + ", productAddInfoType=" + productAddInfoType
-				+ ", description=" + description + ", toString()=" + super.toString() + "]";
+				+ ", toString()=" + super.toString() + "]";
 	}
-	
 }

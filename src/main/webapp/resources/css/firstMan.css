@@ -17,6 +17,8 @@
 @import
 	url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap')
 	;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+	
 @import
 	url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
 	@font-face {
@@ -28,7 +30,67 @@ body {
 	overflow-x: hidden;
 	background-image: url(/resources/images/404/111.jpg);
 	min-height: 100vh;
+	align-items: center;
+  justify-content: center;
 }
+#g_btn {
+	text-decoration: none;
+	display: inline-block;
+	padding: 8px 30px;
+	font-size: 1.2em;
+	font-weight: 500;
+	border-radius: 40px;
+	z-index: -100;
+	
+}
+span{
+  position: relative;
+  display: inline-flex;
+  width: 180px;
+  height: 55px;
+  margin: 0 15px;
+  perspective: 1000px;
+  
+}
+span a{
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+}
+span a:before,
+span a:after{
+  position: absolute;
+  height: 55px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  box-sizing: border-box;
+  
+}
+
+
+span a:before{
+	content: "GO Shop!";
+  color: #fff;
+  background-image: url(/resources/images/404/101.jpg); 
+  transform: rotateX(-90deg) translateZ(25px);
+}
+span a:after{
+	content: "";
+	background-image: url(/resources/images/404/101.jpg); 
+  color: #fff;
+  transform: rotateY(0deg) translateZ(25px);
+}
+
+span a:hover{
+  transform: translateZ(-25px) rotateX(90deg);
+}
+
 
 #header {
 	position: absolute;
@@ -123,18 +185,7 @@ section .gradation #t-text span {
 	font-family: 'Poppins', sans-serif;
 }
 
-#g_btn {
-	text-decoration: none;
-	display: inline-block;
-	padding: 8px 30px;
-	background: #c7b299;
-	color: #fff;
-	font-size: 1.2em;
-	font-weight: 500;
-	letter-spacing: 2px;
-	border-radius: 40px;
-	transform: translateY(80px);
-}
+
 
 .sec {
 	position: relative;

@@ -8,7 +8,7 @@ drop table s_contact_point_type;
 --Sequence
 drop SEQUENCE seq_party_id;
 
-CREATE SEQUENCE seq_party_id START WITH -990000000 MINVALUE -990000000;
+CREATE SEQUENCE seq_party_id;
 
 --로그인 게시글 생성, 댓글 생성, 대댓글, 첨부파일, 첨부파일 img, mp4 썸네일 확인 audio파일첨부 테스트
 --user_id, user_pwd, name, birth_dt, sex, enabled, reg_dt, upt_dt, descrim
@@ -52,6 +52,10 @@ insert into s_contact_point_type(contact_point_type, description)
 	values('phoneNum', '주소지에 있는 전화 번호');
 insert into s_contact_point_type(contact_point_type, description)
 	values('mobileNum', '핸드폰 번호');
+insert into s_contact_point_type(contact_point_type, description)
+	values('zip_code', '우편번호');
+insert into s_contact_point_type(contact_point_type, description)
+	values('d_addr', '상세주소');
 --insert into s_contact_point_type(contact_point_type, description)
 --	values('nuTuve', '너투브');
 

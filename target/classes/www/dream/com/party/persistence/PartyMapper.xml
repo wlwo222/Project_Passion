@@ -83,7 +83,6 @@
 	</update>
 	
 	<!-- public int upDateMember(Member party); -->
-	
 	<update id="updateMember">
 		BEGIN
 		UPDATE s_party p 
@@ -100,16 +99,22 @@
     </update>
     
     <!-- public int resignMember(String userId); -->
-   	<delete id="resignMember">
-		BEGIN
-		DELETE from s_contact_point cp
-		   	 where cp.user_id = #{UserId};
-		   	 
-		DELETE from s_party p
-		   	 where p.user_id = #{UserId};
-		END;
-   	</delete> 
-   
+	<delete id="resignMember">
+		begin
+		delete from s_contact_point cp
+		where cp.user_id = #{userId};
+			
+		delete from s_party p
+		where p.user_id = #{userId};
+		end;
+	</delete>
+	 
+   <!-- public int idCheck(String userId); -->
+	<select id="idCheck" parameterType= "string" resultType="_int">
+		select count(*) from s_party 
+		where 
+		user_id = #{userId}
+	</select>
     
 	<!--            연락처 관련 정의 영역               -->
 	<resultMap type="www.dream.com.party.model.ContactPointTypeVO" id="cpMap">

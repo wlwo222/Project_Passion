@@ -16,7 +16,8 @@
 <link href="/resources/css/prettyPhoto.css" rel="stylesheet">
 <link href="/resources/css/price-range.css" rel="stylesheet">
 <link href="/resources/css/animate.css" rel="stylesheet">
-<link href="/resources/css/main.css" rel="stylesheet">
+
+<link href="/resources/css/orderProductsInfo.css" rel="stylesheet">
 <link href="/resources/css/responsive.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
@@ -40,64 +41,264 @@
 <jsp:include page="/resources/header.jsp" flush="false" />
 <body>
 	<section class="my-page">
-		<div class=""></div>
 		<div class="df-myshop">
 			<div class="row">
 				<div class="col-sm-9 col-sm-offset-1">
 					<!-- 주문처리현황 -->
-					<div
-						class="xans-element- xans-myshop xans-myshop-orderstate section orderState ">
-						<h3 class="title">
-							<span class="df-lang-orderstate">주문처리 현황</span> <span
-								class="df-lang-orderstate-period">(최근3개월)</span>
-						</h3>
-						<div class="content">
-							<ul class="order">
-								<li class="step1"><span class="df-lang-order-step1">입금전</span>
-									<a href="/myshop/order/list.html?order_status=shipped_before"
-									class="count"><span
-										id="xans_myshop_orderstate_shppied_before_count">0</span></a></li>
-								<li class="step2"><span class="df-lang-order-step2">배송준비중</span>
-									<a href="/myshop/order/list.html?order_status=shipped_standby"
-									class="count"><span
-										id="xans_myshop_orderstate_shppied_standby_count">0</span></a></li>
-								<li class="step3"><span class="df-lang-order-step3">배송중</span>
-									<a href="/myshop/order/list.html?order_status=shipped_begin"
-									class="count"><span
-										id="xans_myshop_orderstate_shppied_begin_count">0</span></a></li>
-								<li class="step4"><span class="df-lang-order-step4">배송완료</span>
-									<a href="/myshop/order/list.html?order_status=shipped_complate"
-									class="count"><span
-										id="xans_myshop_orderstate_shppied_complate_count">0</span></a></li>
-							</ul>
-							<ul class="css">
-								<li class="cancel"><span class="df-lang-order-cancel">취소
-										:</span> <a href="/myshop/order/list.html?order_status=order_cancel"
-									class="count"><span
-										id="xans_myshop_orderstate_order_cancel_count">0</span></a></li>
-								<li class="exchange"><span class="df-lang-order-exchange">교환
-										:</span> <a
-									href="/myshop/order/list.html?order_status=order_exchange"
-									class="count"><span
-										id="xans_myshop_orderstate_order_exchange_count">0</span></a></li>
-								<li class="return"><span class="df-lang-order-return">반품
-										:</span> <a href="/myshop/order/list.html?order_status=order_return"
-									class="count"><span
-										id="xans_myshop_orderstate_order_return_count">0</span></a></li>
-							</ul>
+					<div class="df-myshop">
+						<!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓--주문처리 현황--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+						<div
+							class="xans-element- xans-myshop xans-myshop-orderstate section orderState ">
+							<h3 class="title">
+								<span class="df-lang-orderstate">주문처리 현황</span> <span
+									class="df-lang-orderstate-period">(최근3개월)</span>
+							</h3>
+							<div class="content">
+								<ul class="order1">
+									<li class="step1"><span class="df-lang-order-step1">입금전</span>
+										<a href="/myshop/order/list.html?order_status=shipped_before"
+										class="count"><span
+											id="xans_myshop_orderstate_shppied_before_count">0</span></a></li>
+									<li class="step2"><span class="df-lang-order-step2">배송준비중</span>
+										<a href="/myshop/order/list.html?order_status=shipped_standby"
+										class="count"><span
+											id="xans_myshop_orderstate_shppied_standby_count">0</span></a></li>
+									<li class="step3"><span class="df-lang-order-step3">배송중</span>
+										<a href="/myshop/order/list.html?order_status=shipped_begin"
+										class="count"><span
+											id="xans_myshop_orderstate_shppied_begin_count">0</span></a></li>
+									<li class="step4"><span class="df-lang-order-step4">배송완료</span>
+										<a
+										href="/myshop/order/list.html?order_status=shipped_complate"
+										class="count"><span
+											id="xans_myshop_orderstate_shppied_complate_count">0</span></a></li>
+								</ul>
+								<ul class="css">
+									<li class="cancel"><span class="df-lang-order-cancel">취소
+											:</span> <a href="/myshop/order/list.html?order_status=order_cancel"
+										class="count"><span
+											id="xans_myshop_orderstate_order_cancel_count">0</span></a></li>
+									<li class="exchange"><span class="df-lang-order-exchange">교환
+											:</span> <a
+										href="/myshop/order/list.html?order_status=order_exchange"
+										class="count"><span
+											id="xans_myshop_orderstate_order_exchange_count">0</span></a></li>
+									<li class="return"><span class="df-lang-order-return">반품
+											:</span> <a href="/myshop/order/list.html?order_status=order_return"
+										class="count"><span
+											id="xans_myshop_orderstate_order_return_count">0</span></a></li>
+								</ul>
+							</div>
+						</div>
+							<!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓--주문 상품 정보--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+						<div
+							class="xans-element- xans-myshop xans-myshop-orderhistorylistitem section orderlist">
+							<h3 class="title">
+								주문 상품 정보 <a href="/myshop/order/list.html"
+									class="more df-lang-button-more">더보기</a>
+							</h3>
+							<div class="content">
+								<!--
+				$login_url = /member/login.html
+				$count = 5
+			-->
+								<table border="1" summary="">
+								
+									<colgroup>
+										<col style="width: 160px;">
+										<col style="width: 100px;">
+										<col style="width: auto;">
+										<col style="width: 70px;">
+										<col style="width: 150px;">
+										<col style="width: 160px;">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col" class="no df-lang-order-no">주문번호</th>
+											<th scope="col" class="image df-lang-order-image">이미지</th>
+											<th scope="col" class="product df-lang-order-info">상품정보</th>
+											<th scope="col" class="quantity df-lang-order-quantity">수량</th>
+											<th scope="col" class="price df-lang-order-price">구매금액</th>
+											<th scope="col" class="state df-lang-order-state">주문처리상태</th>
+										</tr>
+									</thead>
+									<tbody class="center displaynone">
+										<tr class="">
+											<td class="number displaynone">
+												<p>
+													<a href="/myshop/order/detail.html" class="line">[]</a>
+												</p>
+											</td>
+											<td class="thumb"><a href="/product/detail.html"><img
+													src="//img.echosting.cafe24.com/thumb/img_product_small.gif"
+													onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';"
+													alt=""></a></td>
+											<td class="product left top"><a
+												href="/product/detail.html"><strong></strong></a>
+												<div class="option displaynone"></div>
+												<ul
+													class="xans-element- xans-myshop xans-myshop-optionset option">
+													<li class=""><strong></strong> ()</li>
+												</ul></td>
+											<td></td>
+											<td class="right"><strong></strong>
+												<div class="displaynone"></div></td>
+											<td class="state">
+												<p class="txtEm"></p>
+												<p class="displaynone">
+													<a href="" target=""></a>
+												</p>
+												<p class="displaynone">
+													<a href="#none" class="line" onclick="">[]</a>
+												</p>
+												<div class="btn-wrap">
+													<a href="/board/product/write.html"
+														class="btnEm df-lang-button-review displaynone">구매후기</a>
+												</div>
+											</td>
+										</tr>
+										<tr class="">
+											<td class="number displaynone">
+												<p>
+													<a href="/myshop/order/detail.html" class="line">[]</a>
+												</p>
+											</td>
+											<td class="thumb"><a href="/product/detail.html"><img
+													src="//img.echosting.cafe24.com/thumb/img_product_small.gif"
+													onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';"
+													alt=""></a></td>
+											<td class="product left top"><a
+												href="/product/detail.html"><strong></strong></a>
+												<div class="option displaynone"></div>
+												<ul
+													class="xans-element- xans-myshop xans-myshop-optionset option">
+													<li class=""><strong></strong> ()</li>
+												</ul></td>
+											<td></td>
+											<td class="right"><strong></strong>
+												<div class="displaynone"></div></td>
+											<td class="state">
+												<p class="txtEm"></p>
+												<p class="displaynone">
+													<a href="" target=""></a>
+												</p>
+												<p class="displaynone">
+													<a href="#none" class="line" onclick="">[]</a>
+												</p>
+												<div class="btn-wrap">
+													<a href="/board/product/write.html"
+														class="btnEm df-lang-button-review displaynone">구매후기</a>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<p class="empty  df-lang-order-empty">주문 내역이 없습니다.</p>
+							</div>
+						</div>
+							<!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓--최근 본 상품--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+						<div
+							class="xans-element- xans-product xans-product-recentlist section recentview xans-record-">
+							<h3 class="title">
+								<span class="df-lang-title-recentview">최근 본 상품</span> <a
+									href="/product/recent_view_product.html"
+									class="more df-lang-button-more">더보기</a>
+							</h3>
+							<div class="content">
+								<!--
+				$count = 5
+			-->
+								<table width="100%" border="1" summary="" class="displaynone">
+									
+									<colgroup>
+										<col style="width: 100px">
+										<col style="width: auto">
+										<col style="width: 220px">
+										<col style="width: 140px">
+										<col style="width: 220px">
+									</colgroup>
+									<thead>
+										<tr class="txtLittle">
+											<th scope="col" class="image df-lang-recentview-image">이미지</th>
+											<th scope="col" class="product df-lang-recentview-product">상품명</th>
+											<th scope="col" class="option df-lang-recentview-option">옵션정보</th>
+											<th scope="col" class="price df-lang-recentview-price">판매가</th>
+											<th scope="col" class="order df-lang-recentview-order">주문</th>
+										</tr>
+									</thead>
+								</table>
+								<p class="empty  df-lang-recentview-empty"></p>
+							</div>
+						</div>
+
+							<!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓--내 게시글--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+						<div
+							class="xans-element- xans-myshop xans-myshop-boardpackage section myboard ">
+							<h3 class="title">
+								<span class="df-lang-title-mypostings">내 게시글</span> <a
+									href="/myshop/board_list.html" class="more df-lang-button-more">더보기</a>
+							</h3>
+							<!-- cre.ma / 내가 작성한 리뷰 / 스크립트를 수정할 경우 연락주세요 (support@cre.ma) -->
+							<div class="crema-reviews" data-type="my-reviews"></div>
+							<div
+								class="xans-element- xans-myshop xans-myshop-boardlist content crema-hide">
+								<!--
+				$count = 10
+				$relation_post = yes
+			-->
+								<table width="100%" border="1" summary="">
+									
+									<colgroup>
+										<col style="width: 70px;">
+										<col style="width: 140px;">
+										<col style="width: auto;">
+										<col style="width: 120px;">
+										<col style="width: 100px;">
+										<col style="width: 90px;">
+									</colgroup>
+									<thead>
+										<tr class="txtLittle">
+											<th scope="col"
+												class="no df-lang-mypostings-no df-lang-mypostings-no">번호</th>
+											<th scope="col" class="category df-lang-mypostings-category">분류</th>
+											<th scope="col" class="title df-lang-mypostings-title">제목</th>
+											<th scope="col" class="name df-lang-mypostings-name">작성자</th>
+											<th scope="col" class="date df-lang-mypostings-date">작성일</th>
+											<th scope="col" class="view df-lang-mypostings-view">조회</th>
+										</tr>
+									</thead>
+									<tbody class="displaynone">
+										<tr class="">
+											<td class="txtLittle"></td>
+											<td class="category txtLittle"><a href=""></a></td>
+											<td class="subject left"><a href=""></a></td>
+											<td class="txtLittle"></td>
+											<td class="txtLess"></td>
+											<td class="txtLess"></td>
+										</tr>
+										<tr class="">
+											<td class="txtLittle"></td>
+											<td class="category txtLittle"><a href=""></a></td>
+											<td class="subject left"><a href=""></a></td>
+											<td class="txtLittle"></td>
+											<td class="txtLess"></td>
+											<td class="txtLess"></td>
+										</tr>
+									</tbody>
+								</table>
+								<p class="empty  df-lang-myboard-empty">게시물이 없습니다.</p>
+							</div>
 						</div>
 					</div>
+
+
+
 				</div>
 			</div>
-		</div>
-		<div class=""></div>
-
-
-
 	</section>
 	<section class="public-footer">
 		<div class="row">
-			<div class="col-sm-6 col-sm-offset-1">
+			<div class="col-sm-9 col-sm-offset-1">
 				<div class="inside">
 					<div class="head">
 						<br>

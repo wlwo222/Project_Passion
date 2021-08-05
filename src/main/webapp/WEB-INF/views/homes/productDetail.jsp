@@ -178,7 +178,7 @@
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
 							<div class="view-product">
-								<img src="${product.pdAddInfo[0].description}" alt="" />
+								<img src="${product.pdAddInfo[1].description}" alt="" />
 								<h3>ZOOM</h3>
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -221,7 +221,7 @@
 								<img src="images/product-details/rating.png" alt="" />
 								<span>
 									<span>${product.price}</span>
-									<label>Quantity:${product.quantity}</label>
+									<label>Quantity:${product.pdAddInfo[2].description}</label>
 									<input type="text" value="3" />
 									<button type="button" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
@@ -234,7 +234,40 @@
 								<div class="starscore">
 								<p></p>
 						        </div>
+						        <div class="option-box box-option" id= "boxbox">
+                                <div id="options" class="option_cont">
+	                            <select id="option1" name="option1" class="option1" >
+	                                <option value="" >옵션 선택</option>
+	                                <option value="네이비" data-txt="네이비" selected="">네이비</option>
+	                                <option value="베이지" data-txt="베이지" selected="">베이지</option>
+	                                <option value="블랙" data-txt="블랙" selected="">블랙</option>
+	                                <option value="화이트" data-txt="화이트" selected="">화이트</option>
+	                                <option value="버건디" data-txt="버건디" selected="">버건디</option>
+	                           </select>
+	                            <select id="option2" name="option2" class="select option2" >
+	                                <option value="">옵션 선택</option>
+	                            <option value="S" jaego="Y">S</option>
+	                            <option value="M" jaegon="Y">M</option>
+	                            <option value="L" jaego="Y">L</option>
+	                            <option value="XL" jaego="Y">XL</option>
+	                            </select>
+                        		</div>
+                    <div id="goods_opt_area" class="option_cont addi-opt"></div>
+                                        
+                   <!--  <div class="opt-desc" style="display:none">
+			            <span>해당 옵션은 품절 상태입니다.</span>
+			        </div> -->
+			        		    </div>
+			        		     <div class="buybtn">
+				        	<a class="btn-black" href="" onclick="" id= "buy-btn">바로구매</a>
+				        </div>
+								 <div class="b-btn">
+									<a href="/resources/cart.html"><button type="button" class="btn btn-fefault cart" id= "cart-btn">
+										<i class="fa fa-shopping-cart" ></i></a>
+									</button>
+			                	</div>
 							</div>
+				       
 								<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
 							</div><!--/product-information-->
 						</div>
@@ -549,174 +582,10 @@
 		</div>
 	</section>
 	
-	<footer id="footer"><!--Footer-->
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2">
-						<div class="companyinfo">
-							<h2><span>e</span>-shopper</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
-						</div>
-					</div>
-					<div class="col-sm-7">
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="images/home/iframe1.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-						
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="images/home/iframe2.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-						
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="images/home/iframe3.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-						
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="images/home/iframe4.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="address">
-							<img src="images/home/map.png" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="footer-widget">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2">
-						<div class="single-widget">
-							<h2>Service</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href="">Online Help</a></li>
-								<li><a href="">Contact Us</a></li>
-								<li><a href="">Order Status</a></li>
-								<li><a href="">Change Location</a></li>
-								<li><a href="">FAQ’s</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<div class="single-widget">
-							<h2>Quock Shop</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href="">T-Shirt</a></li>
-								<li><a href="">Mens</a></li>
-								<li><a href="">Womens</a></li>
-								<li><a href="">Gift Cards</a></li>
-								<li><a href="">Shoes</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<div class="single-widget">
-							<h2>Policies</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href="">Terms of Use</a></li>
-								<li><a href="">Privecy Policy</a></li>
-								<li><a href="">Refund Policy</a></li>
-								<li><a href="">Billing System</a></li>
-								<li><a href="">Ticket System</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<div class="single-widget">
-							<h2>About Shopper</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href="">Company Information</a></li>
-								<li><a href="">Careers</a></li>
-								<li><a href="">Store Location</a></li>
-								<li><a href="">Affillate Program</a></li>
-								<li><a href="">Copyright</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-3 col-sm-offset-1">
-						<div class="single-widget">
-							<h2>About Shopper</h2>
-							<form action="#" class="searchform">
-								<input type="text" placeholder="Your email address" />
-								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-								<p>Get the most recent updates from <br />our site and be updated your self...</p>
-							</form>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-		
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="row">
-					Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
-				</div>
-			</div>
-		</div>
-		
-	</footer><!--/Footer-->
-	
-
-  
-    <script src="/resources/js/jquery.js"></script>
-	<script src="/resources/js/price-range.js"></script>
-    <script src="/resources/js/jquery.scrollUp.min.js"></script>
-	<script src="/resources/js/bootstrap.min.js"></script>
-    <script src="/resources/js/jquery.prettyPhoto.js"></script>
-    <script src="/resources/js/main.js"></script>
-    <script>
+	<jsp:include page="/resources/footer1.jsp" flush="false"/>
+	<script>
     //1번부터 회색으로 처리됩니다. i태그가 회색 별입니다. description,${product.pdAddInfo[2].description};
-    var score=${product.pdAddInfo[2].description};
+    var score=${product.pdAddInfo[0].description};
 	var printscore = "";
 	printscore += "<div class='starscore'>"
 		switch(score){

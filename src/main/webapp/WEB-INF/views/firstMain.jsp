@@ -51,10 +51,10 @@
 			<h2 id="t-text">
 			POF
 			</h2>
-			<img src="/resources/img/model/forest.png" id="forest"> <img
-				src="/resources/img/model/rocks.png" id="rocks"> <img
-				src="/resources/img/model/water.png" id="water"> <a href="/homes/index"
-				id="g_btn">Go to shopping</a>
+			<img src="/resources/img/model/forest.png" id="forest"> 
+			<img src="/resources/img/model/rocks.png" id="rocks"> 
+			<img src="/resources/img/model/water.png" id="water"> 
+			<span><a href="/homes/index" id="g_btn"></a></span>
 		</div>
 	</section>
 	<div class="sec">

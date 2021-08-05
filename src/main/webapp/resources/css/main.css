@@ -1544,6 +1544,127 @@ h2.title {
 	position: relative;
 }
 
+.option-box .box-option {
+    border-top: 1px solid #ddd;
+}
+.option-box .box-option {
+    padding: 12px 0 7px 9px;
+}
+.option-box {
+	width: 350px;
+    height: 75px;
+    padding: 10px 0 10px 9px;
+    background: #f3f3f3;
+    border: 1px solid #ddd;
+}
+.option-box .option_cont {
+    float: left;
+    width: 250px;
+}
+.option-box .option_cont select {
+    width: 330px;
+    height: 26px;
+    margin-bottom: 3px;
+    padding: 3px 0 4px 2px;
+    font-size: 11px;
+    color: #666;
+    cursor: pointer;
+}
+
+
+/*************바로구매 장바구니**************************/
+.buybtn{
+ padding : 15px  0px;
+}
+.buybtn .btn-black {
+    width: 240px;
+    height: 60px;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: '맑은 고딕',sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.btn-black {
+    float: left;
+    width: 158px;
+    line-height: 58px;
+    text-align: center;
+    font-family: '맑은 고딕',sans-serif;;
+    font-size: 16px;
+    background: #000;
+    color: #fff;
+      cursor: pointer;
+  transition: background 0.5s;
+}
+.buybtn a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+
+
+.b-btn a{
+color: #fff;
+}
+#cart-btn{
+  position: relative;
+  height: 60px;
+  width: 60px;
+  margin: -15px 25px;
+  border: none;
+  outline: none;
+  background: #ffa500;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+#buy-btn:hover{
+  background: linear-gradient(90deg, #B0BEC5, #03a9f4, #f441a5, #B0BEC5);
+  background-size: 400%;
+}
+#cart-btn:hover{
+  background: linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199);
+  background-size: 400%;
+}
+#cart-btn:first-child:before,
+#cart-btn:before{
+  content: '';
+  position: absolute;
+  background: inherit;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+#buy-btn:hover:before,
+#cart-btn:hover:before{
+  opacity: 1;
+  z-index: -1;
+}
+#cart-btn:hover,
+#buy-btn:hover{
+  z-index: 1;
+  animation: glow 8s linear infinite;
+}
+@keyframes glow {
+  0%{
+    background-position: 0%;
+  }
+  100%{
+    background-position: 400%;
+  }
+}
 
 
 /*******************starscore****************************/
@@ -2139,7 +2260,7 @@ input:checked ~ form{
 }
 
 .user_info input, select, textarea {
-	background: #CCEEFF;
+	background: white;
 	border: 0;
 	color: #696763;
 	padding: 5px;
@@ -2181,7 +2302,7 @@ input:checked ~ form{
 }
 
 .register-req, .step-one .heading {
-	background: none repeat scroll 0 0 #CCEEFF;
+	background: none repeat scroll 0 0 white;
 	color: #363432;
 	font-size: 20px;
 	margin-bottom: 35px;
@@ -2918,12 +3039,17 @@ input:checked ~ form{
 	background: #c7b299;
 	border-radius: 0.5;
 }
-.card-body button{
-	list-style: none;
+.card-body button {
+	display: block;
 	float: left;
-	margin-left: 10px;
+	position: relative;
+	text-align: center;
+	width: 100%;
+	margin-left: 0px;
 	margin-top: 20px;
-	padding-left: 30px;
+	font-size: 25px;
+	font-family: 고딕;
 	color: #400000;
 	background: #c7b299;
+	
 }

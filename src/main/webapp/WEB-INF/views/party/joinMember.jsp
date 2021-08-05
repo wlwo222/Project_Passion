@@ -17,6 +17,7 @@
 <link href="/resources/css/price-range.css" rel="stylesheet">
 <link href="/resources/css/animate.css" rel="stylesheet">
 <link href="/resources/css/main.css" rel="stylesheet">
+<link href="/resources/css/sexBox.css" rel="stylesheet">
 <link href="/resources/css/responsive.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
@@ -35,10 +36,20 @@
 	href="/resources/images/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed"
 	href="/resources/images/ico/apple-touch-icon-57-precomposed.png">
+<style type="text/css">
+.btn-primary {
+   height:34px;
+   width:16px;
+   color:grey;
+   text-align:center;
+   padding: 0;
+}
+
+</style>
 </head>
 <!--/head-->
-
 <body>
+
 	<header id="header">
 		<!--header-->
 		<div class="header_top">
@@ -182,89 +193,92 @@
 							<form id="frmMember" method="post" action="/party/joinMember">
 
 								<div class="form-group">
-									<label>아이디(영문소문자/숫자, 4~16자)</label> <input id="userId"
-										name="userId" class="form-control" pattern="[a-z0-9]{4,16}"
-										required>
+									<label>아이디</label> <input id="userId" name="userId"
+										class="form-control" pattern="[a-z0-9]{4,16}" required
+										placeholder="영문소문자/숫자, 4~16자">
 								</div>
 
 								<div class="form-group">
-
-										<label>비밀번호 :</label> <input type="password" id="password1"
-											pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{10,16}$">(영문
-										대소문자/숫자/특수문자 꼭 포함, 10자~16자) <br> <label>비밀번호확인 :</label>
-										<input type="password" id="password2"> <input
-											type="button" onclick="test()" value="확인">
-						
+									<label>비밀번호</label> <br> <input type="password"
+										id="password1" name="userPwd" placeholder="영문자 숫자 6자리 이상"
+										pattern="^([a-z0-9]){6,50}$" required="required">
+								</div>
+								<div class="form-group">
+									<input type="password" id="password2" placeholder="비밀번호확인">
 								</div>
 
 								<div class="form-group">
-									<label>이름</label> <input name="name" class="form-control"
-										pattern="" required>
+									<label>이름</label> <input name="name" class="form-control">
 								</div>
-
+								
+								<br>
 								<div class="form-group">
-									<label>성별</label> <input type="radio" id="contactChoice1"
-										name="male" value="1" checked> <label
-										for="contactChoice1">남자</label> <input type="radio"
-										id="contactChoice2" name="male" value="0"> <label
-										for="contactChoice2">여자</label>
+									<div class="box">
+										<p>성별</p>
+										<label for="contactChoice1"> 
+										<input type="radio" id="contactChoice1" 
+										name="male" value="1">
+											<span class="man">남자</span>
+										</label> 
+										
+										<label for="contactChoice2"> 
+										<input type="radio" id="contactChoice2"
+										name="male" value="0">
+											<span class="female">여자</span>
+										</label>
+									</div>
 								</div>
 
 								<div class="form-group">
 									<label>생년월일</label> <input type="date" name="birthDate"
+										value="1990-06-01" class="form-control">
+								</div>
+
+								<div class="form-group">
+									<label>우편번호</label> <input type="hidden"
+										name="listContactPoint[3].contactPointType" value="zip_code  "
+										class="form-control" readonly> <input id="zip_code"
+										placeholder="우편번호" name="listContactPoint[3].info"
+										class="form-control" onclick="findAddr()">
+								</div>
+
+								<div class="form-group">
+									<label>주소지</label> <input id="findAddr_roadAddress"
+										type="hidden" name="listContactPoint[0].contactPointType"
+										value="address   " class="form-control" readonly> <input
+										id="address" placeholder="Address"
+										name="listContactPoint[0].info" class="form-control">
+								</div>
+
+								<div class="form-group">
+									<label>상세주소</label> <input type="hidden"
+										name="listContactPoint[4].contactPointType" value="d_addr    "
+										class="form-control" readonly> <input id="d_addr"
+										type="text" name="listContactPoint[4].info"
 										class="form-control">
 								</div>
 
 								<div class="form-group">
-									<form name="jusoform" id="form" method="post" action="">
-
-
-										<div id="list"></div>
-										<div  class="form-gid="callBackDiv">
-											<table>
-												<tr>
-													<td>우편 번호</td>
-													<td><input type="text" style="width: 100px;"
-														id="roadFullAddr" name="roadFullAddr" style="float: left;" /> <input type="button" onClick="goPopup();" value="주소찾기" style="float: left; margin-right: 5px;" /></td>
-												</tr>
-												<tr>
-													<td>도로명주소</td>
-													<td><input type="text" style="width: 500px;"
-														id="roadAddrPart1" name="roadAddrPart1" /></td>
-												</tr>
-												<tr>
-													<td>상세주소</td>
-													<td><input type="text" style="width: 500px;"
-														id="addrDetail" name="addrDetail" /></td>
-												</tr>
-
-											</table>
-										</div>
-
-									</form>
+									<label>자택 전화번호</label> <input type="hidden"
+										name="listContactPoint[1].contactPointType" value="phoneNum  "
+										class="form-control" readonly> <input id="phoneNum"
+										name="listContactPoint[1].info" class="form-control"
+										placeholder="-는 생략바랍니다">
 								</div>
-								<c:forEach items="${listCpType}" var="contactPointType"
-									varStatus="s">
-									<div class="form-group">
-										<label>"${contactPointType.description}"</label> <input
-											type="hidden"
-											name="listContactPoint[${s.index}].contactPointType"
-											value="${contactPointType.cpType}" class="form-control"
-											readonly> <input id="${contactPointType.cpType}"
-											name="listContactPoint[${s.index}].info" class="form-control">
-									</div>
-								</c:forEach>
 
-
-
-
-
-
+								<div class="form-group">
+									<label>핸드폰 번호</label> <input type="hidden"
+										name="listContactPoint[2].contactPointType" value="mobileNum "
+										class="form-control" readonly> <input id="mobileNum"
+										name="listContactPoint[2].info" class="form-control"
+										placeholder="-는 생략바랍니다">
+								</div>
 
 								<input type='hidden' name='${_csrf.parameterName}'
 									value='${_csrf.token}'>
-								<button id="btnJoin" type="submit" class="btn-primary">가입</button>
-								<button type="reset" class="btn-secondary">초기화</button>
+
+								<button type="submit" id="btnJoin" class="btn-primary">가입</button>
+								
 							</form>
 
 
@@ -277,20 +291,6 @@
 
 			</div>
 		</div>
-		<script type="text/javascript">
-		    function test() {
-		      var p1 = document.getElementById('password1').value;
-		      var p2 = document.getElementById('password2').value;
-		      if( p1 != p2 ) {
-		        alert("비밀번호가 일치 하지 않습니다");
-		        return false;
-		      } else{
-		        alert("비밀번호가 일치합니다");
-		        return true;
-		      }
-		
-		    }
- 		 </script>
 	</section>
 
 	<!-- /.container-fluid -->
@@ -300,281 +300,127 @@
 	<!-- End of Main Content -->
 
 	<%@include file="../includes/footer.jsp"%>
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script src="http://code.jquery.com/jquery-3.5.1.js"
+		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+		crossorigin="anonymous"></script>
 	<script type="text/javascript">
-		function goPopup() {
-			// 주소검색을 수행할 팝업 페이지를 호출합니다.
-			// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
-			var pop = window.open("/apis/juso", "pop",
-					"width=570,height=420, scrollbars=yes, resizable=yes");
+		
+		var csrfHN = "${_csrf.headerName}";
+		var csrfTV = "${_csrf.token}";
 
-			// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
-			//var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+		var phoneNumRegExp = "/^\d{2,3}-\d{3,4}-\d{4}$/";
+		var cellNumRegExp = /^\d{3}-\d{3,4}-\d{4}$/;
+
+		//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+		function findAddr() {
+			new daum.Postcode(
+					{
+						oncomplete : function(data) {
+							// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+							// 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+							// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+							var roadAddr = data.roadAddress; // 도로명 주소 변수
+							var extraRoadAddr = ''; // 참고 항목 변수
+							var jibunAddr = data.jibunAddress; // 지번 주소 변수
+							// 우편번호와 주소 정보를 해당 필드에 넣는다.
+							document.getElementById("zip_code").value = data.zonecode;
+							if (roadAddr !== '') {
+								document.getElementById("address").value = roadAddr;
+							}
+
+							else if (jibunAddr !== '') {
+								document.getElementById("address").value = jibunAddr;
+							}
+
+						}
+					}).open();
 		}
 
-		function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
-				roadAddrPart2, zipNo, detBdNmList
-				
-				
-				) {
-			
-			
-			document.form.roadAddrPart1.value = roadAddrPart1;
-			document.form.roadAddrPart2.value = roadAddrPart2;
-			document.form.addrDetail.value = addrDetail;
-			
-			
-			document.form.zipNo.value = zipNo;
-			//document.form.admCd.value = admCd;
-			//document.form.rnMgtSn.value = rnMgtSn;
-			//document.form.bdMgtSn.value = bdMgtSn;
-			//document.form.detBdNmList.value = detBdNmList;
-			/** 2017년 2월 추가제공 **/
-			//document.form.bdNm.value = bdNm;
-			//document.form.bdKdcd.value = bdKdcd;
-			//document.form.siNm.value = siNm;
-			//document.form.sggNm.value = sggNm;
-			//document.form.emdNm.value = emdNm;
-			//document.form.liNm.value = liNm;
-			//document.form.rn.value = rn;
-			//document.form.udrtYn.value = udrtYn;
-			//document.form.buldMnnm.value = buldMnnm;
-			//document.form.buldSlno.value = buldSlno;
-			//document.form.mtYn.value = mtYn;
-			//document.form.lnbrMnnm.value = lnbrMnnm;
-			//document.form.lnbrSlno.value = lnbrSlno;
-			/** 2017년 3월 추가제공 **/
-			//document.form.emdNo.value = emdNo;
+		function test() {
+			var p1 = document.getElementById('password1').value;
+			var p2 = document.getElementById('password2').value;
+			if (p1 != p2) {
+				alert("비밀번호가 일치 하지 않습니다");
+				return false;
+			} else {
+				alert("비밀번호가 일치합니다");
+				return true;
+			}
 
 		}
 
 		$(document).ready(function() {
-			var csrfHN = "${_csrf.headerName}";
-			var csrfTV = "${_csrf.token}";
 
-			var phoneNumRegExp = /^\d{2,3}-\d{3,4}-\d{4}$/;
-			var cellNumRegExp = /^\d{3}-\d{3,4}-\d{4}$/;
+			$("#userId").on("focusout", function() {
+				var idchk = 0;
+				var userId = $(this).val();
+				var strLength = $(this).length;
+				$.ajax({
+					async: true,
+		            type : 'GET',
+		            data : userId,
+		            url : "/party/idCheck?userId=" + userId,
+		            dataType : "json",
+		            contentType: "application/json; charset=UTF-8",
+					success : function(data) {							
+						if (data.cnt > 0) {
+							alert('다른 아이디로 입력하시오');
+							$("#userId").val('');
+						} else if (data.cnt === 0 && strLength > 0) {
+							alert('사용 가능한 아이디입니다');	
+							idchk = 1;
+						}
+						}, 
+						error : function(error) {
+							console.log("fail" + error);
+						}
+					});
+				});
 
-			$("#userId").on("focusout", function(e) {
-				var newBieId = $(this).val();
-				//회원 ID가 유일한가를 Ajax로 검사하고 그렇지 못할 때는 Focus를 다시 받아야합니다. (우리가 개발해야되는거) -> 중복성 체크를 ajax로 해야됨
-				var UserIdList = new Array();
-				UserIdList = $
-				{
-					UserIdList
-				}
-				;
-				//UserIdList.contains(container, contained)
-				if (UserIdList.includes(newBieId)) {
-					//중복일경우
-					alert("cool");
-				} else {
-					//중복이 아닌경우
-					alert("cooleeee");
-				}
-				//처음에 alert 넣어서 확인하기
-
-			});
-
-			$("#phoneNum  ").on("focusout", function() {
-				var x = $(this).val()
+			$("#phoneNum").on("focusout", function() {
+				var phoneNumRegExp = /^\d{2,3}\d{3,4}\d{4}$/;
+				var x = $(this).val();
 				if (x.length > 0) {
 					if (!x.match(phoneNumRegExp)) {
-						alert("전화번호 형식은 00-0000-000 입니다");
+						alert("자택 전화번호 형식 확인바랍니다");
+						$(this).val('');
 					}
 				}
 			});
 
-			$("#mobileNum ").on("focusout", function() {
-				var x = $(this).val()
+			$("#mobileNum").on("focusout",function() {
+				var cellphoneNumRegExp = /^01([0|1|6|7|8|9]?)([0-9]{3,4})([0-9]{4})$/;
+				var x = $(this).val();
 				if (x.length > 0) {
-					if (!x.match(cellNumRegExp)) {
-						alert("핸드폰번호 형식은 000-0000-000 입니다");
+					if (!x.match(cellphoneNumRegExp)) {
+						alert("핸드폰번호 형식은 01★-0000-000 입니다");
+						$(this).val('');
 					}
 				}
 			});
-		});
 
-		/*
-		var frmPost = $("#frmPost");
-		
-		$("#btnRegisterPost").on("click", function(e) {
-			e.preventDefault();
-			addAttachInfo(frmPost, "listAttachInStringFormat");
-			frmPost.submit();
+			$("#password2").on("focusout",function() {
+					var p1 = document
+							.getElementById('password1').value;
+
+					var forSubmit = "";
+					if (p1 == $(this).val()) {
+						alert("비밀번호가 일치합니다");
+						
+						forSubmit = "true";
+					} else {
+						alert("비밀번호를 다시 확인합시다");
+						forSubmit = "false";
+						$(this).val('');
+					}
+				});
 		});
-		 */
 	</script>
 
-	<footer id="footer">
-		<!--Footer-->
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2">
-						<div class="companyinfo">
-							<h2>
-								<span>e</span>-shopper
-							</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-								elit,sed do eiusmod tempor</p>
-						</div>
-					</div>
-					<div class="col-sm-7">
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="/resources/img/model/9.jpg" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="/resources/img/model/8.jpg" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="/resources/img/model/7.jpg" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="/resources/img/model/6.jpg" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="address">
-							<img src="images/home/map.png" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="footer-widget">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2">
-						<div class="single-widget">
-							<h2>Service</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href="">Online Help</a></li>
-								<li><a href="">Contact Us</a></li>
-								<li><a href="">Order Status</a></li>
-								<li><a href="">Change Location</a></li>
-								<li><a href="">FAQ’s</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<div class="single-widget">
-							<h2>Quock Shop</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href="">T-Shirt</a></li>
-								<li><a href="">Mens</a></li>
-								<li><a href="">Womens</a></li>
-								<li><a href="">Gift Cards</a></li>
-								<li><a href="">Shoes</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<div class="single-widget">
-							<h2>Policies</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href="">Terms of Use</a></li>
-								<li><a href="">Privecy Policy</a></li>
-								<li><a href="">Refund Policy</a></li>
-								<li><a href="">Billing System</a></li>
-								<li><a href="">Ticket System</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<div class="single-widget">
-							<h2>About Shopper</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a href="">Company Information</a></li>
-								<li><a href="">Careers</a></li>
-								<li><a href="">Store Location</a></li>
-								<li><a href="">Affillate Program</a></li>
-								<li><a href="">Copyright</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-3 col-sm-offset-1">
-						<div class="single-widget">
-							<h2>About Shopper</h2>
-							<form action="#" class="searchform">
-								<input type="text" placeholder="Your email address" />
-								<button type="submit" class="btn btn-default">
-									<i class="fa fa-arrow-circle-o-right"></i>
-								</button>
-								<p>
-									Get the most recent updates from <br />our site and be updated
-									your self...
-								</p>
-							</form>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="row">
-					Shared by <i class="fa fa-love"></i><a
-						href="https://bootstrapthemes.co">BootstrapThemes</a></span>
-					</p>
-				</div>
-			</div>
-		</div>
-
-	</footer>
-	<!--/Footer-->
-
-
+	<script src="/resources/js/jquery.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="/resources/js/jquery.js"></script>

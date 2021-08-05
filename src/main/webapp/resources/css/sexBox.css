@@ -1,0 +1,126 @@
+@import
+	url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100)
+	;
+
+@import
+	url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700)
+	;
+
+@import url(http://fonts.googleapis.com/css?family=Abel);
+
+@import url(http://fonts.googleapis.com/icon?family=Material+Icons);
+
+@import
+	url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap')
+	;
+
+body {
+	margin: 0;
+	padding: 0;
+	
+	font-family: sans-serif;
+	
+}
+.box {
+	position: absolute;
+	left: 70px;
+	display: inline;
+	transform: translate(-50%, -50%);
+	
+	
+	padding: 10px 5px 0;
+	background: #fff;
+	color: #fff;
+	text-align: left;
+	
+	border-radius: 5px;
+	overflow: hidden;
+}
+.box:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -50%;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.05);
+	transform: skewX(-3deg);
+	pointer-events: none;
+}
+.box p {
+	margin: 0;
+	padding: 0 0 10px;
+	color: #000;
+	font-size: 12px;
+	font-weight: bold;
+}
+.box label {
+	position: relative;
+	cursor: pointer;
+}
+.box label input{
+	display: none;
+	}
+.box label span{
+	position: relative;
+	display: inline-block;
+	margin: 0px 0px;
+	padding: 0px;
+	width: 50px;
+	font-size: 1.1em;
+	background: #c7b299;
+	border: 1px solid #c7b299;
+	color: #444;
+	border-radius: 4px;
+	
+	}
+.box label input:checked ~ span{
+	color: #fff;
+	border: 1px solid #008eff;
+
+	}
+.box label input:checked ~ span:before{
+	 content: '';
+	 width: 100%;
+	 height: 100%;
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 background: #008eff;
+	 z-index: -1;
+	 filter: blur(10px);
+	 font-weight: nomal;
+	}
+.box label input:checked ~ span:after{
+	 content: '';
+	 width: 100%;
+	 height: 100%;
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 background: #008eff;
+	 z-index: -1;
+	 filter: blur(15px);
+	 font-weight: bold;
+	}	
+.box label input:checked ~ span.man{
+	color: #000;
+	background: #62ff00;
+	border-color: #62ff00;
+	box-shadow: inset 0 0 10px #62ff00;
+	
+}
+.box label input:checked ~ span.man:before,
+.box label input:checked ~ span.man:after{
+	background: #62ff00;
+	}
+.box label input:checked ~ span.female{
+	color: #000;
+	border-color: #ff0000;
+	background: #ff0000;
+	box-shadow: inset 0 0 10px #ff0000;
+}
+.box label input:checked ~ span.female:before,
+.box label input:checked ~ span.female:after{
+	background: #ff0000;
+	}	

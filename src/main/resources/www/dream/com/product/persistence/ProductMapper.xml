@@ -8,11 +8,9 @@
 		extends="www.dream.com.common.persistence.CommonMngVOMapper.commonMngVOMap">
 		<id property="productId" column="p_id"></id>
 		<result property="categoryId" column="category_id"></result>
-		<result property="quantity" column="quantity"></result>
 		<result property="productName" column="p_name"></result>
+		<result property="sellen" column="is_selled"></result>
 		<result property="price" column="price"></result>
-		<result property="productSize" column="p_size"></result>
-		<result property="sellen" column="sellen"></result>
 		<collection property="pdAddInfo" columnPrefix="ad_"	resultMap="pdAddInfoMap">
 		</collection>
 	</resultMap>

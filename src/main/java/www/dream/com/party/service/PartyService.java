@@ -27,6 +27,11 @@ public class PartyService implements UserDetailsService {
 		return partyMapper.getList();
 	}
 	
+	public int passChk(Member member) {
+		int result = partyMapper.passChk(member);
+		return result;
+	}
+	
 	public Party findPartyByUserId(String userId) {
 		return partyMapper.findPartyByUserId(userId);
 	}
@@ -39,6 +44,11 @@ public class PartyService implements UserDetailsService {
 	public int joinMember(Member party) {
 		return partyMapper.joinMember(party);
 	}
+	
+	public int idCheck(String userId) {
+		return partyMapper.idCheck(userId);
+	}
+	
 	//회원정보 수정
 	public int updateMember(Member party) {
 		return partyMapper.updateMember(party);
