@@ -10,6 +10,7 @@
 		<id property="id" column="id"></id>
 		<result property="content" column="content"></result>
 		<result property="replyCnt" column="reply_cnt"></result>
+		<result property="writer" column="writer_id"></result>
 		<!-- discriminator : 판별자. 상속 관련 활용 -->
 		<discriminator javaType="String" column="descrim">
 			<case value="reply" resultMap="rmReply" />
@@ -21,8 +22,6 @@
 		id="rmPost" extends="rmReply">
 		<result property="title" column="title"></result>
 		<result property="readCnt" column="read_cnt"></result>
-		<result property="likeCnt" column="like_cnt"></result>
-		<result property="dislikeCnt" column="dislike_cnt"></result>
 		<collection property="listAttach" columnPrefix="af_" 
 			resultMap="www.dream.com.common.attachFile.persistence.AttachFileVOMapper.rmAttachFileVO">
 		</collection>
@@ -71,7 +70,7 @@
 		and rownum <= #{cri.pageNumber} * #{cri.amount} order by id desc ) p, s_party 
 		w where p.rn > (#{cri.pageNumber} - 1) * #{cri.amount} and p.writer_id = 
 		w.user_id -->
-	<select id="getList" resultMap="rmReply">
+	<!-- <select id="getList" resultMap="rmReply">
 	<![CDATA[
 	select p.*, w.name w_name, w.descrim w_descrim
 	  from (
@@ -92,7 +91,16 @@
            ) p, s_party w
 	 where p.writer_id = w.user_id
 	]]>
+	</select> -->
+	
+	<select id="getList" resultMap="rmReply">
+	<![CDATA[
+	select *
+	  from s_reply p
+	 where p.board_id = #{boardId}
+	]]>
 	</select>
+	
 
 	<!-- public List<PostVO> getListByHashTag(@Param("boardId") int boardId, 
 		@Param("cri") Criteria cri); -->

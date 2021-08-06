@@ -46,6 +46,11 @@ public class PostService {
 		}
 	}
 	
+	//BoardId만으로 Index.jsp 조회 ㄱㄱ
+	public List<PostVO> getList(int boardId){
+		return replyMapper.getList(boardId);
+	}
+	
 	/* mapper 함수의 인자 개수가 여러개 일 때는 필수적으로 @Param을 넣어야 합니다
 	 * 이를 실수하지 않기 위하여 한개여도 그냥 명시적으로 넣어 주세요 */
 	public List<PostVO> getListByHashTag(Party curUser, int boardId, Criteria cri) {
@@ -58,7 +63,9 @@ public class PostService {
 			return replyMapper.getListByHashTag(boardId, cri);
 		} else {
 			if (curUser == null) {
-				return replyMapper.getList(boardId, cri);
+				return null;
+				/* 임시적으로 페이징처리 개발하기 전에 함수를 주석처리하였습니다.
+				 * return replyMapper.getList(boardId, cri); */
 			} else {
 				//개인화 서비스 
 				return replyMapper.getFavorite(boardId, curUser);

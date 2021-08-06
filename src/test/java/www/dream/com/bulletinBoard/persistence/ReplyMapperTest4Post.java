@@ -45,11 +45,11 @@ public class ReplyMapperTest4Post {
 		}
 	}
 
-	//@Test
+	@Test
 	public void test040GetList() {
 		assertNotNull(postMapper);
 		try {
-			postMapper.getList(1, new Criteria()).forEach(post->{
+			postMapper.getList(5).forEach(post->{
 				System.out.println(post);
 			});
 		} catch (Exception e) {
@@ -70,7 +70,7 @@ public class ReplyMapperTest4Post {
 		}
 	}
 
-	@Test
+	//@Test
 	public void test030FindById() {
 		try {
 			ReplyVO post = postMapper.findReplyById("00002");

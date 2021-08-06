@@ -40,6 +40,10 @@
 	<header id="header">
 		<!--header-->
 		<div class="header_top">
+			<div class="logomain">
+			<a href="/homes/index"><img
+								src="/resources/images/404/13.png" alt="" /></a>
+			</div>
 			<!--header_top-->
 			<div class="container">
 				<div class="row">
@@ -67,7 +71,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="/resources/index.html"><img
+							<a href="/homes/index"><img
 								src="/resources/images/home/logo2.png" alt="" /></a>
 						</div>
 						<div class="btn-group pull-right">

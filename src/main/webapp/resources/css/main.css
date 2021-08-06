@@ -170,7 +170,7 @@ body{
 	color: #ccc;
 }
 
-/***************************************************/
+/*********************Navigation******************************/
 .navigation {
 	position: fixed;
 	top: 180px;
@@ -332,13 +332,26 @@ a#scrollUp i {
 	font-size: 30px;
 }
 
+.membershipCSS {
+	font-size: 18px;
+	border-bottom: 1px solid #6e6e6e;
+	padding: 5px 0;
+	margin-left: 10px;
+	color: #46C6C6;	
+	
+}
+.membershipCSS a{
+	float: right;
+	padding: 5px 10px 10px;
+	color: #46C6C6;
+	
+}
 /*************************
 *******Header CSS******
 **************************/
 .header_top {
 	width: 1265px;
 	height: 180px;
-	background-image: url("/resources/images/404/13.png");
 	background-position: center;
 	margin: 0 auto;
 }

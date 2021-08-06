@@ -44,7 +44,7 @@ public class ReplyMapperTest4Reply {
 	public void test000InsertReply() {
 		try {
 			//자게 최신글 찾아서 original(원글)로 삼자
-			ReplyVO original = postMapper.getList(3, new Criteria()).get(0);
+			//ReplyVO original = postMapper.getList(3, new Criteria()).get(0);
 			//댓글 아무렇게 만들어서 insert
 			Member lee = new Member("lee");
 			IntStream.rangeClosed(0, 1).forEach(i->{

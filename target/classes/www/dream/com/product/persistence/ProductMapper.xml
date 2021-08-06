@@ -37,17 +37,15 @@
 	<!-- public int registerProduct(ProductVO product); -->
 	<insert id="registerProduct">
 		insert
-			into s_products(p_id, category_id, quantity, p_name, price, p_size)
-		values(seq_product_id.nextval, #{categoryId}, #{quantity}, #{productName}, #{price}, #{productSize})
+			into s_products(p_id, category_id, p_name, price)
+		values(seq_product_id.nextval, #{categoryId}, #{productName}, #{price})
 	</insert>
 	
 	<!-- public int updateProduct(ProductVO product); -->
 	<update id="updateProduct">
 	update s_products
-	   set quantity = #{quantity},
-	   p_name = #{productName},
+	   set p_name = #{productName},
 	   price = #{price},
-	   p_size = #{productSize},
 	   upt_dt = sysdate
 	 where p_id = #{productId}
 	</update>

@@ -40,11 +40,11 @@ create table s_reply(
 	board_id		number(9)		REFERENCES s_board(id),
 	title			varchar2(100),
 	read_cnt		number(9)		default 0,
-	like_cnt		number(9)		default 0,
-	dislike_cnt		number(9)		default 0
 );
 create index idx_reply_board_id on s_reply(board_id, id);
 
+insert into s_reply(id, writer_id, content, descrim, board_id, title)
+	values('1', 'admin', '테스트 해보겟슴다.', 'post', 5, 'test');
 
 -- reply를 만들때마다 product의 id를 붙여줘서 나중에 productId만 조회하더라도 리뷰, 게시판 내용, Product 정보가 조회
 -- mybatis에서 select Key로 #{productId}||_getid(seq_reply_id) id값 부여.

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -35,12 +37,18 @@ public class PostController {
 	@Autowired
 	private PostService postService;
 	
+	@GetMapping(value="listByProduct")
+	public void testByResponseBody(@RequestParam("boardId")int boardId, Model model) {
+		model.addAttribute("post", postService.getList(boardId));
+	}
+	
+	
 	/** 특정 게시판에 등록되어 있는 게시글을 목록으로 조회하기 void : /post/list.jsp로 반환 */
 	@GetMapping(value="listBySearch")
 	public void listPostBySearch(@AuthenticationPrincipal Principal principal, 
 			@RequestParam("boardId") int boardId, 
 			@ModelAttribute("pagenation") Criteria userCriteria, Model model) {
-		Party curUser = null;
+			Party curUser = null;
 		if (principal != null) {
 			//로그인한 사용자로 작성자 연동
 			UsernamePasswordAuthenticationToken upat = (UsernamePasswordAuthenticationToken) principal;

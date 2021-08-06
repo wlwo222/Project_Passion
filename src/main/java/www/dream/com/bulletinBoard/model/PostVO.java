@@ -26,9 +26,7 @@ public class PostVO extends ReplyVO implements IHashTagOpponent {
 	@HashTarget
 	private String title;
 	@PrintTarget(order=300, caption="조회수")
-	private int readCnt;
-	private int likeCnt;	//좋아요
-	private int dislikeCnt;	//싫어요
+	private int readCnt;	//조회수
 	
 	private List<String> listAttachInStringFormat;
 	private List<AttachFileVO> listAttach;
@@ -70,7 +68,6 @@ public class PostVO extends ReplyVO implements IHashTagOpponent {
 	@Override
 	public String toString() {
 		return "PostVO [" + ToStringSuperHelp.trimSuperString(super.toString()) 
-		+ ", title=" + title + ", readCnt=" + readCnt + ", likeCnt=" + likeCnt 
-		+ ", dislikeCnt=" + dislikeCnt + "]";
+		+ ", title=" + title + ", readCnt=" + readCnt + "]";
 	}
 }
