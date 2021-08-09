@@ -10,7 +10,9 @@
 		<id property="id" column="id"></id>
 		<result property="content" column="content"></result>
 		<result property="replyCnt" column="reply_cnt"></result>
-		<result property="writer" column="writer_id"></result>
+		<association property="writer" columnPrefix="w_"
+            resultMap="www.dream.com.party.persistence.PartyMapper.partyMap">
+        </association>
 		<!-- discriminator : 판별자. 상속 관련 활용 -->
 		<discriminator javaType="String" column="descrim">
 			<case value="reply" resultMap="rmReply" />
@@ -93,6 +95,7 @@
 	]]>
 	</select> -->
 	
+	<!-- public List<PostVO> getList(@Param("boardId") int boardId); -->
 	<select id="getList" resultMap="rmReply">
 	<![CDATA[
 	select *

@@ -23,7 +23,7 @@
 	url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
 	@font-face {
     font-family: 'neon';
-    src: url('/resources/images/404/Sunday&Monday.ttf') format('truetype');
+    src: url('/resources/fonts/Sunday&Monday.ttf') format('truetype');
 }
 /*******************header***********************/
 body {
@@ -174,7 +174,7 @@ section .gradation #t-text {
 	transform: translateY(-50%);
 	@font-face {
     font-family: 'neon';
-    src: url('/resources/images/404/Sunday&Monday.ttf') format('truetype');
+    src: url('/resources/fonts/Sunday&Monday.ttf') format('truetype');
 }
 }
 
