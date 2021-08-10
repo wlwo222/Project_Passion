@@ -105,22 +105,25 @@ body {
 	}	
 .box label input:checked ~ span.man{
 	color: #000;
-	background: #62ff00;
-	border-color: #62ff00;
-	box-shadow: inset 0 0 10px #62ff00;
+	background: #008eff;
+	border-color: #008eff;
+	box-shadow: inset 0 0 10px #008eff;
 	
 }
 .box label input:checked ~ span.man:before,
 .box label input:checked ~ span.man:after{
-	background: #62ff00;
+	background: #008eff;
 	}
 .box label input:checked ~ span.female{
 	color: #000;
-	border-color: #ff0000;
-	background: #ff0000;
-	box-shadow: inset 0 0 10px #ff0000;
+	border-color: #FF1744;
+	background: #FF1744;
+	box-shadow: inset 0 0 10px #FF1744;
 }
 .box label input:checked ~ span.female:before,
 .box label input:checked ~ span.female:after{
-	background: #ff0000;
+	background: #FF1744;
 	}	
+.box {
+	margin-left: 22.18%;
+}

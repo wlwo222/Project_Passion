@@ -26,21 +26,21 @@ insert into s_board(id, name, description)
 	values(4, '문의게시판', '궁금한 점을 여쭤보세요!');
 
 CREATE SEQUENCE seq_reply_id;
---id, writer_id, content, reg_dt, upt_dt, descrim, board_id, title, read_cnt, like_cnt, dislike_cnt
+--reply_id, contents, writer_id, owner_id, descrim, descrim, title, viewcount
 create table s_reply(
 	reply_id 	 varchar2(100) primary key,
 	contents     varchar2(1000),
 	writer_id	 varchar2(10) references s_party(user_id),
+	owner_id	 varchar2(100),
 	descrim		 varchar2(10),
-	title		 varchar2(500),
-	viewcount 	 number(9),
+	title		 varchar2(500) ,
+	viewcount 	 number(9) ,
 	reg_dt			timestamp		default sysdate not null,	--등록시점
 	upt_dt			timestamp		default sysdate not null
 );
-create index idx_reply_board_id on s_reply(board_id, id);
 
-insert into s_reply(id, writer_id, content, descrim, board_id, title)
-	values('1', 'admin', '테스트 해보겟슴다.', 'post', 5, 'test');
+insert into s_reply(reply_id, contents, writer_id, owner_id, descrim)
+	values('1', '테스트마인', 'admin', '1', 'reply');
 
 -- reply를 만들때마다 product의 id를 붙여줘서 나중에 productId만 조회하더라도 리뷰, 게시판 내용, Product 정보가 조회
 -- mybatis에서 select Key로 #{productId}||_getid(seq_reply_id) id값 부여.

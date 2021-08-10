@@ -7,7 +7,8 @@
 
 <bean id ="customAccessController" class="www.dream.com.party.control.PartyController"></bean>
 
-<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
+<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+</bean>
 <bean id="partyService" class="www.dream.com.party.service.PartyService"></bean>
 
 <security:http>

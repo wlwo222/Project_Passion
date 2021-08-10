@@ -46,6 +46,7 @@
 	<mybatis-spring:scan base-package="www.dream.com.hashTag.persistence"/>
 	<mybatis-spring:scan base-package="www.dream.com.product.persistence"/>
 
+	
 	<mybatis-spring:scan base-package="www.dream.com.selectKey.persistence"/>
 	
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>

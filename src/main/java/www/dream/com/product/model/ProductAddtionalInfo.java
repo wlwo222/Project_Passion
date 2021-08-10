@@ -14,6 +14,6 @@ public class ProductAddtionalInfo extends CommonMngVO{
 	@Override
 	public String toString() {
 		return "ProductAddtionalInfo [productId=" + productId + ", productAddInfoType=" + productAddInfoType
-				+ ", toString()=" + super.toString() + "]";
+				+ ", description=" + description + "]";
 	}
 }

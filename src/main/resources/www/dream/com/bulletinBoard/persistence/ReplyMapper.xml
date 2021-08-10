@@ -17,6 +17,7 @@
 		<discriminator javaType="String" column="descrim">
 			<case value="reply" resultMap="rmReply" />
 			<case value="post" resultMap="rmPost" />
+			<case value="product" resultMap="www.dream.com.product.persistence.ProductMapper.rmProduct" />
 		</discriminator>
 	</resultMap>
 
@@ -49,7 +50,7 @@
 	   and m.opponent_id = p.id
 	   and p.board_id = #{boardId}
 	</sql>
-
+	
 	<!-- public long getTotalCount(@Param("boardId") int boardId, @Param("descrim") String descrim); -->
 	<select id="getTotalCount" resultType="_long">
 	<![CDATA[
@@ -59,51 +60,22 @@
 	  	      and descrim = #{descrim}
 	]]>
 	</select>
-
+	
+	<!-- public List<ReplyVO> getReviewList(@Param("productId") String productId); -->
+	<select id="getReviewList" resultMap="rmReply">
+	<![CDATA[	w.name w_name, w.descrim w_descrim
+		select *
+		  from s_reply
+		 where owner_id = #{productId}
+	]]>
+	</select>
+	
 	<!-- 	public long getSearchTotalCount(@Param("boardId") int boardId, @Param("cri") Criteria cri); -->
 	<select id="getSearchTotalCount" resultType="_long">
 	select count(distinct p.id)
 	  from <include refid="searchCommon"></include>
 	</select>
 
-	<!-- public List<PostVO> getList(@Param("boardId") int boardId, @Param("cri") 
-		Criteria cri) 김혜윰님 감쏴 Oracle12부터 지원됩니다 select p.*, w.name w_name, w.descrim 
-		w_descrim from ( select p.*, rownum rn from s_post p where board_id = #{boardId} 
-		and rownum <= #{cri.pageNumber} * #{cri.amount} order by id desc ) p, s_party 
-		w where p.rn > (#{cri.pageNumber} - 1) * #{cri.amount} and p.writer_id = 
-		w.user_id -->
-	<!-- <select id="getList" resultMap="rmReply">
-	<![CDATA[
-	select p.*, w.name w_name, w.descrim w_descrim
-	  from (
-		select p.*, pc.reply_cnt
-			from ( 
-				select p.id, count(r.id) reply_cnt
-				  from (
-				       SELECT *
-			             FROM s_reply
-			            where board_id = #{boardId}
-			            ORDER BY id DESC
-		               OFFSET (#{cri.pageNumber} - 1) * #{cri.amount} ROWS FETCH FIRST #{cri.amount} ROWS ONLY)
-		               p left outer join s_reply r
-				     on r.id like p.id || '%'
-				        and length(r.id) > length(p.id)
-				 group by p.id) pc, s_reply p
-		    where pc.id = p.id
-           ) p, s_party w
-	 where p.writer_id = w.user_id
-	]]>
-	</select> -->
-	
-	<!-- public List<PostVO> getList(@Param("boardId") int boardId); -->
-	<select id="getList" resultMap="rmReply">
-	<![CDATA[
-	select *
-	  from s_reply p
-	 where p.board_id = #{boardId}
-	]]>
-	</select>
-	
 
 	<!-- public List<PostVO> getListByHashTag(@Param("boardId") int boardId, 
 		@Param("cri") Criteria cri); -->
@@ -255,14 +227,14 @@
 	</select>
 
 	<!-- public int insertReply(@Param("productId") String productId, @Param("reply") ReplyVO reply); -->
-	<insert id="insertReply">
+	<!-- <insert id="insertReply">
 		<selectKey keyProperty="reply.id" order="BEFORE"
 			resultType="string">
 			select #{productId}_ || get_id(seq_reply_id.nextval) from dual
 		</selectKey>
 		insert into s_reply(id, writer_id, content, descrim)
 		values(#{reply.id}, #{reply.writer.userId}, #{reply.content}, #{reply.DESCRIM4REPLY})
-	</insert>
+	</insert> -->
 
 	<!-- public int updateReply(ReplyVO reply); -->
 	<update id="updateReply">

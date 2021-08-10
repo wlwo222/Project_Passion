@@ -5,7 +5,7 @@
 
 <mapper namespace="www.dream.com.product.persistence.ProductMapper">
 	<resultMap type="www.dream.com.product.model.ProductVO"	id="rmProduct"
-		extends="www.dream.com.common.persistence.CommonMngVOMapper.commonMngVOMap">
+		extends="www.dream.com.bulletinBoard.persistence.BoardMapper.boardMapper">
 		<id property="productId" column="p_id"></id>
 		<result property="categoryId" column="category_id"></result>
 		<result property="productName" column="p_name"></result>

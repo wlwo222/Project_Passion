@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import www.dream.com.bulletinBoard.model.BoardVO;
 import www.dream.com.bulletinBoard.model.PostVO;
+import www.dream.com.bulletinBoard.model.ReplyVO;
 import www.dream.com.bulletinBoard.persistence.ReplyMapper;
 import www.dream.com.common.attachFile.model.AttachFileVO;
 import www.dream.com.common.attachFile.persistence.AttachFileVOMapper;
@@ -47,8 +48,8 @@ public class PostService {
 	}
 	
 	//BoardId만으로 Index.jsp 조회 ㄱㄱ
-	public List<PostVO> getList(int boardId){
-		return replyMapper.getList(boardId);
+	public List<ReplyVO> getReviewList(String ownerId){
+		return replyMapper.getReviewList(ownerId);
 	}
 	
 	/* mapper 함수의 인자 개수가 여러개 일 때는 필수적으로 @Param을 넣어야 합니다

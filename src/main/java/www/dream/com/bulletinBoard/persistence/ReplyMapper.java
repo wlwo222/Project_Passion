@@ -23,7 +23,7 @@ public interface ReplyMapper {
 	 * public List<PostVO> getList(@Param("boardId") int boardId, @Param("cri")
 	 * Criteria cri);
 	 */
-	public List<PostVO> getList(@Param("boardId") int boardId);
+	public List<ReplyVO> getReviewList(@Param("productId") String productId);
 			
 	public List<PostVO> getListByHashTag(@Param("boardId") int boardId, @Param("cri") Criteria cri);
 	

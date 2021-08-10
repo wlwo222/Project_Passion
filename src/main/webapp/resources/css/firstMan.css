@@ -28,7 +28,7 @@
 /*******************header***********************/
 body {
 	overflow-x: hidden;
-	background-image: url(/resources/images/404/111.jpg);
+	background-image: url(/resources/images/background/111.jpg);
 	min-height: 100vh;
 	align-items: center;
   justify-content: center;
@@ -77,12 +77,12 @@ span a:after{
 span a:before{
 	content: "GO Shop!";
   color: #fff;
-  background-image: url(/resources/images/404/101.jpg); 
+  background-image: url(/resources/images/background/101.jpg); 
   transform: rotateX(-90deg) translateZ(25px);
 }
 span a:after{
 	content: "";
-	background-image: url(/resources/images/404/101.jpg); 
+	background-image: url(/resources/images/background/101.jpg); 
   color: #fff;
   transform: rotateY(0deg) translateZ(25px);
 }

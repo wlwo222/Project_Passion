@@ -14,7 +14,7 @@
 <link href="/resources/css/prettyPhoto.css" rel="stylesheet">
 <link href="/resources/css/price-range.css" rel="stylesheet">
 <link href="/resources/css/animate.css" rel="stylesheet">
-<link href="/resources/css/main.css" rel="stylesheet">
+<link href="/resources/css/loginstyle.css" rel="stylesheet">
 <link href="/resources/css/responsive.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 <link rel="stylesheet"
@@ -38,13 +38,15 @@
 <!--/head-->
 
 <body>
-<h2>${error}</h2>
-<h2>${logout}</h2>
       <div class="bg-img">
          <div class="content">
-            <header>POF Login</header>
+            <header><a href="/homes/index"><img
+								src="/resources/images/icon/logo4.png" alt="" /></a></header>
             <form action="/login" role="form" method="post">
             	<fieldset>
+            	<div class="loginerror">
+            	<p>${error}</p>
+            	</div>
 	               <div class="field">
 	                  <span class="fa fa-user"></span>
 	                  <input type="text" name="username" required placeholder="ID">

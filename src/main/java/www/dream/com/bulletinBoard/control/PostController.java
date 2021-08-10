@@ -37,14 +37,9 @@ public class PostController {
 	@Autowired
 	private PostService postService;
 	
-	@GetMapping(value="listByProduct")
-	public void listByProduct(@RequestParam("boardId")int boardId, Model model) {
-		model.addAttribute("post", postService.getList(boardId));
-	}
-	
 	@GetMapping(value="productInfo")
-	public void productInfo(@RequestParam("postId") String postId, Model model) {
-		model.addAttribute("post", postService.findPostById(postId));
+	public void productInfo(@RequestParam("productId")String productId, Model model) {
+		model.addAttribute("post", postService.getReviewList(productId));
 	}
 	
 	/** 특정 게시판에 등록되어 있는 게시글을 목록으로 조회하기 void : /post/list.jsp로 반환 */

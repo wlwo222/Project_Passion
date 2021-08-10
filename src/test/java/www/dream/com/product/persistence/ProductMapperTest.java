@@ -23,7 +23,7 @@ public class ProductMapperTest {
 	private ProductMapper productMapper;
 	
 	
-	@Test
+	//@Test
 	public void test000GetList() {
 		try {
 			productMapper.getList().forEach(p->{
@@ -47,12 +47,10 @@ public class ProductMapperTest {
 		}
 	}
 	
-	//@Test
+	@Test
 	public void test003GetAddInfo() {
 		try {
-			
-			ProductVO dd = productMapper.getAddInfoListofProduct("53");
-			System.out.println(dd);
+			System.out.println(productMapper.findProductById("105"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

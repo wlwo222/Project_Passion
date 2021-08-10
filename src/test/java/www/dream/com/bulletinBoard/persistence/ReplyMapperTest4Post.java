@@ -45,17 +45,6 @@ public class ReplyMapperTest4Post {
 		}
 	}
 
-	@Test
-	public void test040GetList() {
-		assertNotNull(postMapper);
-		try {
-			postMapper.getList(5).forEach(post->{
-				System.out.println(post);
-			});
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 	//@Test
 	public void test020UpdateById() {

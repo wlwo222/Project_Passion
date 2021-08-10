@@ -221,7 +221,7 @@
 								<img src="images/product-details/rating.png" alt="" />
 								<span>
 									<span>${product.price}</span>
-									<label>Quantity:${product.pdAddInfo[2].description}</label>
+									<label>Quantity:${product.quantity}</label>
 									<input type="text" value="3" />
 									<button type="button" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
@@ -258,7 +258,9 @@
 			            <span>해당 옵션은 품절 상태입니다.</span>
 			        </div> -->
 			        		    </div>
-			        		     <div class="buybtn">
+							</div>
+							<div>
+				        <div class="buybtn">
 				        	<a class="btn-black" href="" onclick="" id= "buy-btn">바로구매</a>
 				        </div>
 								 <div class="b-btn">
@@ -266,8 +268,7 @@
 										<i class="fa fa-shopping-cart" ></i></a>
 									</button>
 			                	</div>
-							</div>
-				       
+						</div>
 								<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
 							</div><!--/product-information-->
 						</div>
