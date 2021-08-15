@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="www.dream.com.order.persistence.OrderMapper">
+	<resultMap
+		extends="www.dream.com.common.persistence.CommonMngVOMapper.commonMngVOMap"
+		id="rmOrderVO" type="www.dream.com.order.model.OrderVO">
+		<id column="order_id" property="orderId" />
+		<result column="order_status" property="orderStatus" />
+		<result column="customer_addr" property="customerAddr" />
+		<result column="customer_id" property="customerId" />
+		<result column="customer_name" property="customerName" />
+		<result column="customer_phnum" property="customerPhnum" />
+		<result column="p_id" property="productId" />
+		<result column="total_price" property="totalPrice" />
+
+		<discriminator column="descrim" javaType="String">
+			<case resultMap="rmOrderVO" value="orders" />
+			<case resultMap="rmCartVO" value="cart" />
+		</discriminator>
+	</resultMap>
+
+	<!-- productVO는 prefix="ad_"로 부가정보를 List로 만듭니다. -->
+	<resultMap extends="rmOrderVO" id="rmCartVO"
+		type="www.dream.com.order.model.CartVO">
+		<id column="customer_id" property="customerId" />
+		<result column="productCount" property="p_count" />
+		<collection property="products"	resultMap="www.dream.com.product.persistence.ProductMapper.rmProduct"
+			columnPrefix="p_" autoMapping="true">
+		</collection>
+			
+	</resultMap>
+
+	<!-- ■■■■■■■■■■■■■■■■■■■■■ Cart ■■■■■■■■■■■■■■■■■■■■■ -->
+	<!-- public ProductVO findProductInCart(@Param("productId")String productId, @Param("customerId")String customerId); -->
+	<select id="findProductInCart" resultMap="www.dream.com.product.persistence.ProductMapper.rmProduct">
+		select p.*
+		  from cart c, s_products p
+		 where c.customer_id = #{userId}
+	       and c.p_id = p.p_id
+	       and p.p_id = #{productId}
+	</select>
+		
+	<!-- public int isCartExist(String customerId); -->
+	<select id="isCartExist" resultType="_int">
+		select count(*)
+		  from cart
+	     where customer_id = #{customerId}
+	</select>
+		   	   
+	<!-- public CartVO getCartByUserId(String userId); -->
+	<select id="getCartByUserId" resultMap="rmCartVO">
+		select c.*, p.p_id p_p_id, p.category_id p_category_id, p.p_name p_p_name,
+		        p.price p_price 
+		  from cart c left outer join s_products p on c.p_id = p.p_id,
+		  	s_products s left outer join s_product_add_info pai on s.p_id = pai.p_id
+		 where c.customer_id = #{userId}
+		   and s.p_id = c.p_id
+	</select>
+	
+	<!-- public int putpdtinCart(@Param("cart") CartVO cart, @Param("selectedProductId")String selectedProductId, @Param("quantity")String quantity); -->
+	<!-- Foreach문으로 한꺼번에 정보를 넣어 줍니다. -->
+	<insert id="putpdtinCart">
+	insert all
+		<foreach collection="cart.products" item="product">
+			into cart(customer_id, p_id, p_count)
+			values( #{customerId}, #{product.productId}, ${quantity})
+		</foreach>
+		select * from dual	
+    </insert>
+
+	<!-- public int updateCart(CartVO cart); insert 기능밖에 없음-->
+	<insert id="updateCart">
+	insert all
+		<foreach collection="products" item="product" index="i">
+				into cart(customer_id, p_id, p_count)
+				 values( #{customerId}, #{product.productId}, ${product.pdAddInfo[2].description})
+		</foreach>
+		select * from dual	
+    </insert>
+    
+    <!-- update -->
+
+
+	<!-- ■■■■■■■■■■■■■■■■■■■■■ Order ■■■■■■■■■■■■■■■■■■■■■ -->
+
+
+</mapper>
