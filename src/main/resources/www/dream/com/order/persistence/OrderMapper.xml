@@ -72,15 +72,23 @@
 		select * from dual	
     </insert>
 
-	<!-- public int updateCart(CartVO cart); insert 기능밖에 없음-->
-	<insert id="updateCart">
-	insert all
-		<foreach collection="products" item="product" index="i">
-				into cart(customer_id, p_id, p_count)
-				 values( #{customerId}, #{product.productId}, ${product.pdAddInfo[2].description})
-		</foreach>
-		select * from dual	
-    </insert>
+	<!-- public int updateCart(@Param("cart")CartVO cart, @Param("existingProductIdAndQ")Map<String, String> existingProductIdAndQ, 
+	@Param("newProductIdsAndQ")Map<String, String> newProductIdsAndQ); -->
+	<update id="updateCart" parameterType="java.util.Map">
+	BEGIN
+	<foreach collection="existingProductIdAndQ" item="existingProduct" open="" separator=";" close=";" index="ProductID">
+	UPDATE cart
+	   SET p_count = ${existingProduct}
+	 WHERE customer_id= #{cart.customerId}
+	   AND p_id = #{ProductID}
+	</foreach>
+	
+	<foreach collection="newProductIdsAndQ" item="newProduct" open="" separator=";" close=";" index="ProductID">
+	INSERT 	INTO cart(customer_id, p_id, p_count)
+	VALUES (#{cart.customerId}, #{ProductID}, ${newProduct})
+	</foreach>
+	 END;
+    </update>
     
     <!-- update -->
 

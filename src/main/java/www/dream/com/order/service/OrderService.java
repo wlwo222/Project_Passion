@@ -3,6 +3,7 @@ package www.dream.com.order.service;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,8 +32,8 @@ public class OrderService {
 		return orderMapper.getCartByUserId(userId);
 	}
 	
-	public int updateCart(CartVO cart, List<String> existingProductIds, List<String> newProductIdsForCart) {
-		return orderMapper.updateCart(cart, existingProductIds, newProductIdsForCart);
+	public int updateCart(CartVO cart, Map<String, String> existingProductIdAndQ, Map<String, String> newProductIdsAndQ) {
+		return orderMapper.updateCart(cart, existingProductIdAndQ, newProductIdsAndQ);
 	}
 	
 	/**

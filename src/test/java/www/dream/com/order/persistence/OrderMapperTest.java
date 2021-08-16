@@ -1,7 +1,9 @@
 package www.dream.com.order.persistence;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -46,9 +48,17 @@ public class OrderMapperTest {
 	}
 	
 	@Test
-	public void test001findCart() {
+	public void test001putProductinCart() {
 		try {
-			System.out.println(orderService.getCartByUserId("mana1"));
+			//새로운 ProductId와 Quantity를 담을 Map
+			Map<String, String> NewProductIdsAndQ = new HashMap<>();
+			NewProductIdsAndQ.put("2", "2");
+			//기존의 ProductId와 Quantity를 담을 Map
+			Map<String, String> ExistingProductIdAndQ = new HashMap<>();
+			ExistingProductIdAndQ.put("3", "6");
+			orderService.updateCart(orderService.getCartByUserId("admin"), ExistingProductIdAndQ, NewProductIdsAndQ);
+			System.out.println("성공!");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

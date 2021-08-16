@@ -1,6 +1,7 @@
 package www.dream.com.order.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -16,11 +17,12 @@ public interface OrderMapper {
 	
 	public CartVO getCartByUserId(String userId);
 	
-	public int updateCart(@Param("cart")CartVO cart, @Param("existingProductIds")List<String> existingProductIds, @Param("newProductIdsForCart")List<String> newProductIdsForCart);
+	public int updateCart(@Param("cart")CartVO cart, @Param("existingProductIdAndQ")Map<String, String> existingProductIdAndQ, @Param("newProductIdsAndQ")Map<String, String> newProductIdsAndQ);
 	
 	public ProductVO findProductInCart(@Param("productId")String productId, @Param("customerId")String customerId);
 
 	public int putpdtinCart(@Param("cart") CartVO cart, @Param("selectedProductId")String selectedProductId, @Param("quantity")String quantity);
+
 	
 	/* Order */
 	
