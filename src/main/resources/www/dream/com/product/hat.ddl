@@ -1,3 +1,121 @@
+--############################야구모자###############################################
+insert into s_products(p_id, category_id, p_name, price)
+	values('5', '10000a', 'colorballcap_blue', '23000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('6', '10000a', 'colorballcap_green', '23000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('8', '10000a', 'ladodgers_blue', '28000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('9', '10000a', 'ladodgers_red', '28000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('10', '10000a', 'ladodgers_yellow', '28000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('11', '10000a', 'legacyballcap_black', '30000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('12', '10000a', 'legacyballcap_brown', '30000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('13', '10000a', 'legacyballcap_white', '30000' );
+	
+--############################비니###############################################	
+
+insert into s_products(p_id, category_id, p_name, price)
+	values('14', '10000f', 'logobini_black', '31000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('15', '10000f', 'logobini_blue', '31000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('16', '10000f', 'logobini_red', '31000' );	
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('17', '10000f', 'shortbeanie_brown', '32000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('18', '10000f', 'shortbeanie_gray', '32000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('19', '10000f', 'shortbeanie_purple', '32000' );		
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('20', '10000f', 'stickcap_black', '33000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('21', '10000f', 'stickcap_brown', '33000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('22', '10000f', 'stickcap_navy', '33000' );	
+	
+	
+--############################베레모###############################################	
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('23', '10000b', 'huntingberet_brown', '29000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('24', '10000b', 'huntingberet_red', '29000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('325', '10000b', 'oxfordberet_black', '27000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('326', '10000b', 'oxfordberet_blue', '27000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('327', '10000b', 'oxfordbere_brown', '27000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('328', '10000b', 'woolberet_black', '26000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('329', '10000b', 'woolberet_brown', '26000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('330', '10000b', 'woolberet_red', '26000' );
+	
+--############################페도라###############################################	
+
+insert into s_products(p_id, category_id, p_name, price)
+	values('32', '10000d', 'originalfedora_brownred', '26500' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('33', '10000d', 'originalfedora_brownwhite', '26500' );
+	
+--############################기타모자###############################################	
+insert into s_products(p_id, category_id, p_name, price)
+	values('34', '10000e', 'flowervisor_blue', '27500' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('35', '10000e', 'flowervisor_green', '27500' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('36', '10000e', 'flowervisor_orange', '27500' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('37', '10000e', 'rafiafedora_beige', '22000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('38', '10000e', 'rafiafedora_black', '22000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('39', '10000e', 'rafiafedora_brown', '22000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('40', '10000e', 'visor_black', '23000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('41', '10000e', 'visor_blue', '23000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('42', '10000e', 'visor_red', '23000' );
+	
+--############################트루퍼###############################################	
+
+insert into s_products(p_id, category_id, p_name, price)
+	values('43', '10000c', 'fishtrooper_blue', '31000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('44', '10000c', 'fishtrooper_khaki', '31000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('45', '10000c', 'fishtrooper_red', '31000' );	
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('46', '10000c', 'steentrooper_black', '36000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('47', '10000c', 'steentrooper_brown', '36000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('48', '10000c', 'steentrooper_green', '36000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('49', '10000c', 'stringtrooper_black', '30000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('50', '10000c', 'stringtrooper_blue', '30000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('51', '10000c', 'steentrooper_brown', '30000' );
+
+--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&상품상세정보&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 --#############################3야구모자 구간
 insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('5', 'score', 2);
@@ -536,7 +654,7 @@ insert into s_product_add_info(p_id,product_add_info_type, description)
 insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('47', 'size', 45);
 insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('47', 'color', 'brown');	
+	values('47', 'color', 'brown');
 	
 insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('48', 'score', 5);

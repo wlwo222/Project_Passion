@@ -13,33 +13,78 @@ create table categories(
 	category_name		varchar2(50) 
 );
 insert into categories(category_id, category_name) 
-	values('1', '모자'); --1
+	values('1', 'HAT'); --1
 insert into categories(category_id, category_name)
-	values('10000f', '비니');
-insert into categories(category_id, category_name) 
-	values('2', '상의'); --2
-insert into categories(category_id, category_name) 
-	values('20000a', '반팔티셔츠'); --2
-insert into categories(category_id, category_name) 
-	values('3', '하의'); --3
-insert into categories(category_id, category_name) 
-	values('30000a', '팬츠'); --3
-insert into categories(category_id, category_name) 
-	values('4', '신발'); --4
-insert into categories(category_id, category_name) 
-	values('40000a', '구두'); --4
-	
+	values('10000a', 'BASEBALLCAP');
 insert into categories(category_id, category_name)
-	values('10000a', '야구모자');
+	values('10000b', 'BERET');	
 insert into categories(category_id, category_name)
-	values('10000b', '베레모');	
+	values('10000c', 'TROOPER');
 insert into categories(category_id, category_name)
-	values('10000c', '트루퍼');
+	values('10000d', 'FEDORA');	
 insert into categories(category_id, category_name)
-	values('10000d', '페도라');	
-insert into categories(category_id, category_name) 
-	values('40000b', '캔버스화'); --4
+	values('10000e', 'OTHER HATS');
+insert into categories(category_id, category_name)
+	values('10000f', 'BEANIE');
 
+insert into categories(category_id, category_name) 
+	values('2', 'CONSULTATION'); --2
+insert into categories(category_id, category_name) 
+	values('20000a', 'T-SHIRT'); --2
+insert into categories(category_id, category_name)
+	values('20000b', 'LONG T-SHIRT');
+insert into categories(category_id, category_name)
+	values('20000c', 'MIN T-SHIRT');
+insert into categories(category_id, category_name)
+	values('20000d', 'SHIRT, BLOUSE');
+insert into categories(category_id, category_name)
+	values('20000e', 'PIQUE');
+insert into categories(category_id, category_name)
+	values('20000f', 'MANTOMAN');
+insert into categories(category_id, category_name)
+	values('20000g', 'HOOD');
+insert into categories(category_id, category_name)
+	values('20000h', 'SWEATER');
+	
+insert into categories(category_id, category_name) 
+	values('3', 'PANTS'); --3
+insert into categories(category_id, category_name) 
+	values('30000a', 'PANTS'); --3
+insert into categories(category_id, category_name)
+	values('30000b', 'LEGGINGS');
+insert into categories(category_id, category_name)
+	values('30000c', 'SUIT');
+insert into categories(category_id, category_name)
+	values('30000d', 'TRAINING');
+insert into categories(category_id, category_name)
+	values('30000e', 'SLACKS');
+	
+	
+insert into categories(category_id, category_name) 
+	values('4', 'SHOES'); --4
+insert into categories(category_id, category_name) 
+	values('40000a', 'SHOES'); --4
+insert into categories(category_id, category_name)
+	values('40000c', 'SANDLE, SLIPPERS, BOOTS');
+insert into categories(category_id, category_name) 
+	values('40000b', 'CANVAS'); --4
+
+	
+insert into categories(category_id, category_name) 
+	values('5', 'OUTER'); 
+insert into categories(category_id, category_name) 
+	values('50000a', 'HOODZIPUP');
+insert into categories(category_id, category_name) 
+	values('50000b', 'SEASONCOAT'); 
+insert into categories(category_id, category_name) 
+	values('50000c', 'WINTERCOAT'); 
+insert into categories(category_id, category_name) 
+	values('50000d', 'JACKET');
+insert into categories(category_id, category_name) 
+	values('50000e', 'CARDIGAN'); 
+insert into categories(category_id, category_name) 
+	values('50000f', 'OTHEROUTER'); 
+	
 -- p_id, category_id, p_name, price
  create table s_products(
     p_id                varchar2(500)     primary key,
@@ -182,10 +227,3 @@ insert into s_product_add_info_type(product_add_info_type, description)
 
 insert into s_product_add_info_type(product_add_info_type, description)
 	values('size', '사이즈');
-
-######################################Order#################################################
-create table order_list(
-	order_number		number(12)		primary key,
-	quantity			number(9),
-	p_id				varchar2(500)
-);

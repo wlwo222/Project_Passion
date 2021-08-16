@@ -153,14 +153,14 @@
 								<div id="consultation" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul>
-											<li><a href="#">hood </a></li>
-											<li><a href="#">longsleeves </a></li>
-											<li><a href="#">mantoman </a></li>
-											<li><a href="#">pique</a></li>
-											<li><a href="#">shirt </a></li>
-											<li><a href="#">shortsleeve </a></li>
-											<li><a href="#">sleeveless </a></li>
-											<li><a href="#">sweater </a></li>
+											<li value=""><a href="#" >hood </a></li>
+											<li value=""><a href="#">longsleeves </a></li>
+											<li value=""><a href="#">mantoman </a></li>
+											<li value=""><a href="#">pique</a></li>
+											<li value=""><a href="#">shirt </a></li>
+											<li value=""><a href="#">shortsleeve </a></li>
+											<li value=""><a href="#">sleeveless </a></li>
+											<li value=""><a href="#">sweater </a></li>
 										</ul>
 									</div>
 								</div>
@@ -178,12 +178,12 @@
 								<div id="hat" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul>
-											<li><a href="#">baseballcap</a></li>
-											<li><a href="#">beanie</a></li>
-											<li><a href="#">beret</a></li>
-											<li><a href="#">fedora</a></li>
-											<li><a href="#">otherhats</a></li>
-											<li><a href="#">trooper</a></li>
+											<li value=""><a href="#">baseballcap</a></li>
+											<li value=""><a href="#">beanie</a></li>
+											<li value=""><a href="#">beret</a></li>
+											<li value=""><a href="#">fedora</a></li>
+											<li value=""><a href="#">otherhats</a></li>
+											<li value=""><a href="#">trooper</a></li>
 										</ul>
 									</div>
 								</div>
@@ -308,7 +308,6 @@
 					<div class="features_items">
 						<!--features_items-->
 						<h2 class="title text-center">Features Items</h2>
-						<script src="/resources/js/jquery.js"></script>
 						<c:forEach items="${productList}" var="product" varStatus="status">
 						<!-- ProductVO -->
 						 <div class="itemContainer">
@@ -331,10 +330,10 @@
 												<a class="productName" href="/homes/productDetail?productId=${product.productId}">
 													<h3>${product.productName}</h3>
 												</a>
-												<div class="price_rating" id="${status.index}">
+												<div class="price_rating">
 													<h2>${product.price}원
 													</h2>
-													<p></p> <!-- 별점 표시하는 부분 -->
+													<p value="${product.pdAddInfo[0].description}"></p> <!-- 별점 표시하는 부분 -->
 												</div>
 											</div>
 										</div>
@@ -342,58 +341,6 @@
 								</div>
 							</div>
 						</div>
-						<script>
-						var score=${product.pdAddInfo[0].description};
-						var printscore = "";
-						printscore += "<div class='rating'>"
-							switch(score){
-							case 1 :
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
-								printscore += "</div>";
-								$("#${status.index}").append(printscore);
-								break;
-							case 2 :
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
-								printscore += "</div>";
-								$("#${status.index}").append(printscore);
-								break;
-							case 3 :
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
-								printscore += "</div>";
-								$("#${status.index}").append(printscore);
-								break;
-							case 4 :
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
-								printscore += "</div>";
-								$("#${status.index}").append(printscore);
-								break;
-							case 5 :
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
-								printscore += "</div>";
-								$("#${status.index}").append(printscore);
-								break;
-							}
-						</script>
 						</c:forEach>
 											<!--features_items-->
 <!-- ################################################################################Product End################################################################################ -->
@@ -793,6 +740,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</section>
 	<!-- 풋 상단 notice  -->
 	<div class="container1" id="sp-footer-design">
@@ -940,11 +888,59 @@
 			this.classList.toggle('active');
 			navigation.classList.toggle('active')
 		};
-		
-		$(document).ready(function(e){
-			var printscore = "";
-			
-		});
+	</script>
+	<script src="/resources/js/jquery.js"></script>
+	<script>
+	var score= $(".price_rating p").val();
+	var printscore = "";
+	printscore += "<div class='rating'>"
+		switch(score){
+		case 1 :
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
+			printscore += "</div>";
+			$(".price_rating p").append(printscore);
+			break;
+		case 2 :
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
+			printscore += "</div>";
+			$(".price_rating p").append(printscore);
+			break;
+		case 3 :
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
+			printscore += "</div>";
+			$(".price_rating p").append(printscore);
+			break;
+		case 4 :
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star grey' aria-hidden='true'></i>";
+			printscore += "</div>";
+			$(".price_rating p").append(printscore);
+			break;
+		case 5 :
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "<i class='fa fa-star' aria-hidden='true'></i>";
+			printscore += "</div>";
+			$(".price_rating p").append(printscore);
+			break;
+		}
 	</script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -952,6 +948,8 @@
 		$(function() {
 			$(".navigation").draggable({delay:10});
 		});
+		
+		$()
 	</script>	
 	<script src="/resources/js/bootstrap.min.js"></script>
 	<script src="/resources/js/jquery.scrollUp.min.js"></script>

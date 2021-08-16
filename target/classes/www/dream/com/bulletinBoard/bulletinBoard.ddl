@@ -31,6 +31,7 @@ create table s_reply(
 	reply_id 	 varchar2(100) primary key,
 	contents     varchar2(1000),
 	writer_id	 varchar2(10) references s_party(user_id),
+	score		 varchar2(10),
 	owner_id	 varchar2(100),
 	descrim		 varchar2(10),
 	title		 varchar2(500),

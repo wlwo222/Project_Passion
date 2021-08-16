@@ -78,10 +78,9 @@
 	<select id="getCategories" resultMap="cateMap">
 	<![CDATA[
 		select ct.*,
-			p.p_id ct_p_id, p.category_id ct_category_id, p.quantity ct_quantity,
-			p.p_name ct_p_name, p.price ct_price, p.p_size ct_p_size
+			p.p_id ct_p_id, p.category_id ct_category_id,
+			p.p_name ct_p_name, p.price ct_price
 		  from  categories ct left outer join s_products p on ct.category_id = p.category_id 
-    	 where length(ct.category_id)<= 4
     ]]>
 	</select>
 	

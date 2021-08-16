@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import www.dream.com.common.category.model.Category;
 import www.dream.com.product.model.ProductAdditionalInfo;
 import www.dream.com.product.model.ProductVO;
+import www.dream.com.product.service.ProductService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -21,6 +22,8 @@ import www.dream.com.product.model.ProductVO;
 public class ProductMapperTest {
 	@Autowired
 	private ProductMapper productMapper;
+	@Autowired
+	ProductService productService;
 	
 	
 	//@Test
@@ -48,9 +51,12 @@ public class ProductMapperTest {
 	}
 	
 	@Test
-	public void test003GetAddInfo() {
+	public void test003GetCategories() {
 		try {
-			System.out.println(productMapper.findProductById("105"));
+			List<Category> subCategories = productService.getUpperAndSubcategories().get("subCategories");
+			subCategories.forEach(categories->{
+				System.out.println(categories);
+			});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

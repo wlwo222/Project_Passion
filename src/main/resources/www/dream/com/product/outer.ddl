@@ -1,3 +1,126 @@
+--############################아우터 카디건###############################################	
+
+insert into s_products(p_id, category_id, p_name, price)
+	values('227', '50000e', 'angelcardigan_black', '78000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('228', '50000e', 'angelcardigan_grey', '78000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('229', '50000e', 'angelcardigan_white', '78000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('230', '50000e', 'basecardigan_black', '66000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('231', '50000e', 'basecardigan_brown', '66000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('232', '50000e', 'basecardigan_gray', '66000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('233', '50000e', 'zipupcardigan_blue', '55000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('234', '50000e', 'zipupcardigan_green', '55000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('235', '50000e', 'zipupcardigan_white', '55000' );
+	
+--############################후드집업###############################################	
+
+insert into s_products(p_id, category_id, p_name, price)
+	values('236', '50000a', 'jacketsmoke_black', '59000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('237', '50000a', 'jacketsmoke_gray', '59000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('238', '50000a', 'jacketsmoke_khaki', '59000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('239', '50000a', 'steve_black', '89000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('240', '50000a', 'steve_gray', '89000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('241', '50000a', 'steve_white', '89000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('242', '50000a', 'trainingzipup_black', '54000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('243', '50000a', 'trainingzipup_purple', '54000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('244', '50000a', 'trainingzipup_white', '54000' );
+	
+--############################환절기 코트###############################################	
+
+insert into s_products(p_id, category_id, p_name, price)
+	values('245', '50000b', 'frenchcoat_black', '64000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('246', '50000b', 'frenchcoat_green', '64000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('247', '50000b', 'frenchcoat_sand', '64000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('248', '50000b', 'nellicoat_beige', '68000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('249', '50000b', 'nellicoat_black', '68000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('250', '50000b', 'nellicoat_brown', '68000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('251', '50000b', 'woolcoat_black', '49000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('252', '50000b', 'woolcoat_green', '49000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('253', '50000b', 'woolcoat_pink', '49000' );
+
+--############################재킷###############################################		
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('257', '50000d', 'overfitjacket_black', '110000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('258', '50000d', 'overfitjacket_khaki', '110000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('259', '50000d', 'overfitjacket_white', '110000' );	
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('260', '50000d', 'trackjacket_black', '95000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('261', '50000d', 'trackjacket_blue', '95000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('262', '50000d', 'trackjacket_purple', '95000' );	
+	
+--############################기타아우터###############################################	
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('169', '50000f', '4pocketjacket_beige', '74000' );	
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('172', '50000f', 'apartment_black', '88000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('173', '50000f', 'apartment_blue', '88000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('174', '50000f', 'apartment_red', '88000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('175', '50000f', 'linkleshirt_blue', '96000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('176', '50000f', 'linkleshirt_red', '96000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('177', '50000f', 'linkleshirt_yellow', '96000' );
+	
+--############################겨울코트###############################################	
+
+insert into s_products(p_id, category_id, p_name, price)
+	values('178', '50000c', 'maxidoublecoat__charcoal', '156000' );
+
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('181', '50000c', 'minimalshortcoat_black', '178000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('182', '50000c', 'minimalshortcoat_brown', '178000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('183', '50000c', 'minimalshortcoat_white', '178000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('184', '50000c', 'singlecoat_blue', '149000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('185', '50000c', 'singlecoat_red', '149000' );
+
+--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&상품 상세정보&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('227', 'score', 2);
 insert into s_product_add_info(p_id,product_add_info_type, description)

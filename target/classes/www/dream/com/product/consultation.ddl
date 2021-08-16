@@ -1,3 +1,173 @@
+--########################hood################################
+insert into s_products(p_id, category_id, p_name, price)
+	values('100', '20000g', 'denverhoodmantoman_green', '48000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('101', '20000g', 'denverhoodmantoman_purple', '48000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('102', '20000g', 'hoodmantoman_black', '50000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('103', '20000g', 'hoodmantoman_white', '50000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('104', '20000g', 'hoodmantomanjumper_black', '56000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('105', '20000g', 'hoodmantomanjumper_white', '56000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('106', '20000g', 'nychoodmantoman_black', '45000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('107', '20000g', 'nychoodmantoman_green', '45000' );
+	
+--#######################longsleeves#######################
+insert into s_products(p_id, category_id, p_name, price)
+	values('108', '20000b', 'angellongsleeve_black', '56000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('109', '20000b', 'angellongsleeve_darkgray', '56000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('110', '20000b', 'angellongsleeve_white', '56000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('111', '20000b', 'shinelongsleeve_white', '49000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('112', '20000b', 'shinelongsleeve_black', '49000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('113', '20000b', 'shinelongsleeve_pink', '49000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('114', '20000b', 'tntramidustee_blue', '40000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('115', '20000b', 'tntramidustee_orange', '40000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('116', '20000b', 'tntramidustee_white', '40000' );
+	
+--#########################mantoman##########################
+insert into s_products(p_id, category_id, p_name, price)
+	values('117', '20000f', 'dogsweatshirt_gray', '38000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('118', '20000f', 'dogsweatshirt_red', '38000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('119', '20000f', 'dogsweatshirt_white', '38000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('120', '20000f', 'globesweatshirt_black', '25000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('121', '20000f', 'globesweatshirt_orange', '25000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('122', '20000f', 'leonsweatshirt_beige', '30000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('123', '20000f', 'leonsweatshirt_white', '30000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('124', '20000f', 'leonsweatshirt_yellow', '30000' );
+	
+--############################pique########################
+insert into s_products(p_id, category_id, p_name, price)
+	values('125', '20000e', 'oversizepoloshirt_darkgray', '98000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('126', '20000e', 'oversizepoloshirt_gray', '98000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('127', '20000e', 'oversizepoloshirt_navy', '98000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('128', '20000e', 'poloshirt_beige', '78000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('129', '20000e', 'poloshirt_black', '78000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('130', '20000e', 'poloshirt_blue', '78000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('131', '20000e', 'smalllogopoloshirt_black', '128000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('132', '20000e', 'smalllogopoloshirt_gray', '128000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('133', '20000e', 'smalllogopoloshirt_red', '128000' );
+
+--###########################shirt#############################
+insert into s_products(p_id, category_id, p_name, price)
+	values('134', '20000d', 'diagonalfrillblouse_red', '68000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('135', '20000d', 'diagonalfrillblouse_white', '68000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('136', '20000d', 'shortsleevedshirt_blue', '58000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('137', '20000d', 'shortsleevedshirt_pink', '58000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('138', '20000d', 'shortsleevedshirt_white', '58000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('139', '20000d', 'vneckblouse_black', '28000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('140', '20000d', 'vneckblouse_blue', '28000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('141', '20000d', 'vneckblouse_sprite', '28000' );
+		
+--########################shortsleeve#########################
+insert into s_products(p_id, category_id, p_name, price)
+	values('142', '20000a', 'twitchtshirt_black', '58000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('143', '20000a', 'twitchtshirt_blue', '58000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('144', '20000a', 'twitchtshirt_white', '58000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('145', '20000a', 'universitytee_black&blue', '38000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('146', '20000a', 'universitytee_black&red', '38000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('147', '20000a', 'universitytee_white&red', '38000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('148', '20000a', 'visionsleeve_black', '25000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('149', '20000a', 'visionsleeve_purple', '25000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('150', '20000a', 'visionsleeve_white', '25000' );
+	
+--############################sleeveless#######################
+insert into s_products(p_id, category_id, p_name, price)
+	values('151', '20000c', 'beachsleeveless_black', '9000' );
+	insert into s_products(p_id, category_id, p_name, price)
+	values('152', '20000c', 'beachsleeveless_white', '9000' );
+	insert into s_products(p_id, category_id, p_name, price)
+	values('153', '20000c', 'beachsleeveless_yellow', '9000' );
+
+insert into s_products(p_id, category_id, p_name, price)
+	values('154', '20000c', 'symbolsleeveless_black', '10000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('155', '20000c', 'symbolsleeveless_lime', '10000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('156', '20000c', 'symbolsleeveless_white', '10000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('157', '20000c', 'womenssleeveless_pink', '12000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('159', '20000c', 'womenssleeveless_black', '12000' );
+	
+--############################sweater#########################
+insert into s_products(p_id, category_id, p_name, price)
+	values('160', '20000h', 'cashmeresweater_black', '78000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('161', '20000h', 'cashmeresweater_brown', '78000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('162', '20000h', 'cashmeresweater_darkblue', '78000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('163', '20000h', 'polonecksweater_black', '68000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('164', '20000h', 'polonecksweater_brown', '68000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('165', '20000h', 'polonecksweater_lime', '68000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('166', '20000h', 'stripesweater_beige', '58000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('167', '20000h', 'stripesweater_black', '58000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('168', '20000h', 'stripesweater_red', '58000' );
+
+--###########################상품 부가정보####################################
+
 insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('100', 'score', 2);
 insert into s_product_add_info(p_id,product_add_info_type, description)
@@ -651,7 +821,7 @@ insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('147', 'quantity', 654);
 insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('147', 'size', 100);
-insert into s_product_add_info(p_i	d,product_add_info_type, description)
+insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('147', 'color', 'white&red');	
 	
 --##########################universitytee 구간

@@ -1,3 +1,114 @@
+	--#########################leggings#############################
+insert into s_products(p_id, category_id, p_name, price)
+	values('49', '30000b', 'barrelfitleggings_black', '28000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('500', '30000b', 'barrelfitleggings_deepblue', '28000' );	
+insert into s_products(p_id, category_id, p_name, price)
+	values('501', '30000b', 'barrelfitleggings_deeppurple', '28000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('52', '30000b', 'dailyleggings_black', '30000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('53', '30000b', 'dailyleggings_grey', '30000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('54', '30000b', 'dailyleggings_ivory', '30000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('55', '30000b', 'highwaistleggings_black', '25000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('56', '30000b', 'highwaistleggings_blue', '25000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('57', '30000b', 'highwaistleggings_pink', '25000' );
+	
+--#######################pant#######################
+insert into s_products(p_id, category_id, p_name, price)
+	values('58', '30000a', 'cottonfit_beige', '30000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('59', '30000a', 'cottonfit_khaki', '30000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('60', '30000a', 'cottonfit_white', '30000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('61', '30000a', 'taperedpants_white', '31000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('62', '30000a', 'taperedpants_beige', '31000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('63', '30000a', 'taperedpants_brown', '31000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('64', '30000a', 'widepants_black', '38000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('65', '30000a', 'widepants_khaki', '38000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('66', '30000a', 'widepants_white', '38000' );
+	
+--#########################slacks##########################
+insert into s_products(p_id, category_id, p_name, price)
+	values('67', '30000e', 'convinceslacks_black', '18000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('68', '30000e', 'convinceslacks_gray', '18000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('69', '30000e', 'convinceslacks_charcoalgray', '18000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('70', '30000e', 'nylonpants_black', '25000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('71', '30000e', 'nylonpants_darkbrown', '25000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('72', '30000e', 'nylonpants_khaki', '25000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('73', '30000e', 'wideslacks_black', '28000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('74', '30000e', 'wideslacks_darkbrown', '28000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('75', '30000e', 'wideslacks_white', '28000' );
+	
+--############################suit########################
+insert into s_products(p_id, category_id, p_name, price)
+	values('76', '30000c', 'bandedslacks_black', '48000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('77', '30000c', 'bandedslacks_brown', '48000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('78', '30000c', 'bandedslacks_lightgrey', '48000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('79', '30000c', 'bandingsetuppants_black', '50000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('80', '30000c', 'bandingsetuppants_gray', '50000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('81', '30000c', 'bandingsetuppants_khaki', '50000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('82', '30000c', 'belieftrauser_black', '68000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('83', '30000c', 'belieftrauser_brown', '68000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('84', '30000c', 'belieftrauser_darkbrown', '68000' );
+
+--###########################training#############################
+insert into s_products(p_id, category_id, p_name, price)
+	values('85', '30000d', 'fdpants_black', '63000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('86', '30000d', 'fdpants_brown', '63000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('87', '30000d', 'fdpants_gray', '63000' );
+
+insert into s_products(p_id, category_id, p_name, price)
+	values('88', '30000d', 'latrainingpants_black', '50000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('89', '30000d', 'latrainingpants_brown', '50000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('90', '30000d', 'latrainingpants_purple', '50000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('91', '30000d', 'sweatpants_black', '48000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('92', '30000d', 'sweatpants_gray', '48000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('93', '30000d', 'sweatpants_white', '48000' );
+
+--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&Pants&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 --########################pants	 leggings	
 insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('49', 'score', 5);
@@ -13,30 +124,30 @@ insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('49', 'color', 'black');		
 
 insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('50', 'score', 1);
+	values('500', 'score', 1);
 insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('50', 'image', '/resources/images/productImg/pants/leggings/barrelfitleggings/barrelfitleggings_deepblue.jpg');
+	values('500', 'image', '/resources/images/productImg/pants/leggings/barrelfitleggings/barrelfitleggings_deepblue.jpg');
 insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('50', 'reviewcount', 1599);
+	values('500', 'reviewcount', 1599);
 insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('50', 'quantity', 8869);
+	values('500', 'quantity', 8869);
 insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('50', 'size', 45);
+	values('500', 'size', 45);
 insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('50', 'color', 'deepblue');	
+	values('500', 'color', 'deepblue');	
 
 insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('51', 'score', 5);
+	values('501', 'score', 5);
 insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('51', 'image', '/resources/images/productImg/pants/leggings/barrelfitleggings/barrelfitleggings_deeppurple.jpg');
+	values('501', 'image', '/resources/images/productImg/pants/leggings/barrelfitleggings/barrelfitleggings_deeppurple.jpg');
 insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('51', 'reviewcount', 2599);
+	values('501', 'reviewcount', 2599);
 insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('51', 'quantity', 6869);
+	values('501', 'quantity', 6869);
 insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('51', 'size', 45);
+	values('501', 'size', 45);
 insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('51', 'color', 'deeppurple');	
+	values('501', 'color', 'deeppurple');	
 	
 insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('52', 'score', 4);

@@ -1,3 +1,64 @@
+insert into s_products(p_id, category_id, p_name, price)
+	values('200', '40000c', 'flipflops_black', '45000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('201', '40000c', 'flipflops_brown', '45000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('202', '40000c', 'flipflops_white', '45000' );	
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('203', '40000c', 'rainboots_black', '40000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('204', '40000c', 'rainboots_brown', '40000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('205', '40000c', 'rainboots_khaki', '40000' );
+	
+--############################구두#########################
+
+insert into s_products(p_id, category_id, p_name, price)
+	values('206', '40000a', 'basement_00', '80000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('207', '40000a', 'basement_30', '80000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('208', '40000a', 'basement_45', '80000' );	
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('209', '40000a', 'comandosol_00', '84000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('210', '40000a', 'comandosol_30', '84000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('211', '40000a', 'comandosol_90', '84000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('212', '40000a', 'derbyshoes_45', '91000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('213', '40000a', 'derbyshoes_90', '91000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('214', '40000a', 'derbyshoes_180', '91000' );
+
+--############################운동화########################	
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('215', '40000b', 'allstarshoes_black red', '61000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('216', '40000b', 'allstarshoes_black black', '61000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('217', '40000b', 'allstarshoes_black white', '61000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('218', '40000b', 'authenticshoes_black', '55000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('219', '40000b', 'authenticshoes_blue', '55000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('220', '40000b', 'authenticshoes_red', '55000' );
+	
+insert into s_products(p_id, category_id, p_name, price)
+	values('221', '40000b', 'nyshoes_whilte1', '57000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('222', '40000b', 'nyshoes_whilte2', '57000' );
+insert into s_products(p_id, category_id, p_name, price)
+	values('223', '40000b', 'nyshoes_whilte3', '57000' );
+
+--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&상품부가정보&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('200', 'score', 5);
 insert into s_product_add_info(p_id,product_add_info_type, description)
@@ -270,42 +331,3 @@ insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('223', 'size', 260);
 insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('223', 'color', 'red');	
-	
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('224', 'score', 2);
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('224', 'image', '/resources/images/productImg/shoes/sneakers/nyshoes/nyshoes_white1.jpg');
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('224', 'reviewcount', 1422);
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('224', 'quantity', 8493);
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('224', 'size', 260);
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('224', 'color', 'white1');	
-
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('225', 'score', 2);
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('225', 'image', '/resources/images/productImg/shoes/sneakers/nyshoes/nyshoes_white2.jpg');
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('225', 'reviewcount', 1423);
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('225', 'quantity', 8494);
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('225', 'size', 260);
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('225', 'color', 'white2');	
-	
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('226', 'score', 2);
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('226', 'image', '/resources/images/productImg/shoes/sneakers/nyshoes/nyshoes_white3.jpg');
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('226', 'reviewcount', 1424);
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('226', 'quantity', 8495);
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('226', 'size', 260);
-insert into s_product_add_info(p_id,product_add_info_type, description)
-	values('226', 'color', 'white3');	
