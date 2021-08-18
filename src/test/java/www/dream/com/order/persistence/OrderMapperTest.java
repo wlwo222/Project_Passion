@@ -52,10 +52,11 @@ public class OrderMapperTest {
 		try {
 			//새로운 ProductId와 Quantity를 담을 Map
 			Map<String, String> NewProductIdsAndQ = new HashMap<>();
-			NewProductIdsAndQ.put("4", "2");
+			NewProductIdsAndQ.put("666", "22");
 			//기존의 ProductId와 Quantity를 담을 Map
 			Map<String, String> ExistingProductIdAndQ = new HashMap<>();
-			ExistingProductIdAndQ.put("80", "29");
+			ExistingProductIdAndQ.put("4", "5");
+			ExistingProductIdAndQ.put("82", "30");
 			orderService.updateCart(orderService.getCartByUserId("admin"), ExistingProductIdAndQ, NewProductIdsAndQ);
 			System.out.println("성공!");
 			
