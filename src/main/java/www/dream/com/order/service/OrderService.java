@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import www.dream.com.order.model.CartVO;
+import www.dream.com.order.model.OrderVO;
 import www.dream.com.order.persistence.OrderMapper;
 import www.dream.com.product.model.ProductVO;
 
@@ -21,6 +22,10 @@ public class OrderService {
 	
 	@Autowired
 	private OrderMapper orderMapper;
+	
+	public List<OrderVO> getOrdersByUserId(String userId){
+		return orderMapper.getOrdersByUserId(userId);
+	}
 	
 	
 	public int isCartExist(String customerId) {

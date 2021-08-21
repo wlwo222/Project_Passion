@@ -48,10 +48,14 @@
 	</sec:authorize>
 	
 	<sec:authorize access="isAuthenticated()">
+	    <form method="post" action="/party/customLogout">
 		<sec:authentication property="principal.username"/>님 반갑습니다. Welcome to POF
-	    <a href="/party/customLogout">LOGOUT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	    <a href="/party/updateMember">회원정보수정</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	    <a href="/party/myPage">마이페이지</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type='hidden' name='${_csrf.parameterName}' value='${_csrf.token}'/>
+		<button>LOGOUT</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+	    <a href="/party/updateMember">회원정보수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	    <a href="/party/myPage">마이페이지</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	    </form>
 	</sec:authorize>
 </div>
 		<!--header-->
@@ -98,11 +102,20 @@
 							<ul class="nav navbar-nav">
 								<li><a href="/party/myPage"><i class="fa fa-user"
 										aria-hidden="true"></i></a></li>
-								<li><a href="/resources/checkout.html"><i
+								<li><a href="/resources/question.jsp"><i
 										class="fa fa-heart" aria-hidden="true"></i></a></li>
 								<li><a href="/resources/cart.html"><i
 										class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+									<sec:authorize access="isAnonymous()">
 								<li><a href="/party/customLogin"><i class="fa fa-lock" aria-hidden="true"></i></a></li>
+								    </sec:authorize>
+								
+								<sec:authorize access="isAuthenticated()">
+									 <form method="post" action="/party/customLogout">
+									<input type='hidden' name='${_csrf.parameterName}' value='${_csrf.token}' />
+								    <button><li><a> <i class="fa fa-lock" aria-hidden="true"></i></a></li></button>
+								    </form>
+								</sec:authorize>
 							</ul>
 						</div>
 					</div>

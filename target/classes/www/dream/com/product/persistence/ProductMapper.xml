@@ -106,7 +106,7 @@
 	</resultMap>
 	
 	
-	<!-- 여튼 상품의 상세정보 중 하나인 이미지를 끌어온다. -->
+	<!-- 상품의 부가정보를 다 끌어오고, 그것들을 다 포함한 Product를 반환. -->
 	<!-- public ProductVO getAddInfoListofProduct(String id); -->
 	<select id="getAddInfoListofProduct" resultMap="rmProduct">
 	<![CDATA[
@@ -117,4 +117,24 @@
       where p_name= #{id}
 	]]>		
 	</select>
+	
+	<!-- 상품들의 부가정보를 다 끌어오고, 그것들을 다 포함한 Product List 로 묶어서 반환. -->
+	<!-- public ProductVO getAddInfoeachProducts(@Param("products")ProductVO products); -->
+	<select id="getAddInfoeachProducts" resultMap="rmProduct">
+	select pd.*, pm.p_id ad_p_id, pm.product_add_info_type ad_product_add_info_type,
+			pm.description  ad_description
+	  from s_products pd left outer join s_product_add_info pm on pd.p_id = pm.p_id
+	<foreach collection="products" item="Product" open="where pd.p_id = " separator="or pd.p_id = " close="">
+	  #{Product.productId}
+	</foreach>
+	</select>
+	
+	<!-- public ProductVO getAddInfoOfProduct(ProductVO product); -->
+	<select id="getAddInfoOfProduct" resultMap="rmProduct">
+	select pd.*, pm.p_id ad_p_id, pm.product_add_info_type ad_product_add_info_type,
+			pm.description  ad_description
+	  from s_products pd left outer join s_product_add_info pm on pd.p_id = pm.p_id
+	 where pd.p_id = #{productId}
+	</select>
+	
 </mapper>

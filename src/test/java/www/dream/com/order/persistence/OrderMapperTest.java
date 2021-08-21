@@ -14,6 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import www.dream.com.order.model.CartVO;
+import www.dream.com.order.model.OrderVO;
 import www.dream.com.order.service.OrderService;
 import www.dream.com.product.model.ProductAdditionalInfo;
 import www.dream.com.product.model.ProductVO;
@@ -47,7 +48,7 @@ public class OrderMapperTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void test001putProductinCart() {
 		try {
 			//새로운 ProductId와 Quantity를 담을 Map
@@ -59,6 +60,21 @@ public class OrderMapperTest {
 			ExistingProductIdAndQ.put("82", "30");
 			orderService.updateCart(orderService.getCartByUserId("admin"), ExistingProductIdAndQ, NewProductIdsAndQ);
 			System.out.println("성공!");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void test001getProductsAndAddInfo() {
+		try {
+			List<OrderVO> orders = orderService.getOrdersByUserId("admin");
+			
+			orders.forEach(order->{
+				order.setProduct(productMapper.getAddInfoOfProduct(order.getProduct()));
+				System.out.println(order);
+			});
 			
 		} catch (Exception e) {
 			e.printStackTrace();

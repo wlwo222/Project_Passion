@@ -1,6 +1,7 @@
 package www.dream.com.party.control;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,9 +28,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import www.dream.com.order.model.OrderVO;
+import www.dream.com.order.service.OrderService;
 import www.dream.com.party.model.Member;
 import www.dream.com.party.model.Party;
 import www.dream.com.party.service.PartyService;
+import www.dream.com.product.persistence.ProductMapper;
+import www.dream.com.product.service.ProductService;
 
 @Controller
 @RequestMapping("/party/*")
@@ -39,6 +44,12 @@ public class PartyController implements AuthenticationSuccessHandler, AccessDeni
 	
 	@Autowired
 	private PartyService partyService;
+	
+	@Autowired
+	private OrderService orderService;
+	
+	@Autowired
+	private ProductService productService;
 	
 
 	// /party/list
@@ -178,8 +189,14 @@ public class PartyController implements AuthenticationSuccessHandler, AccessDeni
 		response.sendRedirect("/party/accessError");
 	}
 	
+	
     @GetMapping(value="myPage")
-    public void myPage() {
-
+    public void myPage(Model model, Principal principal) {
+    	List<OrderVO> orders = orderService.getOrdersByUserId("admin");
+		orders.forEach(order->{
+			order.setProduct(productService.getAddInfoOfProduct(order.getProduct()));
+		});
+		
+		model.addAttribute("orders", orders);
     }
-    }
+}

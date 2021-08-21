@@ -5,24 +5,26 @@ truncate table cart;
 drop table order_list;
 truncate table order_list;
 
+--order_id, quantity, p_id, total_price,  order_status, descrim, customer_addr, customer_name, customer_phnum, customer_id
 create table orders(
-    customer_id         varchar2(10) 	references s_party(user_id),
-    order_status        varchar2(500),
-    customer_addr       varchar2(50) 	not null,
     order_id            varchar2(10) 	primary key,
+    p_id                varchar2(20) 	references s_products(p_id), 
+    quantity			number(9),
+    total_price         number(9),
+    order_status        varchar2(500),
+    descrim				varchar2(10)	not null,
+    customer_id         varchar2(10) 	references s_party(user_id),
+    customer_addr       varchar2(50) 	not null,
     customer_name       varchar2(50) 	not null,
     customer_phnum      varchar2(50) 	not null,
-    p_id                varchar2(20) 	references s_products(p_id), 
-    total_price         number(9),
-    descrim				varchar2(10)	not null,
     reg_dt				timestamp		default sysdate not null,	--등록시점
 	upt_dt				timestamp		default sysdate not null	--수정시점
 );
 
-insert into orders(customer_id, order_status, customer_addr, order_id, customer_name, customer_phnum, p_id, descrim)
-	values('admin', '입금전', '서울시구로구구로동구로타워1호', 1, 'power', '01011119999', '2', 'orders');
-insert into orders(customer_id, order_status, customer_addr, order_id, customer_name, customer_phnum, p_id, descrim)
-	values('mana1', '장바구니', '서울시구로구구로동구로타워1호', 2, '빡빡이형님', '01011119999', '2', 'wishlist');
+insert into orders(order_id, quantity, p_id, total_price, order_status, descrim, customer_id, customer_addr, customer_name, customer_phnum)
+	values('1', 5, '227', 78000 * 5, '입금전', 'order', 'admin', '여긴 어디인가', '유유', '010-3321-2223');
+insert into orders(order_id, quantity, p_id, total_price, order_status, descrim, customer_id, customer_addr, customer_name, customer_phnum)
+	values('2', 7, '237', 59000 * 7, '배송준비중', 'order', 'admin', '여긴 어디지요', '유유이우', '010-3321-2333');
 
 create table cart(
 	customer_id         varchar2(10),
@@ -45,5 +47,6 @@ insert into cart(customer_id, p_id, p_count)
 create table order_list(
     order_id            varchar2(10)        references orders(order_id),
     quantity            number(9),
-    p_id                varchar2(500)
+    p_id                varchar2(500),
+    total_price			number(9)
 );

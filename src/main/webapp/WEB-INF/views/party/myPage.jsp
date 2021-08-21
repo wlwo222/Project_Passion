@@ -100,12 +100,8 @@
 									class="more df-lang-button-more">더보기</a>
 							</h3>
 							<div class="content">
-								<!--
-				$login_url = /member/login.html
-				$count = 5
-			-->
+								<!-- $login_url = /member/login.html $count = 5	-->
 								<table border="1" summary="">
-								
 									<colgroup>
 										<col style="width: 160px;">
 										<col style="width: 100px;">
@@ -125,75 +121,53 @@
 										</tr>
 									</thead>
 									<tbody class="center displaynone">
-										<tr class="">
-											<td class="number displaynone">
-												<p>
-													<a href="/myshop/order/detail.html" class="line">[]</a>
-												</p>
-											</td>
-											<td class="thumb"><a href="/product/detail.html"><img
-													src="//img.echosting.cafe24.com/thumb/img_product_small.gif"
-													onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';"
-													alt=""></a></td>
-											<td class="product left top"><a
-												href="/product/detail.html"><strong></strong></a>
-												<div class="option displaynone"></div>
-												<ul
-													class="xans-element- xans-myshop xans-myshop-optionset option">
-													<li class=""><strong></strong> ()</li>
-												</ul></td>
-											<td></td>
-											<td class="right"><strong></strong>
-												<div class="displaynone"></div></td>
-											<td class="state">
-												<p class="txtEm"></p>
-												<p class="displaynone">
-													<a href="" target=""></a>
-												</p>
-												<p class="displaynone">
-													<a href="#none" class="line" onclick="">[]</a>
-												</p>
-												<div class="btn-wrap">
-													<a href="/board/product/write.html"
-														class="btnEm df-lang-button-review displaynone">구매후기</a>
-												</div>
-											</td>
-										</tr>
-										<tr class="">
-											<td class="number displaynone">
-												<p>
-													<a href="/myshop/order/detail.html" class="line">[]</a>
-												</p>
-											</td>
-											<td class="thumb"><a href="/product/detail.html"><img
-													src="//img.echosting.cafe24.com/thumb/img_product_small.gif"
-													onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';"
-													alt=""></a></td>
-											<td class="product left top"><a
-												href="/product/detail.html"><strong></strong></a>
-												<div class="option displaynone"></div>
-												<ul
-													class="xans-element- xans-myshop xans-myshop-optionset option">
-													<li class=""><strong></strong> ()</li>
-												</ul></td>
-											<td></td>
-											<td class="right"><strong></strong>
-												<div class="displaynone"></div></td>
-											<td class="state">
-												<p class="txtEm"></p>
-												<p class="displaynone">
-													<a href="" target=""></a>
-												</p>
-												<p class="displaynone">
-													<a href="#none" class="line" onclick="">[]</a>
-												</p>
-												<div class="btn-wrap">
-													<a href="/board/product/write.html"
-														class="btnEm df-lang-button-review displaynone">구매후기</a>
-													<button id="reviewShowButton" class = "btn btn-primary"> 리뷰 달아보기</button>
-												</div>
-											</td>
-										</tr>
+										<c:forEach items="${orders}" var="order">
+											<tr class="">
+												<!-- 주문번호 -->
+												<td class="number displaynone">
+													<p>
+														[${order.orderId}]
+													</p>
+												</td>
+												<!-- 이미지 -->
+												<td class="thumb"><a href="/product/detail.html"><img
+														src="${order.product.pdAddInfo[1].description}"
+														onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';"
+														alt=""></a>
+												</td>
+												<!-- 상품정보 -->
+												<td class="product left top"><a
+													href="/product/detail.html"><strong></strong></a>
+													<div class="option displaynone"></div>
+													<ul	class="xans-element- xans-myshop xans-myshop-optionset option">
+														<li class="">
+														<strong> Color : ${order.product.pdAddInfo[0].description}</strong><br>
+														<strong> Size : ${order.product.pdAddInfo[5].description}</strong><br>
+														</li>
+													</ul>
+												</td>
+												<!-- 수량 -->
+												<td>${order.quantity}</td>
+												<!-- 구매금액 -->
+												<td class="right">
+													<div class="displaynone"></div>
+													${order.totalPrice}
+												</td>
+												<!-- 주문처리상태 -->
+												<td class="state">
+													<p class="txtEm"></p>
+													<p class="displaynone">
+														<a href="" target=""></a>
+													</p>
+													<p class="displaynone">
+														${order.orderStatus}
+													</p>
+													<div class="btn-wrap">
+														<button id="reviewShowButton" class = "btn btn-primary">리뷰 달기</button>
+													</div>
+												</td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 								<p class="empty  df-lang-order-empty">주문 내역이 없습니다.</p>
@@ -203,16 +177,12 @@
 						<div
 							class="xans-element- xans-product xans-product-recentlist section recentview xans-record-">
 							<h3 class="title">
-								<span class="df-lang-title-recentview">최근 본 상품</span> <a
-									href="/product/recent_view_product.html"
-									class="more df-lang-button-more">더보기</a>
+								<span class="df-lang-title-recentview">최근 본 상품</span>
+								<a href="/product/recent_view_product.html" class="more df-lang-button-more">더보기</a>
 							</h3>
 							<div class="content">
-								<!--
-				$count = 5
-			-->
+								<!-- $count = 5 -->
 								<table width="100%" border="1" summary="" class="displaynone">
-									
 									<colgroup>
 										<col style="width: 100px">
 										<col style="width: auto">
@@ -327,314 +297,367 @@
 							</a>
 						</div>
 					</div>
-
 				</div>
 			</div>
-
 		</div>
-		<footer id="footer">
-			<!--Footer-->
-			<div class="footer-top">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-2">
-							<div class="companyinfo">
-								<h2>
-									<span>e</span>-shopper
-								</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-									elit,sed do eiusmod tempor</p>
-							</div>
+	</section>
+	<footer id="footer">
+		<!--Footer-->
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="companyinfo">
+							<h2>
+								<span>e</span>-shopper
+							</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+								elit,sed do eiusmod tempor</p>
 						</div>
-						<div class="col-sm-7">
-							<div class="col-sm-3">
-								<div class="video-gallery text-center">
-									<a href="#">
-										<div class="iframe-img">
-											<img src="/resources/img/model/9.jpg" alt="" />
-										</div>
-										<div class="overlay-icon">
-											<i class="fa fa-play-circle-o"></i>
-										</div>
-									</a>
-									<p>Circle of Hands</p>
-									<h2>24 DEC 2014</h2>
-								</div>
-							</div>
-
-							<div class="col-sm-3">
-								<div class="video-gallery text-center">
-									<a href="#">
-										<div class="iframe-img">
-											<img src="/resources/img/model/8.jpg" alt="" />
-										</div>
-										<div class="overlay-icon">
-											<i class="fa fa-play-circle-o"></i>
-										</div>
-									</a>
-									<p>Circle of Hands</p>
-									<h2>24 DEC 2014</h2>
-								</div>
-							</div>
-
-							<div class="col-sm-3">
-								<div class="video-gallery text-center">
-									<a href="#">
-										<div class="iframe-img">
-											<img src="/resources/img/model/7.jpg" alt="" />
-										</div>
-										<div class="overlay-icon">
-											<i class="fa fa-play-circle-o"></i>
-										</div>
-									</a>
-									<p>Circle of Hands</p>
-									<h2>24 DEC 2014</h2>
-								</div>
-							</div>
-
-							<div class="col-sm-3">
-								<div class="video-gallery text-center">
-									<a href="#">
-										<div class="iframe-img">
-											<img src="/resources/img/model/6.jpg" alt="" />
-										</div>
-										<div class="overlay-icon">
-											<i class="fa fa-play-circle-o"></i>
-										</div>
-									</a>
-									<p>Circle of Hands</p>
-									<h2>24 DEC 2014</h2>
-								</div>
-							</div>
-						</div>
+					</div>
+					<div class="col-sm-7">
 						<div class="col-sm-3">
-							<div class="address">
-								<img src="images/home/map.png" alt="" />
-								<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="/resources/img/model/9.jpg" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
 							</div>
+						</div>
+
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="/resources/img/model/8.jpg" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="/resources/img/model/7.jpg" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="/resources/img/model/6.jpg" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="address">
+							<img src="images/home/map.png" alt="" />
+							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
 						</div>
 					</div>
 				</div>
 			</div>
-
-			<div class="footer-widget">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-2">
-							<div class="single-widget">
-								<h2>Service</h2>
-								<ul class="nav nav-pills nav-stacked">
-									<li><a href="">Online Help</a></li>
-									<li><a href="">Contact Us</a></li>
-									<li><a href="">Order Status</a></li>
-									<li><a href="">Change Location</a></li>
-									<li><a href="">FAQ’s</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-sm-2">
-							<div class="single-widget">
-								<h2>Quock Shop</h2>
-								<ul class="nav nav-pills nav-stacked">
-									<li><a href="">T-Shirt</a></li>
-									<li><a href="">Mens</a></li>
-									<li><a href="">Womens</a></li>
-									<li><a href="">Gift Cards</a></li>
-									<li><a href="">Shoes</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-sm-2">
-							<div class="single-widget">
-								<h2>Policies</h2>
-								<ul class="nav nav-pills nav-stacked">
-									<li><a href="">Terms of Use</a></li>
-									<li><a href="">Privecy Policy</a></li>
-									<li><a href="">Refund Policy</a></li>
-									<li><a href="">Billing System</a></li>
-									<li><a href="">Ticket System</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-sm-2">
-							<div class="single-widget">
-								<h2>About Shopper</h2>
-								<ul class="nav nav-pills nav-stacked">
-									<li><a href="">Company Information</a></li>
-									<li><a href="">Careers</a></li>
-									<li><a href="">Store Location</a></li>
-									<li><a href="">Affillate Program</a></li>
-									<li><a href="">Copyright</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-sm-3 col-sm-offset-1">
-							<div class="single-widget">
-								<h2>About Shopper</h2>
-								<form action="#" class="searchform">
-									<input type="text" placeholder="Your email address" />
-									<button type="submit" class="btn btn-default">
-										<i class="fa fa-arrow-circle-o-right"></i>
-									</button>
-									<p>
-										Get the most recent updates from <br />our site and be
-										updated your self...
-									</p>
-								</form>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="footer-bottom">
-				<div class="container">
-					<div class="row">
-						Shared by <i class="fa fa-love"></i><a
-							href="https://bootstrapthemes.co">BootstrapThemes</a></span>
-						</p>
-					</div>
-				</div>
-			</div>
-
-		</footer>
-		<!--/Footer-->
-		<div id="modalReply" class="modal fade" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModalLabel">리뷰 작성</h4>
-					</div>
-					<!-- End of modal-header -->
-					<div class="modal-body">
-					
-					
-					 
-					<div class="wrappers">
-					    <input type="radio" name="rate" id="star-1">
-					    <input type="radio" name="rate" id="star-2">
-					    <input type="radio" name="rate" id="star-3">
-					    <input type="radio" name="rate" id="star-4">
-					    <input type="radio" name="rate" id="star-5">
-					    <div class="content">
-					      <div class="outers">
-					        <div class="emojis">
-					          <li class="slideImg"><img src="/resources/images/icon/emoji-1.png" alt=""></li>
-					          <li><img src="/resources/images/icon/emoji-0.png" alt=""></li>
-					          <li><img src="/resources/images/icon/emoji-3.png" alt=""></li>
-					          <li><img src="/resources/images/icon/emoji-5.png" alt=""></li>
-					          <li><img src="/resources/images/icon/emoji-6.png" alt=""></li>
-					        </div>
-					      </div>
-					      <div class="stars">
-					        <label for="star-1" class="star-1 fas fa-star"></label>
-					        <label for="star-2" class="star-2 fas fa-star"></label>
-					        <label for="star-3" class="star-3 fas fa-star"></label>
-					        <label for="star-4" class="star-4 fas fa-star"></label>
-					        <label for="star-5" class="star-5 fas fa-star"></label>
-					      </div>
-					  </div>
-					    <div class="footers">
-					      <span class="text"></span>
-					      <span class="numb"></span>
-					    </div>
-					  </div>
-					
-					
-					
-						<div class="form-group">
-							<label>리뷰 입력</label>
-							<input class="form-control"	name='replyContent' placeholder='이곳에 입력하세요' value=''>
-						</div>
-						<div class="form-group">
-							<label>작성자</label>
-							<input class="form-control"	name='replyer' value='' readonly="readonly">
-						</div>
-						<div class="form-group">
-							<label>작성 날짜</label>
-							<input class="form-control"	name='replyDate' value=''readonly="readonly">
-						</div>
-					</div>
-					<!-- End of modal-body -->
-					<div class="modal-footer">
-						<!-- <button id='btnModifyReply' type="button" class="btn btn-warning">Modify</button> -->
-						<!-- <button id='btnRemoveReply' type="button" class="btn btn-danger">Remove</button> -->
-						<button id='btnRegisterReply' type="button" class="btn btn-warning">Register</button>
-						<button id='btnCloseModal' type="button" class="btn btn-default" data-dismiss="modal"
-							aria-hidden="true">Close</button>
-					</div>
-					<!-- End of modal-footer -->
-				</div>
-				<!-- End of modal-content -->
-			</div>
-	<!-- End of modal-dialog -->
 		</div>
-<!-- End of 댓글 입력 모달창 -->
 
-		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<script type="text/javascript" src="\resources\js\util\dateFormat.js"></script>
-		<script src="/resources/js/reply/replyFunction.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-		<script>
-		//컨트롤러로 값을 보낼때 token을 전달해 주어야 합니다.
-		var csrfHN = "${_csrf.headerName}";
-		var csrfTV = "${_csrf.token}";
-		
-		$(document).ajaxSend(
-			function(e, xhr) {
-				xhr.setRequestHeader(csrfHN, csrfTV);
-			}
-		);
-		
-		
-		var modalReply = $("#modalReply");
-		var inputReplyContent = modalReply.find("input[name='replyContent']");
-		var inputReplyer = modalReply.find("input[name='replyer']");
-		var inputReplyDate = modalReply.find("input[name='replyDate']");
-		
-		var now = new Date();
-		var curUserName = null;
-		var curUserId = null;
-		var customerId = "<sec:authentication property='principal.username'/>";
-		
-		var btnRegisterReply = $("#btnRegisterReply");
-		var btnModifyReply = $("#btnModifyReply");
-		var btnRemoveReply = $("#btnRemoveReply");
-		
-		$("#reviewShowButton").on("click", function(e) {
-            modalReply.data("productId", "1");
-            inputReplyer.val(customerId);
-            inputReplyDate.val(now);
-            modalReply.modal("show");
-        });
-		
-		$("#btnRegisterReply").on("click", function(e) {
-            var reply = {
-                    content : inputReplyContent.val(),
-                };
+		<div class="footer-widget">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Service</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="">Online Help</a></li>
+								<li><a href="">Contact Us</a></li>
+								<li><a href="">Order Status</a></li>
+								<li><a href="">Change Location</a></li>
+								<li><a href="">FAQ’s</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Quock Shop</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="">T-Shirt</a></li>
+								<li><a href="">Mens</a></li>
+								<li><a href="">Womens</a></li>
+								<li><a href="">Gift Cards</a></li>
+								<li><a href="">Shoes</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Policies</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="">Terms of Use</a></li>
+								<li><a href="">Privecy Policy</a></li>
+								<li><a href="">Refund Policy</a></li>
+								<li><a href="">Billing System</a></li>
+								<li><a href="">Ticket System</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>About Shopper</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="">Company Information</a></li>
+								<li><a href="">Careers</a></li>
+								<li><a href="">Store Location</a></li>
+								<li><a href="">Affillate Program</a></li>
+								<li><a href="">Copyright</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3 col-sm-offset-1">
+						<div class="single-widget">
+							<h2>About Shopper</h2>
+							<form action="#" class="searchform">
+								<input type="text" placeholder="Your email address" />
+								<button type="submit" class="btn btn-default">
+									<i class="fa fa-arrow-circle-o-right"></i>
+								</button>
+								<p>
+									Get the most recent updates from <br />our site and be
+									updated your self...
+								</p>
+							</form>
+						</div>
+					</div>
 
-                replyService.registerReview(
-                    modalReply.data("productId"),
-                    reply,
-                    function(newReviewId) {
-                        modalReply.find("input").val("");    //들어 있는 값 청소
-                        modalReply.modal("hide");
-                    },
-                    function(errMsg) {
-                        alert("리뷰 등록 오류 : " + reply + errMsg);
-                    }
-                );
-        });
-		</script>
-		<script src="/resources/js/bootstrap.min.js"></script>
-		<script src="/resources/js/jquery.scrollUp.min.js"></script>
-		<script src="/resources/js/price-range.js"></script>
-		<script src="/resources/js/jquery.prettyPhoto.js"></script>
-		<script src="/resources/js/main.js"></script>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					Shared by <i class="fa fa-love"></i><a
+						href="https://bootstrapthemes.co">BootstrapThemes</a></span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--/Footer-->
+	<div id="modalReply" class="modal fade" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">리뷰 작성</h4>
+						</div>
+						<!-- End of modal-header -->
+						<div class="modal-body">
+						
+						
+						 
+						<div class="wrappers">
+						    <input type="radio" name="rate" id="star-1" value='1'>
+						    <input type="radio" name="rate" id="star-2" value='2'>
+						    <input type="radio" name="rate" id="star-3" value='3'>
+						    <input type="radio" name="rate" id="star-4" value='4'>
+						    <input type="radio" name="rate" id="star-5" value='5'>
+						    <div class="content">
+						      <div class="outers">
+						        <div class="emojis">
+						          <li class="slideImg"><img src="/resources/images/icon/emoji-1.png" alt=""></li>
+						          <li><img src="/resources/images/icon/emoji-0.png" alt=""></li>
+						          <li><img src="/resources/images/icon/emoji-3.png" alt=""></li>
+						          <li><img src="/resources/images/icon/emoji-5.png" alt=""></li>
+						          <li><img src="/resources/images/icon/emoji-6.png" alt=""></li>
+						        </div>
+						      </div>
+						      <div class="stars">
+						        <label for="star-1" class="star-1 fas fa-star"></label>
+						        <label for="star-2" class="star-2 fas fa-star"></label>
+						        <label for="star-3" class="star-3 fas fa-star"></label>
+						        <label for="star-4" class="star-4 fas fa-star"></label>
+						        <label for="star-5" class="star-5 fas fa-star"></label>
+						      </div>
+						  </div>
+						    <div class="footers">
+						      <span class="text"></span>
+						      <span class="numb"></span>
+						    </div>
+						  </div>
+						
+						
+						
+							<div class="form-group">
+								<label>리뷰 입력</label>
+								<input class="form-control"	name='replyContent' placeholder='이곳에 입력하세요' value=''>
+							</div>
+							<div class="form-group">
+								<label>작성자</label>
+								<input class="form-control"	name='replyer' value='' readonly="readonly">
+							</div>
+							<div class="form-group">
+								<label>작성 날짜</label>
+								<input class="form-control"	name='replyDate' value=''readonly="readonly">
+							</div>
+						</div>
+						<!-- End of modal-body -->
+						<div class="modal-footer">
+							<!-- <button id='btnModifyReply' type="button" class="btn btn-warning">Modify</button> -->
+							<!-- <button id='btnRemoveReply' type="button" class="btn btn-danger">Remove</button> -->
+							<button id='btnRegisterReply' type="button" class="btn btn-warning">Register</button>
+							<button id='btnCloseModal' type="button" class="btn btn-default" data-dismiss="modal"
+								aria-hidden="true">Close</button>
+						</div>
+						<!-- End of modal-footer -->
+					</div>
+					<!-- End of modal-content -->
+				</div>
+		<!-- End of modal-dialog -->
+			</div>
+	<!-- End of 댓글 입력 모달창 -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="\resources\js\util\dateFormat.js"></script>
+<script src="/resources/js/reply/replyFunction.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script>
+	//컨트롤러로 값을 보낼때 token을 전달해 주어야 합니다.
+var csrfHN = "${_csrf.headerName}";
+var csrfTV = "${_csrf.token}";
+
+$(document).ajaxSend(
+	function(e, xhr) {
+		xhr.setRequestHeader(csrfHN, csrfTV);
+	}
+);
+		
+		 
+/*  var inputReplyRating = modalReply.find("input[name='rate']").value;
+	var rate_value;
+	if(rates =='1'){
+	    rate_value = modalReply.find('star-1').value;
+	    
+	}else if(rates =='2'){
+	    rate_value = modalReply.find('star-2').value;
+	    
+	}else if(rates =='3'){
+	    rate_value = modalReply.find('star-3').value;
+	    
+	}else if(rates =='4'){
+	    rate_value = modalReply.find('star-4').value;
+	    
+	}else if(rates =='5'){
+	    rate_value = modalReply.find('star-5').value;
+	}   
+	console.log(inputReplyRating.val()); 
+	
+	} 
+ */		
+/*  		var inputReplyRating = modalReply.find("input[name='rate']");
+ */ 
+var modalReply = $("#modalReply");
+var inputReplyContent = modalReply.find("input[name='replyContent']");
+var inputReplyer = modalReply.find("input[name='replyer']");
+var inputReplyDate = modalReply.find("input[name='replyDate']");
+var rates = document.getElementsByName("rate");
+
+console.log("1234" + rates);
+
+
+var now = new Date();
+var curUserName = null;
+var curUserId = null;
+var customerId = "<sec:authentication property='principal.username'/>";
+
+var btnRegisterReply = $("#btnRegisterReply");
+var btnModifyReply = $("#btnModifyReply");
+var btnRemoveReply = $("#btnRemoveReply");
+
+$("#reviewShowButton").on("click", function(e) {
+	
+          modalReply.data("productId", "1");
+          inputReplyer.val(customerId);
+          inputReplyDate.val(now);
+          modalReply.modal("show");
+      });
+
+
+/*   $(".wrappers input").on("click", function(e) {
+alert(inputReplyRating.val());
+});   */
+
+$("#btnRegisterReply").on("click", function(e) {
+	   var rateReply = document.getElementsByName("rate").length;
+	     for (var i=0; i<rateReply; i++) {
+	         if (document.getElementsByName("rate")[i].checked == true) {
+	             alert("성공 ! " + document.getElementsByName("rate")[i].value);
+	             var reply = {
+	                     content : inputReplyContent.val(),
+	                     starRating : document.getElementsByName("rate")[i].value};
+	             
+	             replyService.registerReview(
+	                     modalReply.data("productId"),
+	                     reply,
+	                     function(newReviewId) {
+	                         modalReply.find("input").val("");    //들어 있는 값 청소
+	                         modalReply.modal("hide");
+	                     },
+	                     function(errMsg) {
+	                         alert("리뷰 등록 오류 : " + reply + errMsg);
+	                     });	             
+	         }
+	     }
+	     
+	     
+		/* $.ajax({
+			async: true,
+            type : 'POST',
+            data : reply,
+            url : "/replies/write/" + productId,
+            dataType : "json",
+            contentType: "application/json; charset=UTF-8",
+			success : function(data) {							
+				alert("성공했습니다." + starRating);
+				}, 
+				error : function(error) {
+					console.log("fail" + error);
+				}
+				modal-backdrop
+			}) */;
+       
+      });
+</script>
+<script src="/resources/js/bootstrap.min.js"></script>
+<script src="/resources/js/jquery.scrollUp.min.js"></script>
+<script src="/resources/js/price-range.js"></script>
+<script src="/resources/js/jquery.prettyPhoto.js"></script>
+<script src="/resources/js/main.js"></script>
 </body>
 </html>

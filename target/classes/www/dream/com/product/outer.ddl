@@ -717,4 +717,4 @@ insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('185', 'size', 90);
 insert into s_product_add_info(p_id,product_add_info_type, description)
 	values('185', 'color', 'red');	
-	
+carousel-inner

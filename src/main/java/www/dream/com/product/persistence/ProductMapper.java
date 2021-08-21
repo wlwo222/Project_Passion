@@ -2,15 +2,16 @@ package www.dream.com.product.persistence;
 
 import java.util.List;
 
-import org.springframework.context.annotation.Configuration;
+import org.apache.ibatis.annotations.Param;
 
 import www.dream.com.common.category.model.Category;
-import www.dream.com.product.model.ProductAdditionalInfo;
 import www.dream.com.product.model.ProductVO;
 
 public interface ProductMapper {
 	
 	public List<ProductVO> getList();
+	
+	public List<ProductVO> getAddInfoeachProducts(@Param("products")List<ProductVO> products);
 	
 	public List<Category> getCategories();
 	
@@ -26,5 +27,7 @@ public interface ProductMapper {
 	
 	public ProductVO getAddInfoListofProduct(String id);
 
-	public List<Category> getcategoryList(); 
+	public List<Category> getcategoryList();
+
+	public ProductVO getAddInfoOfProduct(ProductVO product); 
 }

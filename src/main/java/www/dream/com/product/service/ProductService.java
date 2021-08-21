@@ -71,4 +71,8 @@ public class ProductService {
 		return Categories;
 	}
 
+	public ProductVO getAddInfoOfProduct(ProductVO product) {
+		return productMapper.getAddInfoOfProduct(product);
+	}
+
 }

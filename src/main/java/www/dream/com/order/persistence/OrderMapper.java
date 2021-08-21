@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 
 import www.dream.com.order.model.CartVO;
+import www.dream.com.order.model.OrderVO;
 import www.dream.com.product.model.ProductVO;
 
 public interface OrderMapper {
@@ -25,5 +26,7 @@ public interface OrderMapper {
 
 	
 	/* Order */
+	
+	public List<OrderVO> getOrdersByUserId(String userId);
 	
 }

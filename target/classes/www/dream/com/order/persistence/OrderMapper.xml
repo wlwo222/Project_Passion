@@ -5,8 +5,7 @@
 
 
 <mapper namespace="www.dream.com.order.persistence.OrderMapper">
-	<resultMap
-		extends="www.dream.com.common.persistence.CommonMngVOMapper.commonMngVOMap"
+	<resultMap	extends="www.dream.com.common.persistence.CommonMngVOMapper.commonMngVOMap"
 		id="rmOrderVO" type="www.dream.com.order.model.OrderVO">
 		<id column="order_id" property="orderId" />
 		<result column="order_status" property="orderStatus" />
@@ -15,13 +14,23 @@
 		<result column="customer_name" property="customerName" />
 		<result column="customer_phnum" property="customerPhnum" />
 		<result column="p_id" property="productId" />
+		<result column="quantity" property="quantity" />
 		<result column="total_price" property="totalPrice" />
-
+		<association property="product" resultMap="www.dream.com.product.persistence.ProductMapper.rmProduct"
+					columnPrefix="p_"></association>
 		<discriminator column="descrim" javaType="String">
-			<case resultMap="rmOrderVO" value="orders" />
+			<case resultMap="rmOrderVO" value="order" />
 			<case resultMap="rmCartVO" value="cart" />
 		</discriminator>
 	</resultMap>
+	
+	<!-- public List<OrderVO> getOrdersByUserId(String userId); -->
+	<select id="getOrdersByUserId" resultMap="rmOrderVO">
+		select o.*, p.p_id p_p_id, p.p_name p_p_name, p.price p_price
+		  from orders o, s_products p
+		 where customer_id = #{userId}
+		   and o.p_id = p.p_id
+	</select>
 
 	<!-- productVO는 prefix="ad_"로 부가정보를 List로 만듭니다. -->
 	<resultMap extends="rmOrderVO" id="rmCartVO"
@@ -33,7 +42,8 @@
 		</collection>
 			
 	</resultMap>
-
+	
+	
 	<!-- ■■■■■■■■■■■■■■■■■■■■■ Cart ■■■■■■■■■■■■■■■■■■■■■ -->
 	<!-- public ProductVO findProductInCart(@Param("productId")String productId, @Param("customerId")String customerId); -->
 	<select id="findProductInCart" resultMap="www.dream.com.product.persistence.ProductMapper.rmProduct">
@@ -75,25 +85,27 @@
 	<!-- public int updateCart(@Param("cart")CartVO cart, @Param("existingProductIdAndQ")Map<String, String> existingProductIdAndQ, 
 	@Param("newProductIdsAndQ")Map<String, String> newProductIdsAndQ); -->
 	<update id="updateCart" parameterType="java.util.Map">
-	BEGIN
-	<foreach collection="existingProductIdAndQ" item="existingProduct" open="" separator=";" close=";" index="ProductID">
-	UPDATE cart
-	   SET p_count = ${existingProduct}
-	 WHERE customer_id= #{cart.customerId}
-	   AND p_id = #{ProductID}
-	</foreach>
-	
-	<foreach collection="newProductIdsAndQ" item="newProduct" open="" separator=";" close=";" index="ProductID">
-	INSERT 	INTO cart(customer_id, p_id, p_count)
-	VALUES (#{cart.customerId}, #{ProductID}, ${newProduct})
-	</foreach>
-	 END;
+		BEGIN
+		<foreach collection="existingProductIdAndQ" item="existingProduct" open="" separator=";" close=";" index="ProductID">
+			UPDATE cart
+			   SET p_count = ${existingProduct}
+			 WHERE customer_id= #{cart.customerId}
+			   AND p_id = #{ProductID}
+		</foreach>
+		
+		<foreach collection="newProductIdsAndQ" item="newProduct" open="" separator=";" close=";" index="ProductID">
+			INSERT 	INTO cart(customer_id, p_id, p_count)
+			VALUES (#{cart.customerId}, #{ProductID}, ${newProduct})
+		</foreach>
+		 END;
     </update>
-    
-    <!-- update -->
-
 
 	<!-- ■■■■■■■■■■■■■■■■■■■■■ Order ■■■■■■■■■■■■■■■■■■■■■ -->
-
+	<resultMap	id="rmOrderListVO" type="www.dream.com.order.model.OrderListVO">
+		<id column="order_id" property="orderId" />
+		<result column="quantity" property="quantity" />
+		<result column="p_id" property="productId" />
+		<result column="total_price" property="totalPrice" />
+	</resultMap>
 
 </mapper>

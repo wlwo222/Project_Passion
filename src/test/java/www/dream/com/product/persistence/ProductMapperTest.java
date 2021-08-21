@@ -1,5 +1,6 @@
 package www.dream.com.product.persistence;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.FixMethodOrder;
@@ -11,7 +12,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import www.dream.com.common.category.model.Category;
-import www.dream.com.product.model.ProductAdditionalInfo;
 import www.dream.com.product.model.ProductVO;
 import www.dream.com.product.service.ProductService;
 
@@ -38,13 +38,23 @@ public class ProductMapperTest {
 	}
 	
 	@Test
-	public void test000GetCate() {
+	public void test000GetAddInfo() {
 		try {
-			String target = "10000f";
-			List<ProductVO> tt = productMapper.getProductByDetailCat(target);
-			tt.forEach(t->{
-				System.out.println(t);
+			ProductVO product1 = new ProductVO("227");
+			ProductVO product2 = new ProductVO("228");
+			ProductVO product3 = new ProductVO("229");
+			
+			List<ProductVO> products = new ArrayList<>();
+			products.add(product1);
+			products.add(product2);
+			products.add(product3);
+			
+			products = productMapper.getAddInfoeachProducts(products);
+			
+			products.forEach(p->{
+				System.out.println(p);
 			});
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

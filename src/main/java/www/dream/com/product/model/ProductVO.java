@@ -27,5 +27,9 @@ public class ProductVO extends BoardVO{
 				+ ", sellen=" + sellen + ", price=" + price + ", pdAddInfo=" + pdAddInfo + ", toString()="
 				+ super.toString() + "]";
 	}
+	
+	public ProductVO(String id) {
+		this.productId = id;
+	}
 }
 
