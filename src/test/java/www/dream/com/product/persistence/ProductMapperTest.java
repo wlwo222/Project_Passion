@@ -12,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import www.dream.com.common.category.model.Category;
+import www.dream.com.common.dto.Criteria;
 import www.dream.com.product.model.ProductVO;
 import www.dream.com.product.service.ProductService;
 
@@ -26,18 +27,19 @@ public class ProductMapperTest {
 	ProductService productService;
 	
 	
-	//@Test
+	@Test
 	public void test000GetList() {
 		try {
-			productMapper.getList().forEach(p->{
-				System.out.println(p);
-			});
+			Criteria cri = new Criteria();
+			cri.setTotal(productService.getTotalCount());
+			System.out.println(cri);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	@Test
+	//@Test
 	public void test000GetAddInfo() {
 		try {
 			ProductVO product1 = new ProductVO("227");

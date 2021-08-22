@@ -9,7 +9,7 @@ import www.dream.com.framework.util.StringUtil;
 
 @Data
 public class Criteria implements Comparable<Criteria> {
-	private static final float PAGENATION_TOTAL = 18;
+	private static final float PAGENATION_TOTAL = 10;
 	
 	/** 검색어 뭉치 예시  "내사랑 네오" */
 	private String searching;
@@ -34,7 +34,7 @@ public class Criteria implements Comparable<Criteria> {
 	
 	public Criteria() {
 		this.pageNumber = 1;
-		this.amount = 18;
+		this.amount = 12;
 	}
 
 	public void setTotal(long total) {
@@ -86,19 +86,19 @@ public class Criteria implements Comparable<Criteria> {
 
 		if (this.prev) {
 			sb.append("<li class='page-item previous'>");
-			sb.append("<a class='page-link' href='" + (this.startPage - 1) + "'>&lt;&lt;</a>");
+			sb.append("<a class='page-link' href='/homes/index?pageNumber'=" + (this.startPage - 1) + "'>&lt;&lt;</a>'");
 			sb.append("</li>");
 		}
 		
 		for (int num = this.startPage; num <= this.endPage; num++) {
-			sb.append("<li class='page-item " + (this.pageNumber == num ? "active" : "") + "'>");
-			sb.append("<a class='page-link' href=" + num + ">" + num + "</a>");
+			sb.append("<li class='page-item" + (this.pageNumber == num ? "active" : "") + "'>");
+			sb.append("<a class='page-link' href='/homes/index?pageNumber'=" + num + ">" + num + "</a>");
 			sb.append("</li>");
 		}
 
 		if (this.next) {
 			sb.append("<li class='page-item next'>");
-			sb.append("<a class='page-link' href='" + (this.endPage + 1) + "'>&gt;&gt;</a>");
+			sb.append("<a class='page-link' href='/homes/index?pageNumber'=" + (this.endPage + 1) + "'>&gt;&gt;</a>'");
 			sb.append("</li>");
 		}
 		sb.append("</ul>");

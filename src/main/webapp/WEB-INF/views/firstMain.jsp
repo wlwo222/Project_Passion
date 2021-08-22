@@ -54,7 +54,7 @@
 			<img src="/resources/img/model/forest.png" id="forest"> 
 			<img src="/resources/img/model/rocks.png" id="rocks"> 
 			<img src="/resources/img/model/water.png" id="water"> 
-			<span><a href="/homes/index" id="g_btn"></a></span>
+			<span><a href="/homes/index?pageNumber=1" id="g_btn"></a></span>
 		</div>
 	</section>
 	<div class="sec">

@@ -5,12 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import www.dream.com.common.category.model.Category;
+import www.dream.com.common.dto.Criteria;
 import www.dream.com.product.model.ProductVO;
 import www.dream.com.product.persistence.ProductMapper;
 @Service
@@ -24,6 +26,23 @@ public class ProductService {
 		return productMapper.getList();	
 	} 
 	
+	public ProductVO getAddInfoOfProduct(ProductVO product) {
+		return productMapper.getAddInfoOfProduct(product);
+	}
+
+	public List<ProductVO> getListByPaging(Criteria userCriteria) {
+		return productMapper.getListByPaging(userCriteria);
+	}
+	
+	public List<ProductVO> getAddInfoeachProducts(List<ProductVO> products){
+		return productMapper.getAddInfoeachProducts(products);
+	}
+	
+	public long getTotalCount() {
+		return productMapper.getTotalCount();
+	}
+	
+	/* Category*/
 	public List<Category> getCategories(){
 		return productMapper.getCategories();
 	}
@@ -71,8 +90,5 @@ public class ProductService {
 		return Categories;
 	}
 
-	public ProductVO getAddInfoOfProduct(ProductVO product) {
-		return productMapper.getAddInfoOfProduct(product);
-	}
 
 }

@@ -14,13 +14,32 @@
 		<collection property="pdAddInfo" columnPrefix="ad_"	resultMap="pdAddInfoMap">
 		</collection>
 	</resultMap>
-		
+				            
+				           	
 	<!-- public List<ProductVO> getList(); -->
 	<select id="getList" resultMap="rmProduct">
 	<![CDATA[
 	select pd.*, pm.p_id ad_p_id, pm.product_add_info_type ad_product_add_info_type,
 			pm.description  ad_description
 	  from s_products pd left outer join s_product_add_info pm on pm.p_id = pd.p_id 
+	]]>
+	</select>
+	
+	<!-- public long getTotalCount(); -->
+	<select id="getTotalCount" resultType="_long">
+	<![CDATA[
+	select count(*)
+	  from s_products 
+	]]>
+	</select>
+	
+	<!-- public List<ProductVO> getListByPaging(Criteria cri); -->
+	<select id="getListByPaging" resultMap="rmProduct">
+	<![CDATA[
+	select *
+	  from s_products 
+	  ORDER BY p_id DESC
+     OFFSET (#{pageNumber} - 1) * #{amount} ROWS FETCH FIRST #{amount} ROWS ONLY 
 	]]>
 	</select>
 	
@@ -119,7 +138,7 @@
 	</select>
 	
 	<!-- 상품들의 부가정보를 다 끌어오고, 그것들을 다 포함한 Product List 로 묶어서 반환. -->
-	<!-- public ProductVO getAddInfoeachProducts(@Param("products")ProductVO products); -->
+	<!-- public List<ProductVO> getAddInfoeachProducts(@Param("products")ProductVO products); -->
 	<select id="getAddInfoeachProducts" resultMap="rmProduct">
 	select pd.*, pm.p_id ad_p_id, pm.product_add_info_type ad_product_add_info_type,
 			pm.description  ad_description
