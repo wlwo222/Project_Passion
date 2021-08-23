@@ -9,11 +9,11 @@ import www.dream.com.common.dto.Criteria;
 import www.dream.com.product.model.ProductVO;
 
 public interface ProductMapper {
-	
+	//Product테이블의 모든 데이터 조회 후 카운트
 	public long getTotalCount();
-	
+	//Product테이블의 모든 데이터 조회
 	public List<ProductVO> getList();
-	
+	//ProductVO를 리스트로 묶고, 부가정보를 넣은다음 넣은 상태의 ProductVO를 리스트로 반환
 	public List<ProductVO> getAddInfoeachProducts(@Param("products")List<ProductVO> products);
 	
 	public List<ProductVO> getListByPaging(Criteria cri);

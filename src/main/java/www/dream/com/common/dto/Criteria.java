@@ -9,7 +9,7 @@ import www.dream.com.framework.util.StringUtil;
 
 @Data
 public class Criteria implements Comparable<Criteria> {
-	private static final float PAGENATION_TOTAL = 10;
+	private static final float PAGENATION_TOTAL = 12;
 	
 	/** 검색어 뭉치 예시  "내사랑 네오" */
 	private String searching;
@@ -54,8 +54,8 @@ public class Criteria implements Comparable<Criteria> {
 			endPage = realEnd;
 		}
 		
-		prev = startPage > 1;
-		next = endPage < realEnd;
+		this.prev = startPage > 1;
+		this.next = endPage < realEnd;
 	}
 
 	public boolean hasSearching() {
@@ -81,24 +81,25 @@ public class Criteria implements Comparable<Criteria> {
 	 * 이곳에서 통합적으로 서비스 할 수 있도록 모듈화 시켰다. 이로써 코드량의 절감. 유지보수성의 향상
 	 * @return
 	 */
+	
 	public String getPagingDiv() {
 		StringBuilder sb = new StringBuilder("<ul id='ulPagination' class='pagination'>");
 
 		if (this.prev) {
 			sb.append("<li class='page-item previous'>");
-			sb.append("<a class='page-link' href='/homes/index?pageNumber'=" + (this.startPage - 1) + "'>&lt;&lt;</a>'");
+			sb.append("<a class='page-link' href='/homes/index?pageNumber'="  + (this.startPage - 1) +"&amount="+ (this.amount) + "'>&lt;&lt;</a>'");
 			sb.append("</li>");
 		}
 		
 		for (int num = this.startPage; num <= this.endPage; num++) {
 			sb.append("<li class='page-item" + (this.pageNumber == num ? "active" : "") + "'>");
-			sb.append("<a class='page-link' href='/homes/index?pageNumber'=" + num + ">" + num + "</a>");
+			sb.append("<a class='page-link' href='/homes/index?pageNumber="  + (num - 1) + "&amount="+ (this.amount) + "'>"+ num + "</a>");
 			sb.append("</li>");
 		}
 
 		if (this.next) {
 			sb.append("<li class='page-item next'>");
-			sb.append("<a class='page-link' href='/homes/index?pageNumber'=" + (this.endPage + 1) + "'>&gt;&gt;</a>'");
+			sb.append("<a class='page-link' href='/homes/index?pageNumber=" +(this.endPage + 1)+ "&amount="+ (this.amount) + "'>&gt;&gt;</a>'");
 			sb.append("</li>");
 		}
 		sb.append("</ul>");
@@ -109,6 +110,6 @@ public class Criteria implements Comparable<Criteria> {
 	@Override
 	public int compareTo(Criteria o) {
 		int ret = pageNumber - o.pageNumber;
-		return ret == 0 ? amount - o.amount : ret;
+		return ret == 0 ? amount - o.amount : ret; //  
 	}
 }
