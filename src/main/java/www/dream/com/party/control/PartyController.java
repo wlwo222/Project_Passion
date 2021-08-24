@@ -100,8 +100,6 @@ public class PartyController implements AuthenticationSuccessHandler, AccessDeni
 		cnt = partyService.idCheck(userId);
 		// 
 		map.put("cnt", cnt);
-		System.out.println(cnt);
-		System.out.println(userId);
 		if(userId == null || userId.length() == 0) {
 			return new ResponseEntity<>(map, HttpStatus.INTERNAL_SERVER_ERROR);
 		}

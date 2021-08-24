@@ -167,11 +167,6 @@
 								 <b>$ 0</b> <b class="pull-right">$ 600</b>
 							</div>
 						</div><!--/price-range-->
-						
-						<div class="shipping text-center"><!--shipping-->
-							<img src="images/home/shipping.jpg" alt="" />
-						</div><!--/shipping-->
-						
 					</div>
 				</div>
 				
@@ -266,8 +261,9 @@
 				        	<a class="btn-black" href="" onclick="" id= "buy-btn">바로구매</a>
 					        </div>
 							 <div class="b-btn">
-								<a href="/resources/cart.html"><button type="button" class="btn btn-fefault cart" id= "cart-btn">
-									<i class="fa fa-shopping-cart" ></i></a>
+								<a href="/">
+								<button type="button" class="btn btn-fefault cart" id= "cart-btn">
+									<i class="fa fa-shopping-cart"></i></a>
 								</button>
 		                	</div>
 							</div>
@@ -285,160 +281,7 @@
 								<li class="active"><a href="#reviews" data-toggle="tab">Reviews (${product.pdAddInfo[3].description})</a></li>
 							</ul>
 						</div>
-						<div class="tab-content">
-							<div class="tab-pane fade" id="details" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery1.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery2.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery3.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery4.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="tab-pane fade" id="companyprofile" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery1.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery3.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery2.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery4.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="tab-pane fade" id="tag" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery1.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery2.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery3.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/gallery4.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						<button id="goodbut">자 드가자</button>
+						<!-- <button id="goodbut">자 드가자</button> -->
 						<!-- 리뷰 작성부분입니다. 구매내역에 갈 기능이라서 지금은 임시 주석처리. 
 						<div class="tab-pane fade active in" id="reviews" >
 							<div class="col-sm-12">
@@ -579,10 +422,7 @@
 							  </a>			
 						</div>
 					</div><!--/recommended_items-->
-					
 				</div>
-			</div>
-		</div>
 	</section>
 	
 	<jsp:include page="/resources/footer1.jsp" flush="false"/>
@@ -646,34 +486,29 @@
 			xhr.setRequestHeader(csrfHN, csrfTV);
 		}
 	);
-	
-	$("#goodbut").click(function() {
-		var customerId = "<sec:authentication property='principal.username'/>";
-		var productId = ${product.productId};
-		var quantity = "1";
-		$.ajax({
+
+	$("#cart-btn").click(function() {
+        var customerId = "<sec:authentication property='principal.username'/>";
+        var productId = ${product.productId};
+        var quantity = "7";
+        $.ajax({
             type : 'get',
             data : {
-            	customerId : customerId,
-            	productId : productId,
-            	quantity : quantity
+                customerId : customerId,
+                productId : productId,
+                quantity : quantity
             }, 
             url : "/order/addToCart/" + customerId +"/"+ productId + "/" + quantity,
             dataType : "json",
             contentType: "application/json; charset=UTF-8",
-			success : function(data) {							
-				if (data) {
-					alert("기존 카트 담음");
-				} else {
-					alert("카트 새로 담았지롱");
-				}
-				}, 
-				error : function(error) {
-					console.log("fail" + error);
-				}
-			});
-		});
-
+            success : function(resObj, status, xhr) {
+            	alert(resObj.success);
+			},
+			error : function (xhr, status, errMsg) {
+				alert("실패..");
+			}
+            });
+        });
 	</script>
 </body>
 </html>

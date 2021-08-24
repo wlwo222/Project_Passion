@@ -52,8 +52,8 @@ public class OrderService {
 	}
 
 
-	public int putpdtinCart(CartVO cart, String selectedProductId, String quantity) {
-		return orderMapper.putpdtinCart(cart, selectedProductId, quantity);
-	}
+	public int putpdtinCart(CartVO cart, Map<String, String> quantityNpIds) {
+        return orderMapper.putpdtinCart(cart, quantityNpIds);
+    }
 }
 

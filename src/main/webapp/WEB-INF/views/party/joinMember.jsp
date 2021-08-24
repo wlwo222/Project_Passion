@@ -230,10 +230,10 @@
 		            contentType: "application/json; charset=UTF-8",
 					success : function(data) {							
 						if (data.cnt > 0) {
-							alert('다른 아이디로 입력하시오');
+							alert('다른 아이디로 입력하세요.');
 							$("#userId").val('');
 						} else if (data.cnt === 0 && strLength > 0) {
-							alert('사용 가능한 아이디입니다');	
+							alert('사용 가능한 아이디입니다.');	
 							idchk = 1;
 						}
 						}, 

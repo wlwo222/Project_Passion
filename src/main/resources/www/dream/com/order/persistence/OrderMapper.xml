@@ -71,33 +71,34 @@
 		   and s.p_id = c.p_id
 	</select>
 	
-	<!-- public int putpdtinCart(@Param("cart") CartVO cart, @Param("selectedProductId")String selectedProductId, @Param("quantity")String quantity); -->
-	<!-- Foreach문으로 한꺼번에 정보를 넣어 줍니다. -->
-	<insert id="putpdtinCart">
-	insert all
-		<foreach collection="cart.products" item="product">
-			into cart(customer_id, p_id, p_count)
-			values( #{customerId}, #{product.productId}, ${quantity})
-		</foreach>
-		select * from dual	
+	<!-- public int putpdtinCart(@Param("cart") CartVO cart, @Param("quantityNpIds")Map<String, String> quantityNpIds); -->
+    <!-- Foreach문으로 한꺼번에 정보를 넣어 줍니다. -->
+    <insert id="putpdtinCart" parameterType="java.util.Map">
+    insert all
+        <foreach collection="quantityNpIds" item="productCount" index="ProductId">
+            into cart(customer_id, p_id, p_count)
+                values(#{cart.customerId}, #{ProductId}, ${productCount})
+        </foreach>
+        select * from dual
     </insert>
 
 	<!-- public int updateCart(@Param("cart")CartVO cart, @Param("existingProductIdAndQ")Map<String, String> existingProductIdAndQ, 
-	@Param("newProductIdsAndQ")Map<String, String> newProductIdsAndQ); -->
-	<update id="updateCart" parameterType="java.util.Map">
-		BEGIN
-		<foreach collection="existingProductIdAndQ" item="existingProduct" open="" separator=";" close=";" index="ProductID">
-			UPDATE cart
-			   SET p_count = ${existingProduct}
-			 WHERE customer_id= #{cart.customerId}
-			   AND p_id = #{ProductID}
-		</foreach>
-		
-		<foreach collection="newProductIdsAndQ" item="newProduct" open="" separator=";" close=";" index="ProductID">
-			INSERT 	INTO cart(customer_id, p_id, p_count)
-			VALUES (#{cart.customerId}, #{ProductID}, ${newProduct})
-		</foreach>
-		 END;
+    @Param("newProductIdsAndQ")Map<String, String> newProductIdsAndQ); -->
+    <update id="updateCart" parameterType="java.util.Map">
+        BEGIN
+        <foreach collection="existingProductIdAndQ" item="existingProduct" open="" separator=";" close=";" index="ProductID">
+            UPDATE cart
+               SET p_count = ${existingProduct},
+                      upt_dt = SYSTIMESTAMP
+             WHERE customer_id= #{cart.customerId}
+               AND p_id = #{ProductID}
+        </foreach>
+
+        <foreach collection="newProductIdsAndQ" item="newProduct" open="" separator=";" close=";" index="ProductID">
+            INSERT     INTO cart(customer_id, p_id, p_count)
+            VALUES (#{cart.customerId}, #{ProductID}, ${newProduct})
+        </foreach>
+         END;
     </update>
 
 	<!-- ■■■■■■■■■■■■■■■■■■■■■ Order ■■■■■■■■■■■■■■■■■■■■■ -->

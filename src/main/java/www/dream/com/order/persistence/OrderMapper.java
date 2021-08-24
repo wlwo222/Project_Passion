@@ -22,8 +22,7 @@ public interface OrderMapper {
 	
 	public ProductVO findProductInCart(@Param("productId")String productId, @Param("customerId")String customerId);
 
-	public int putpdtinCart(@Param("cart") CartVO cart, @Param("selectedProductId")String selectedProductId, @Param("quantity")String quantity);
-
+	public int putpdtinCart(@Param("cart") CartVO cart, @Param("quantityNpIds")Map<String, String> quantityNpIds);
 	
 	/* Order */
 	
