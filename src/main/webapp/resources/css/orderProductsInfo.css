@@ -1,0 +1,442 @@
+@charset "UTF-8";
+
+@import
+	url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100)
+	;
+
+@import
+	url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700)
+	;
+
+@import url(http://fonts.googleapis.com/css?family=Abel);
+
+@import url(http://fonts.googleapis.com/icon?family=Material+Icons);
+
+@import
+	url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap')
+	;
+
+.df-myshop .section>.title {
+	position: relative;
+	padding: 0 0 10px;
+	font-size: 13px;
+	line-height: 1.5;
+	color: #333;
+}
+
+.df-myshop .df-lang-orderstate:before {
+	font-size: 17px;
+	font-weight: normal;
+	font-family: xeicon !important;
+	content: "\e9b6";
+}
+
+.df-myshop .order1 {
+	float: left;
+	padding: 20px 0;
+	width: 80%;
+	height: 110px;
+	border: 1px solid #e1e1e1;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.df-myshop ul {
+	display: block;
+	list-style-type: disc;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	padding-inline-start: 40px;
+}
+
+.df-myshop .order1 li {
+	position: relative;
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+
+.df-myshop body, code {
+	font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+	color: #353535;
+	background: #fff;
+}
+
+.df-myshop .order1 li:after {
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	right: -4px;
+	margin-top: -8px;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #c3c4c4;
+	border-top: none;
+	border-left: none;
+	content: "";
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.df-myshop .order1 li {
+	position: relative;
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+
+.df-myshop .order1 li>a {
+	display: inline-block;
+	padding: 12px;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.df-myshop  a:-webkit-any-link {
+	color: -webkit-link;
+	cursor: pointer;
+}
+
+.df-myshop html [class*="df-lang-"]:before {
+	font-size: 12px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.df-myshop .css {
+	float: right;
+	padding: 22px 30px;
+	width: 20%;
+	height: 110px;
+	background: #f8f8f8;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.df-myshop html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5,
+	h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote,
+	th, td, img {
+	margin: 0;
+	padding: 0;
+}
+
+.df-myshop html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5,
+	h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote,
+	th, td, img {
+	margin: 0;
+	padding: 0;
+}
+
+.df-myshop html:lang(ko) body, html:lang(ko) code {
+	font-family: "Roboto", "Arial", "Nanum Gothic", "Malgun Gothic", "맑은 고딕",
+		"Dotum", "돋움", "Apple SD Gothic Neo", "AppleGothic", sans-serif;
+}
+
+.df-myshop body, code {
+	font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+	color: #353535;
+	background: #fff;
+}
+
+.df-myshop .cs li {
+	display: block;
+	padding: 4px 0;
+}
+
+.df-myshop .cs li a>span {
+	font-size: 16px;
+	line-height: 1;
+	font-weight: bold;
+}
+
+.df-myshop li {
+	list-style: none;
+	display: list-item;
+	text-align: -webkit-match-parent;
+}
+
+.df-myshop .order1 li:last-child:after {
+	display: none;
+}
+
+.public-footer .inside {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+
+.df-myshop .section>.title {
+	position: relative;
+	padding: 0 0 10px;
+	font-size: 13px;
+	line-height: 1.5;
+	color: #333;
+}
+
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre,
+	code, form, fieldset, legend, input, textarea, p, blockquote, th, td,
+	img {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h3 {
+	margin: 0;
+}
+
+h3 {
+	display: block;
+	font-size: 1.17em;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	font-weight: bold;
+}
+
+.df-myshop .section .orderlist h3 .title:before {
+	font-size: 17px;
+	font-weight: normal;
+	vertical-align: middle;
+	font-family: xeicon !important;
+	content: "\ea8d";
+}
+
+html:lang(ko) .df-myshop .df-lang-button-more:before {
+	content: "더보기";
+}
+
+a, a i, a:before, a:after, [class^='btn'] {
+	-o-transition: background 0.13s ease-in-out, border 0.13s ease-in-out,
+		color 0.13s ease-in-out;
+	-ms-transition: background 0.13s ease-in-out, border 0.13s ease-in-out,
+		color 0.13s ease-in-out;
+	-moz-transition: background 0.13s ease-in-out, border 0.13s ease-in-out,
+		color 0.13s ease-in-out;
+	-webkit-transition: background 0.13s ease-in-out, border 0.13s
+		ease-in-out, color 0.13s ease-in-out;
+	transition: background 0.13s ease-in-out, border 0.13s ease-in-out,
+		color 0.13s ease-in-out;
+}
+
+.df-myshop .df-lang-button-more:after {
+	font-size: 17px;
+	font-weight: normal;
+	font-family: xeicon !important;
+	content: "\e93f";
+}
+
+html [class*="df-lang-"]:after {
+	font-size: 12px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.df-myshop .section>.title .more {
+	position: absolute;
+	bottom: 8px;
+	right: 0;
+	font-weight: normal;
+	color: #555;
+}
+
+a {
+	text-decoration: none;
+	outline: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+a:-webkit-any-link {
+	color: -webkit-link;
+	cursor: pointer;
+}
+
+.df-myshop .section>.title {
+	position: relative;
+	padding: 0 0 10px;
+	font-size: 13px;
+	line-height: 1.5;
+	color: #333;
+}
+
+h3 {
+	font-size: 1.17em;
+	font-weight: bold;
+}
+
+html:lang(ko) body, html:lang(ko) code {
+	font-family: "Roboto", "Arial", "Nanum Gothic", "Malgun Gothic", "맑은 고딕",
+		"Dotum", "돋움", "Apple SD Gothic Neo", "AppleGothic", sans-serif;
+}
+
+.df-myshop .section>.content {
+	border: 1px solid #dfdfdf;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+div {
+	display: block;
+}
+
+.df-myshop .section>.content thead th {
+	padding: 15px 0;
+	background: #dfdfdf;
+	opacity: 0.5;
+}
+html [class*="df-lang-"] {
+	vertical-align: middle;
+}
+
+th, td {
+	border: 0;
+	vertical-align: top;
+}
+
+th {
+	display: table-cell;
+	vertical-align: inherit;
+	font-weight: bold;
+	text-align: -internal-center;
+}
+
+table {
+	width: 100%;
+	border: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border-collapse: separate;
+	text-indent: initial;
+	border-spacing: 2px;
+}
+
+body, code {
+	font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+	color: #353535;
+	background: #fff;
+}
+
+html [class*="df-lang-"]:before {
+	font-size: 12px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+html:lang(ko) .df-myshop .df-lang-order-no:after {
+	content: "주문번호";
+}
+
+html:lang(ko) .df-myshop .df-lang-order-image:after {
+	content: "이미지";
+}
+
+html:lang(ko) .df-myshop .df-lang-order-info:after {
+	content: "상품정보";
+}
+
+html:lang(ko) .df-myshop .df-lang-order-quantity:after {
+	content: "수량";
+}
+
+html:lang(ko) .df-myshop .df-lang-order-price:after {
+	content: "상품구매금액";
+}
+
+html:lang(ko) .df-myshop .df-lang-order-state:after {
+	content: "주문처리상태";
+}
+
+.df-myshop .section>.content .empty {
+	padding: 55px 0;
+	text-align: center;
+	font-weight: bold;
+	color: #888;
+}
+
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre,
+	code, form, fieldset, legend, input, textarea, p, blockquote, th, td,
+	img {
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	display: block;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+}
+
+html:lang(ko) .df-myshop .df-lang-order-empty:after {
+	content: "주문 내역이 없습니다.";
+}
+
+.df-myshop > .content {
+    border: 1px solid #dfdfdf;
+    border-radius: 4px;
+    overflow: hidden;
+}
+html:lang(ko) .df-myshop .df-lang-title-recentview:after {
+    content: "최근 본 상품";
+}
+.df-myshop .section > .content .empty {
+    padding: 55px 0;
+    text-align: center;
+    font-weight: bold;
+    color: #888;
+}
+
+
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+
+html:lang(ko) .df-myshop .df-lang-recentview-empty:after {
+    content: "최근본 상품 내역이 없습니다.";
+}
+.df-myshop .section > .title {
+    position: relative;
+    padding: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #333;
+}
+html:lang(ko) .df-myshop .df-lang-title-mypostings:after {
+    content: "내 게시글";
+}
+.df-myshop .df-lang-title-mypostings:after {
+    font-size: 13px;
+}
+
+
+html:lang(ko) .df-myshop .df-lang-recentview-empty:after {
+    content: "최근본 상품 내역이 없습니다.";
+}
+.df-myshop .section > .content thead th {
+    padding: 15px 0;
+}
+.head{
+	background: linear-gradient(to top, #c7b299, transparent);
+}

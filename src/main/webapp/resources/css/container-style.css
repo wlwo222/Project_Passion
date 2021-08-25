@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+/* body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: -webkit-linear-gradient(136deg, rgb(224,195,252) 0%, rgb(142,197,252) 100%);
+} */
+.carousel-inner{
+  position: relative;
+  width: 700px;
+  height: 400px;
+}
+.carousel-inner .col-sm-6{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.carousel-inner .col-sm-6 img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  clip-path: circle(0% at 0% 100%);
+  transition: all 0.7s;
+}
+#one:checked ~ .img-1 img{
+  clip-path: circle(150% at 0% 100%);
+}
+#two:checked ~ .img-1 img,
+#two:checked ~ .img-2 img{
+  clip-path: circle(150% at 0% 100%);
+}
+#three:checked ~ .img-1 img,
+#three:checked ~ .img-2 img,
+#three:checked ~ .img-3 img{
+  clip-path: circle(150% at 0% 100%);
+}
+#four:checked ~ .img-1 img,
+#four:checked ~ .img-2 img,
+#four:checked ~ .img-3 img,
+#four:checked ~ .img-4 img{
+  clip-path: circle(150% at 0% 100%);
+}
+#five:checked ~ .img-1 img,
+#five:checked ~ .img-2 img,
+#five:checked ~ .img-3 img,
+#five:checked ~ .img-4 img,
+#five:checked ~ .img-5 img{
+  clip-path: circle(150% at 0% 100%);
+}
+.carousel-inner .sliders{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+  display: flex;
+}
+.carousel-inner .sliders label{
+  border: 2px solid rgb(142,197,252);
+  width: 13px;
+  height: 13px;
+  margin: 0 3px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#one:checked ~ .sliders label.one,
+#two:checked ~ .sliders label.two,
+#three:checked ~ .sliders label.three,
+#four:checked ~ .sliders label.four,
+#five:checked ~ .sliders label.five{
+  width: 35px;
+  border-radius: 14px;
+  background: rgb(142,197,252);
+}
+.sliders label:hover{
+  background: rgb(142,197,252);
+}
+input[type="radio"]{
+  display: none;
+}
+
+
+
+
+
+
+#slider {
+	padding-bottom: 45px;
+}
+
+.carousel-indicators li {
+	background: #C4C4BE;
+}
+
+.carousel-indicators li.active {
+	background: #FE980F;
+}
+
+.item {
+	padding-left: 100px;
+}
+
+.pricing {
+	position: absolute;
+	right: 40%;
+	top: 52%;
+}
+
+.girl {
+	margin-left: 0;
+}
+
+
+.get {
+	background: #FE980F;
+	border: 0 none;
+	border-radius: 0;
+	color: #FFFFFF;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	font-weight: 300;
+	margin-top: 23px;
+}
+
+
+.item button:hover {
+	background: #FE980F;
+}
+
+.control-carousel {
+	position: absolute;
+	top: 50%;
+	font-size: 60px;
+	color: #C2C2C1;
+}
+
+.control-carousel:hover {
+	color: #FE980F;
+}
+
+.right {
+	right: 0;
+}
