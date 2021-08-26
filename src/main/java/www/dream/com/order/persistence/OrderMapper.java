@@ -21,12 +21,11 @@ public interface OrderMapper {
 	public int updateCart(@Param("cart")CartVO cart, @Param("existingProductIdAndQ")Map<String, String> existingProductIdAndQ, @Param("newProductIdsAndQ")Map<String, String> newProductIdsAndQ);
 	
 	public ProductVO findProductInCart(@Param("productId")String productId, @Param("customerId")String customerId);
-
-	public int putpdtinCart(@Param("cart") CartVO cart, @Param("selectedProductId")String selectedProductId, @Param("quantity")String quantity);
-
 	
 	/* Order */
 	
 	public List<OrderVO> getOrdersByUserId(String userId);
+
+	public int putpdtinCart(@Param("cart")CartVO newcart, @Param("newProductIdsAndQ")Map<String, String> newProductIdsAndQ);
 	
 }

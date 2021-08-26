@@ -218,7 +218,7 @@
 								<span>
 									<span>${product.price}</span>
 									<label>Quantity:${product.pdAddInfo[2].description}</label>
-									<input type="text" value="3" />
+									<input type="text" value="3" id="productQ"/>
 									<button type="button" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Add to cart
@@ -261,7 +261,7 @@
 				        	<a class="btn-black" href="" onclick="" id= "buy-btn">바로구매</a>
 					        </div>
 							 <div class="b-btn">
-								<a href="/">
+								<a href="/homes/index?pageNumber=1&amount=12">
 								<button type="button" class="btn btn-fefault cart" id= "cart-btn">
 									<i class="fa fa-shopping-cart"></i></a>
 								</button>
@@ -490,7 +490,7 @@
 	$("#cart-btn").click(function() {
         var customerId = "<sec:authentication property='principal.username'/>";
         var productId = ${product.productId};
-        var quantity = "7";
+        var quantity = $("#productQ").val();
         $.ajax({
             type : 'get',
             data : {

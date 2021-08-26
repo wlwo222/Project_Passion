@@ -14,7 +14,7 @@ import www.dream.com.product.model.ProductVO;
 public class CartVO extends OrderVO {
 	
 	public static final String DESCRIM4CART = "cart";
-	private String	 customerId;
+	private String customerId;
 	private List<ProductVO> products;
 	private int	 productCount;
 	

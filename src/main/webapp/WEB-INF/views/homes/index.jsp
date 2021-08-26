@@ -45,7 +45,6 @@
 					<div class="features_items">
 						<!--features_items-->
 						<h2 class="title text-center">Features Items</h2>
-						<script src="/resources/js/jquery.js"></script>
 							<!-- ProductVO -->
 						<c:forEach items="${productList}" var="product" varStatus="status">
 						<div class="itemContainer">
@@ -135,8 +134,8 @@
 																					product_option_area="product_option_6940_0"
 																					name="option2" id="product_option_id2"
 																					class="ProductOption0" option_style="select"
-																					required="true"><option value="*"
-																							selected="" link_image="">- [필수] 사이즈를 선택해 주세요 -</option>
+																					required="true">
+																					<option value="*" selected="" link_image="">- [필수] 사이즈를 선택해 주세요 -</option>
 																						<option value="**" disabled="" link_image="">-------------------</option></select>
 																					<p class="value"></p></td>
 																			</tr>
@@ -152,12 +151,17 @@
 																<p	class="ec-base-help txt11 displaynone EC-price-warning"></p>
 															</div>
 														</div>
-														<div class="xans-element- xans-product xans-product-action ec-base-button ">
+														<div class="xans-element- xans-product xans-product-action ec-base-button">
+														<sec:authorize access="isAnonymous()">
+														<a href="/party/customLogin">로그인</a>후 이용하기
+														</sec:authorize>
+														<sec:authorize access="isAuthenticated()">
 															<a href="#none" class="btnSubmitFix sizeS"	onclick="product_submit(1, '/exec/front/order/basket/', this)">
 																<span id="btnBuy">바로구매하기</span>
-															</a> <a href="#none" class="btnNormalFix sizeS "
-																onclick="product_submit(2, '/exec/front/order/basket/', this)">
+															</a> <a href="#none" class="btnNormalFix sizeS"
+																onclick="product_submit(${product.productId}, quantity)">
 																장바구니 담기</a>
+														</sec:authorize>
 															<!-- 네이버 체크아웃 구매 버튼 -->
 															<div id="NaverChk_Button">
 																<div id="NC_ID_1629267985034364"
@@ -174,6 +178,7 @@
 														</div>
 													</div>
 												</div>
+							<script src="/resources/js/jquery.js"></script>
 							<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 							<script>
 								var score = ${product.pdAddInfo[0].description};
@@ -238,5 +243,39 @@
 					</div>
 				</div>
 		<jsp:include page="/resources/module2.jsp" flush="false" />
+	<script>
+	var csrfHN = "${_csrf.headerName}";
+	var csrfTV = "${_csrf.token}";
+	
+	$(document).ajaxSend(
+		function(e, xhr) {
+			xhr.setRequestHeader(csrfHN, csrfTV);
+		}
+	);
+	
+	function product_submit(productId, quantity){
+			
+			//대댓글 혹은 댓글을 작성할 경우
+			$.ajax({
+				type : 'post',	//methos alias
+				url : '/homes/putProductInCart/',
+				data : {
+					"productId" : productId,
+					"quantity" : quantity
+				},	//객체를 json 문자열로 출력
+				contentType : 'application/json; charset=UTF-8',
+				success : function(data, status, xhr) {
+					if (data)   {
+						alert(data.successMassage);
+					}
+				},
+				error : function (xhr, status, errMsg) {
+					if (errorCallBack) {
+						alert("Test실패");
+					}
+				}
+			});
+	}
+	</script>
 </body>
 </html>

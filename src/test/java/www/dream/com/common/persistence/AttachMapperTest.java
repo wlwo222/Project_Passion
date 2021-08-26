@@ -50,4 +50,5 @@ public class AttachMapperTest {
 		String postId = "TTTT0";
 		attachMapper.delete(postId);
 	}
+		
 }

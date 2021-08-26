@@ -48,17 +48,17 @@ public class OrderMapperTest {
 		}
 	}
 	
-	//@Test
+	@Test
 	public void test001putProductinCart() {
 		try {
 			//새로운 ProductId와 Quantity를 담을 Map
 			Map<String, String> NewProductIdsAndQ = new HashMap<>();
-			NewProductIdsAndQ.put("666", "22");
-			//기존의 ProductId와 Quantity를 담을 Map
-			Map<String, String> ExistingProductIdAndQ = new HashMap<>();
-			ExistingProductIdAndQ.put("4", "5");
-			ExistingProductIdAndQ.put("82", "30");
-			orderService.updateCart(orderService.getCartByUserId("admin"), ExistingProductIdAndQ, NewProductIdsAndQ);
+			NewProductIdsAndQ.put("71", "77");
+			NewProductIdsAndQ.put("72", "77");
+			NewProductIdsAndQ.put("73", "77");
+			NewProductIdsAndQ.put("74", "77");
+			
+			orderService.updateCart("mana1", NewProductIdsAndQ);
 			System.out.println("성공!");
 			
 		} catch (Exception e) {
@@ -66,7 +66,7 @@ public class OrderMapperTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void test001getProductsAndAddInfo() {
 		try {
 			List<OrderVO> orders = orderService.getOrdersByUserId("admin");

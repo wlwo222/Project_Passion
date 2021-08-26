@@ -71,13 +71,13 @@
 		   and s.p_id = c.p_id
 	</select>
 	
-	<!-- public int putpdtinCart(@Param("cart") CartVO cart, @Param("selectedProductId")String selectedProductId, @Param("quantity")String quantity); -->
+	<!-- public int putpdtinCart(@Param("cart")CartVO newcart, @Param("newProductIdsAndQ")Map<String, String> newProductIdsAndQ); -->
 	<!-- Foreach문으로 한꺼번에 정보를 넣어 줍니다. -->
-	<insert id="putpdtinCart">
+	<insert id="putpdtinCart" parameterType="java.util.Map">
 	insert all
-		<foreach collection="cart.products" item="product">
+		<foreach collection="newProductIdsAndQ" item="quantity" index="productID">
 			into cart(customer_id, p_id, p_count)
-			values( #{customerId}, #{product.productId}, ${quantity})
+			values( #{cart.customerId}, #{productID}, ${quantity})
 		</foreach>
 		select * from dual	
     </insert>
@@ -86,16 +86,16 @@
 	@Param("newProductIdsAndQ")Map<String, String> newProductIdsAndQ); -->
 	<update id="updateCart" parameterType="java.util.Map">
 		BEGIN
-		<foreach collection="existingProductIdAndQ" item="existingProduct" open="" separator=";" close=";" index="ProductID">
+		<foreach collection="existingProductIdAndQ" item="ePQuantity" open="" separator=";" close=";" index="ProductID">
 			UPDATE cart
-			   SET p_count = ${existingProduct}
+			   SET p_count = ${ePQuantity}
 			 WHERE customer_id= #{cart.customerId}
 			   AND p_id = #{ProductID}
 		</foreach>
 		
-		<foreach collection="newProductIdsAndQ" item="newProduct" open="" separator=";" close=";" index="ProductID">
+		<foreach collection="newProductIdsAndQ" item="nPQuantity" open="" separator=";" close=";" index="ProductID">
 			INSERT 	INTO cart(customer_id, p_id, p_count)
-			VALUES (#{cart.customerId}, #{ProductID}, ${newProduct})
+			VALUES (#{cart.customerId}, #{ProductID}, ${nPQuantity})
 		</foreach>
 		 END;
     </update>

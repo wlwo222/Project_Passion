@@ -1,24 +1,39 @@
 package www.dream.com.homes.control;
 
+import java.security.Principal;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMessage;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import www.dream.com.common.dto.Criteria;
-import www.dream.com.product.persistence.ProductMapper;
+import www.dream.com.framework.springSecurityAdapter.CustomUser;
+import www.dream.com.order.model.CartVO;
+import www.dream.com.order.service.OrderService;
+import www.dream.com.party.model.Party;
 import www.dream.com.product.service.ProductService;
 
 @Controller
 @RequestMapping("/homes/*")
 public class HomesController {
     @Autowired
-    ProductMapper productMapper;
-    @Autowired
     ProductService productService;
+    @Autowired
+    OrderService orderService;
     
     
     
@@ -34,9 +49,36 @@ public class HomesController {
     //  /homes/productDetail?productId= 현재는 테스트를 위해서 /homes/productDetail 까지만. 
     @GetMapping(value="productDetail")
     public void productDetail(@RequestParam("productId")String productId, Model model){
-        model.addAttribute("product", productMapper.findProductById(productId));
+        model.addAttribute("product", productService.findProductById(productId));
     }
     
+    @PreAuthorize("isAuthenticated()") //현 사용자가 로그인 처리 했습니까?
+	@PostMapping(value="putProductInCart")
+    @ResponseBody
+	public ResponseEntity<Map<Object, Object>> putProductInCart(@AuthenticationPrincipal Principal principal,
+			String productName, String qauntity) {
+		//로그인한 사용자로 작성자 연동
+		UsernamePasswordAuthenticationToken upat = (UsernamePasswordAuthenticationToken) principal;
+		CustomUser cu = (CustomUser) upat.getPrincipal();
+		Party writer = cu.getCurUser();
+		String userName = writer.getName();
+		//Cart 생성
+		Map<String, String> productIdAndQ = new HashMap<>();
+		productIdAndQ.put(productName, qauntity);
+		
+		orderService.updateCart(userName, productIdAndQ);
+		System.out.println(productIdAndQ);
+		Map<Object, Object> resultMap = new HashMap<>();
+		String successMassage = "성공적으로 장바구니에 담았습니다.";
+		resultMap.put("successMassage",successMassage);
+		return new ResponseEntity<>(resultMap, HttpStatus.OK);
+	}
+    
+    
+    
+    
+    
+    /* 하위 카테고리를 클릭했을 때 새로운 jsp를 보여줍니다.*/
 //  /homes/hood 
 	@GetMapping(value="top/hood")
 	public void hood(Model model,@RequestParam("pageNumber") String pageNumber, @RequestParam("amount") String amount,

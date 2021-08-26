@@ -67,48 +67,15 @@ public class OrderController {
 	@GetMapping(value = "addToCart/{customerId}/{productId}/{quantity}")
 	public ResponseEntity<String> addToCart(@PathVariable("customerId") String customerId,
 			@PathVariable("productId") String productId, @PathVariable("quantity") String quantity) {
-
-		/**
-		 * Cart가 ProductVO를 리스트 형태로 받기 때문에, 이렇게 받은 데이터를 통해서 List로 넣는 과정 Map 구조를 통해
-		 * productId와 quantity를 묶어줌. 카트에 넣을 데이터를 미리 준비
-		 */
-		Map<String, String> pdtQuantityMap = new HashMap<>();
+		
 		//새로운 ProductId와 Quantity를 담을 Map
 		Map<String, String> NewProductIdsAndQ = new HashMap<>();
-		//기존의 ProductId와 Quantity를 담을 Map
-		Map<String, String> ExistingProductIdAndQ = new HashMap<>();
+
+		NewProductIdsAndQ.put(productId, quantity);
 		
-		CartVO usercart = orderService.getCartByUserId(customerId);
-
-		pdtQuantityMap.put(productId, quantity);
-
-		// CustomerId를 이용하여 Cart데이터가 있는지 확인
-		if (usercart == null) {
-			CartVO newcart = new CartVO(customerId);
-			orderService.putpdtinCart(newcart, productId, quantity);
-			return new ResponseEntity<>("새로운 카트에 담기 성공",HttpStatus.OK);
-		} else {
-			/**
-			 * Cart가 있는 경우 데이터를 조사해서 이미 있는 상품과 비교하여 insert할 ProductId와 Update할 ProductId들을
-			 * 나눔.
-			 */
-
-			usercart.getProducts().iterator().forEachRemaining(Existingproduct -> {
-
-				if (pdtQuantityMap.containsKey(Existingproduct.getProductId())) {
-					// Cart안의 상품인 경우
-					ExistingProductIdAndQ.put(productId, quantity);
-					
-				} else {
-					// 새로운 상품인 경우
-					NewProductIdsAndQ.put(productId, quantity);
-				}
-			});
-
-			// 나눈 후에, OrderService에게 DB 저장을 시켜줍니다.
-			orderService.updateCart(usercart, ExistingProductIdAndQ, NewProductIdsAndQ);
-			return new ResponseEntity<>("기존 카트에 담기 성공",HttpStatus.OK);
-		}
+		orderService.updateCart(customerId, NewProductIdsAndQ);
+		
+		return new ResponseEntity<>("장바구니에 성공적으로 담았습니다.",HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "getProductsByCategoryId/{categoryId}")
