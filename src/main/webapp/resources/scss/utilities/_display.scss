@@ -1,0 +1,27 @@
+// Overflow Hidden
+.o-hidden {
+  overflow: hidden !important;
+}
+
+//별점부분
+.itemContainer .card .content .price_rating p {
+	@if value == 5 {
+	
+	}
+	
+	@if value == 4 {
+	
+	}
+	
+	@if value == 3 {
+	
+	}
+	
+	@if value == 2 {
+	
+	}
+	
+	@if value == 1 {
+	
+	}
+}
