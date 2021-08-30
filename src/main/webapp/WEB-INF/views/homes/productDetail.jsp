@@ -216,16 +216,16 @@
 								<p>Product ID: ${product.productId}</p>
 								<img src="images/product-details/rating.png" alt="" />
 								<span>
-									<span>${product.price}</span>
+									<span>${product.price} 원</span>
 									<label>Quantity:${product.pdAddInfo[2].description}</label>
-									<input type="text" value="3" id="productQ"/>
+									<!-- <input type="text" value="3" id="productQ"/>
 									<button type="button" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Add to cart
-									</button>
+									</button> -->
 								</span>
-								<p><b>Availability:</b> In Stock</p>
-								<p><b>Condition:</b> New</p>
+								<!-- <p><b>Availability:</b> In Stock</p>
+								<p><b>Condition:</b> New</p> -->
 								<p><b>Brand:</b> POF</p>
 								<div class="starscore">
 									<p></p>

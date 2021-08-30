@@ -86,16 +86,16 @@
 	@Param("newProductIdsAndQ")Map<String, String> newProductIdsAndQ); -->
 	<update id="updateCart" parameterType="java.util.Map">
 		BEGIN
-		<foreach collection="existingProductIdAndQ" item="ePQuantity" open="" separator=";" close=";" index="ProductID">
+		<foreach collection="existingProductIdAndQ" item="ePQuantity" open="" separator=";" close=";" index="productID">
 			UPDATE cart
 			   SET p_count = ${ePQuantity}
 			 WHERE customer_id= #{cart.customerId}
-			   AND p_id = #{ProductID}
+			   AND p_id = #{productID}
 		</foreach>
 		
-		<foreach collection="newProductIdsAndQ" item="nPQuantity" open="" separator=";" close=";" index="ProductID">
+		<foreach collection="newProductIdsAndQ" item="nPQuantity" open="" separator=";" close=";" index="productID">
 			INSERT 	INTO cart(customer_id, p_id, p_count)
-			VALUES (#{cart.customerId}, #{ProductID}, ${nPQuantity})
+			VALUES (#{cart.customerId}, #{productID}, ${nPQuantity})
 		</foreach>
 		 END;
     </update>

@@ -143,9 +143,9 @@
 	select pd.*, pm.p_id ad_p_id, pm.product_add_info_type ad_product_add_info_type,
 			pm.description  ad_description
 	  from s_products pd left outer join s_product_add_info pm on pd.p_id = pm.p_id
-	<foreach collection="products" item="Product" open="where pd.p_id = " separator="or pd.p_id = " close="">
-	  #{Product.productId}
-	</foreach>
+		<foreach collection="products" item="Product" open="where pd.p_id = " separator="or pd.p_id = " close="">
+		  #{Product.productId}
+		</foreach>
 	</select>
 	
 	<!-- public ProductVO getAddInfoOfProduct(ProductVO product); -->

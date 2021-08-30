@@ -45,38 +45,59 @@
 		</ul>
 	</div>
 	<!-- -------------- mini icon cart ----------------- -->
+	<sec:authorize access="isAuthenticated()">
 	<div class="navigationCart">
 		<div class="toggle2"></div>
 		<ul>
-			<li><a href="#pop1" class="btn"> <span class="icon">
+			<li><a href="#pop1" class="btn"> <span class="icon" id="carticon">
 						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 				</span> <span class="title"></span>
 			</a></li>
 
 		</ul>
+
+	
 		<div class="popup" id="pop1">
 			<div class="header">
 				<h1 class="df-lang-fxax-tit-cart">장바구니</h1>
 				<a href="#none"><i class="fa fa-times" aria-hidden="true"></i></a>
+				<p id="cartContent"></p>
 			</div>
-			<sec:authorize access="isAnonymous()">
-				<a href="/party/customLogin">로그인</a>후 이용하기
-			</sec:authorize>
-			<sec:authorize access="isAuthenticated()">
-				
-			</sec:authorize>
-
 			<div class="footer">
 				<a href="/order/basket.html"
 					class="fxb-btn fxb-btn-ft df-lang-fxax-all">전체보기</a>
 			</div>
-
 		</div>
 	</div>
-	<!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+	</sec:authorize>
 </body>
 <script src="/resources/js/jquery.js"></script>
 <script>
+var csrfHN = "${_csrf.headerName}";
+var csrfTV = "${_csrf.token}";
 
+$(document).ajaxSend(
+	function(e, xhr) {
+		xhr.setRequestHeader(csrfHN, csrfTV);
+	});
+
+$("#carticon").click(function(e){
+	//버튼을 클릭하면 ajax로 로그인 정보를 보내고, 장바구니 데이터를 받습니다. 
+	$.getJSON(
+			"/order/callCart.json",
+			function(replyObj) {
+				if (successCallBack)   {
+					alert(replyObj);
+					$("#cartContent").html(replyObj.productListforCart);
+				}
+			}
+		).fail(
+			function(errMsg){
+				if (errMsg) {
+					alert(errMsg);
+				}
+			}
+		);
+});
 </script>
 </html>

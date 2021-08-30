@@ -51,10 +51,10 @@
 													<ul class="showAction">
 														<li><i class="fa fa-heart" aria-hidden="true"></i>
 														 </li>
-														<li><i class="fa fa-shopping-cart" aria-hidden="true">
-																<a href="#${product.productId}" class="btn"><input type="button"
+														<li><a class="fa fa-shopping-cart" aria-hidden="true"
+																 href="#${product.productId}" class="btn"><input type="button"
 																	onclick="cartButton_click()"></a>
-														</i> <span>Add to Cart</span></li>
+														 <span>Add to Cart</span></li>
 														<li><a class="fa fa-eye" aria-hidden="true"
 															href="/homes/productDetail?productId=${product.productId}"></a>
 															<span>View Details</span></li>

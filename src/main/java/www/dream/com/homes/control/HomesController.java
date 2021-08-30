@@ -63,7 +63,7 @@ public class HomesController {
    		UsernamePasswordAuthenticationToken upat = (UsernamePasswordAuthenticationToken) principal;
    		CustomUser cu = (CustomUser) upat.getPrincipal();
    		Party writer = cu.getCurUser();
-   		String userName = writer.getName();
+   		String userId = writer.getUserId();
    		//수량은 7로 고정했슴니다.
    		String quantity = "7";
    		String productId = product.getProductId()+ "";
@@ -72,7 +72,7 @@ public class HomesController {
    		Map<String, String> productIdAndQ = new HashMap<>();
    		productIdAndQ.put(productId, quantity);
    		
-   		orderService.updateCart(userName, productIdAndQ);
+   		orderService.updateCart(userId, productIdAndQ);
    		Map<Object, Object> resultMap = new HashMap<>();
    		String successMassage = "성공적으로 장바구니에 담았습니다.";
    		resultMap.put("successMassage",successMassage);
@@ -263,6 +263,7 @@ public class HomesController {
  	model.addAttribute("pants", productService.getProductByDetailCat("30000a"));
  	userCriteria.setTotal(productService.getTotalCount());
  			}
+ 	
  	// /homes/slacks
  	@GetMapping(value="pants/slacks")
  	public void slacks(Model model,@RequestParam("pageNumber") String pageNumber, @RequestParam("amount") String amount,
@@ -287,6 +288,14 @@ public class HomesController {
 			@ModelAttribute("pagenation") Criteria userCriteria){
  	// model이라는 인터페이스에 jsp에 전달해줄 속성을 집어넣는 것 1(모델명) : 1(모델값)
  	model.addAttribute("training", productService.getProductByDetailCat("30000d"));
+ 	userCriteria.setTotal(productService.getTotalCount());
+ 				}
+ 	
+ 	@GetMapping(value="pants/leggings")
+ 	public void leggings(Model model,@RequestParam("pageNumber") String pageNumber, @RequestParam("amount") String amount,
+			@ModelAttribute("pagenation") Criteria userCriteria){
+ 	// model이라는 인터페이스에 jsp에 전달해줄 속성을 집어넣는 것 1(모델명) : 1(모델값)
+ 	model.addAttribute("leggings", productService.getProductByDetailCat("30000b"));
  	userCriteria.setTotal(productService.getTotalCount());
  				}
  	
