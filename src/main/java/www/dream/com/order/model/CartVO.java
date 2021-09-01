@@ -1,18 +1,15 @@
 package www.dream.com.order.model;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import www.dream.com.product.model.ProductAdditionalInfo;
 import www.dream.com.product.model.ProductVO;
 
 @Data
 @NoArgsConstructor
 public class CartVO extends OrderVO {
-	
+	public static final int QAUNTITY = 7;
 	public static final String DESCRIM4CART = "cart";
 	private String customerId;
 	private List<ProductVO> products;
@@ -37,11 +34,11 @@ public class CartVO extends OrderVO {
 			for(ProductVO product : products) {
 				sb.append("<ul class='cartbox'>");
 				//해당 사진의 이미지경로에서 사이즈가 m인 파일을 가져옵니다.
-				sb.append("<li><img src=" + product.getPdAddInfo().get(5).getDescription().substring( 0,
-						product.getPdAddInfo().get(5).getDescription().length() - 4) +"_m.jpg"+ "></li>");
-				sb.append("<li>productName : " + product.getName() + "</li>");
-				sb.append("<li>size :" + product.getPdAddInfo().get(2).getDescription() + "</li>");
-				sb.append("<li>quantity :" + product.getPdAddInfo().get(3).getDescription() + "</li>");
+				sb.append("<li><img src=" + product.getPdAddInfo().get(1).getDescription().substring( 0,
+						product.getPdAddInfo().get(1).getDescription().length() - 4) +"_m.jpg"+ "></li>");
+				sb.append("<li>productName : " + product.getProductName() + "</li>");
+				sb.append("<li>size :" + product.getPdAddInfo().get(5).getDescription() + "</li>");
+				sb.append("<li>quantity :" + QAUNTITY + "</li>");
 				sb.append("<li>price : " + product.getPrice() + "</li>");
 				sb.append("</ul>");	
 			}

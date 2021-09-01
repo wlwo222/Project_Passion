@@ -488,21 +488,17 @@
 	);
 
 	$("#cart-btn").click(function() {
-        var customerId = "<sec:authentication property='principal.username'/>";
         var productId = ${product.productId};
-        var quantity = $("#productQ").val();
         $.ajax({
             type : 'get',
             data : {
-                customerId : customerId,
-                productId : productId,
-                quantity : quantity
+                "productId" : productId,
             }, 
-            url : "/order/addToCart/" + customerId +"/"+ productId + "/" + quantity,
+            url : "/order/putProductInCart/",
             dataType : "json",
             contentType: "application/json; charset=UTF-8",
             success : function(resObj, status, xhr) {
-            	alert(resObj.success);
+            	alert(resObj.successMassage);
 			},
 			error : function (xhr, status, errMsg) {
 				alert("실패..");

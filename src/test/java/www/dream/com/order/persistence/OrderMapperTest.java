@@ -19,6 +19,7 @@ import www.dream.com.order.service.OrderService;
 import www.dream.com.product.model.ProductAdditionalInfo;
 import www.dream.com.product.model.ProductVO;
 import www.dream.com.product.persistence.ProductMapper;
+import www.dream.com.product.service.ProductService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -53,7 +54,8 @@ public class OrderMapperTest {
 		try {
 			//새로운 ProductId와 Quantity를 담을 Map
 			
-			CartVO cart = orderService.getCartByUserId("mana1");
+			CartVO cart = orderService.getCartByUserId("admin");
+			cart.setProducts(productMapper.getAddInfoeachProducts(cart.getProducts())); 
 			System.out.println(cart);
 			
 		} catch (Exception e) {

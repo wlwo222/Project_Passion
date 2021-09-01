@@ -50,7 +50,7 @@ public class OrderService {
 		Map<String, String> existingproductsAndQ = new HashMap<>();
 		
 		cart.getProducts().forEach(Existingproduct->{
-			//자주 사용하는 값을 변수로 지정합니다. (코드 간소화 및 직관성, 약간의 성능)
+			//자주 사용하는 값을 변수로 지정합니다. (코드 간소화 및 직관성)
 			String productId = Existingproduct.getProductId();
 			if(newProductIdsAndQ.containsKey(productId)) {
 		//만약 새로 추가하는 상품이 Cart안에 이미 있던 것이라면..newProductIdsAndQ의 키와 값을 existingproductsAndQ에 넣은다음 제거합니다.(중복제거)  

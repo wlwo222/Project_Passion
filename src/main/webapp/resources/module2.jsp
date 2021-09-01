@@ -195,27 +195,24 @@
 		}
 	);
 	
-	function product_submit(productId){
-		//대댓글 혹은 댓글을 작성할 경우
-		$.ajax({
+	function product_submit(productBox){
+		var Id = $(this).parents("div");
+		var vall = Id.find("input").val();
+		/* $.ajax({
 			async : true,
-			type : 'post',	//methos alias
-			url : '/homes/putProductInCart/',
+			type : 'get',	//methos alias
+			url : '/homes/putProductInCart',
 			data : JSON.stringify({
 				"productId" : productId
 			}),	//객체를 json 문자열로 출력
 			contentType : 'application/json; charset=UTF-8',
-			success : function(data, status, xhr) {
-				if (data)   {
-					alert("성공적으로 장바구니에 담았습니다.");
+		     success : function(resObj, status, xhr) {
+	            	alert(resObj.successMassage);
+				},
+				error : function (xhr, status, errMsg) {
+					alert("실패..");
 				}
-			},
-			error : function (xhr, status, errMsg) {
-				if (errMsg) {
-					alert("다시 시도해 주십시오.");
-				}
-			}
-		});
+			}); */
 	}
 	</script>
 	<script src="/resources/js/bootstrap.min.js"></script>

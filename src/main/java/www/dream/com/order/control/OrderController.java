@@ -104,20 +104,20 @@ public class OrderController {
 	@PreAuthorize("isAuthenticated()") //현 사용자가 로그인 처리 했습니까?
 	@GetMapping(value="callCart", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-	public Map<Object, Object> callCart(@AuthenticationPrincipal Principal principal) {
+	public ResponseEntity<Map<Object, Object>> callCart(@AuthenticationPrincipal Principal principal) {
 		//로그인한 사용자로 작성자 연동
 		UsernamePasswordAuthenticationToken upat = (UsernamePasswordAuthenticationToken) principal;
 		CustomUser cu = (CustomUser) upat.getPrincipal();
 		Party writer = cu.getCurUser();
 		String userId = writer.getUserId();
 		CartVO cart = orderService.getCartByUserId(userId);
+		//Cart 안에있는 Product 의 Quantity를 제외하고 나머지 부가정보를 받음.
 		List<ProductVO> products = productService.getAddInfoeachProducts(cart.getProducts());
 		cart.setProducts(products);
+		System.out.println(cart);
 		Map<Object, Object> retmap = new HashMap<>();
 		retmap.put("productListforCart", cart.getProductList());
 		
-		return retmap;
+		return new ResponseEntity<>(retmap, HttpStatus.OK);
 	}
-	
-	
 }

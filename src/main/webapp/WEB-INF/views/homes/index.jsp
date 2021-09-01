@@ -41,7 +41,7 @@
 <body>
 	<jsp:include page="/resources/module1.jsp" flush="false" />
 						<c:forEach items="${productList}" var="product" varStatus="status">
-						<div class="itemContainer">
+						<div class="itemContainer" id="${product.productId}">
 								<div class="product-image-wrapper">
 									<div class="col-sm-4">
 										<div class="product-image-wrapper">
@@ -52,7 +52,7 @@
 														<li><i class="fa fa-heart" aria-hidden="true"></i>
 														 </li>
 														<li><a class="fa fa-shopping-cart" aria-hidden="true"
-																 href="#${product.productId}" class="btn"><input type="button"
+																 href="#${product.productName}" class="btn"><input type="button"
 																	onclick="cartButton_click()"></a>
 														 <span>Add to Cart</span></li>
 														<li><a class="fa fa-eye" aria-hidden="true"
@@ -72,7 +72,7 @@
 													</div>
 												</div>
 												<div class="navigationCart">
-													<div class="popup3" id="${product.productId}">
+													<div class="popup3" id="${product.productName}">
 														<div class="header">
 															<h1>옵션 선택</h1>
 															<a href="#none"><i class="fa fa-times"
@@ -81,7 +81,7 @@
 														<div class="content">
 															<div class="product-detail">
 																<h2 class="name">
-																	<input type="hidden" id="${product.productId}">
+																	<input type="hidden" id="${product.productName}">
 																	<strong>${product.productName}</strong>
 																</h2>
 																<div class="productNormal ">
@@ -152,9 +152,9 @@
 														<sec:authorize access="isAuthenticated()">
 															<a href="#none" class="btnSubmitFix sizeS"	onclick="product_submit(1, '/exec/front/order/basket/', this)">
 																<span id="btnBuy">바로구매하기</span>
-															</a> <a href="#none" class="btnNormalFix sizeS"
-																onclick="product_submit(${product.productId}, quantity)">
+															</a> <a href="#none" class="btnNormalFix sizeS"	onclick="product_submit(this)" data-value="${product.productId}">
 																장바구니 담기</a>
+																<input value="${product.productId}" type="hidden" id="eachProductId">
 														</sec:authorize>
 															<!-- 네이버 체크아웃 구매 버튼 -->
 															<div id="NaverChk_Button">

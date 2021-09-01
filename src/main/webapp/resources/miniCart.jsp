@@ -86,8 +86,7 @@ $("#carticon").click(function(e){
 	$.getJSON(
 			"/order/callCart.json",
 			function(replyObj) {
-				if (successCallBack)   {
-					alert(replyObj);
+				if (replyObj)   {
 					$("#cartContent").html(replyObj.productListforCart);
 				}
 			}
